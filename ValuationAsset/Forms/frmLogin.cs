@@ -14,5 +14,19 @@ namespace ValuationAsset.Forms
         {
             InitializeComponent();
         }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            string UserName = txtUserName.Text.Trim();
+            string Password = txtPassword.Text.Trim();
+
+            //Call function Login(UserName, Password) return ObjUser
+            //
+
+            //Login successfull
+            this.Hide();
+            frmHome home = new frmHome();
+            home.Show();
+        }
     }
 }
