@@ -18,19 +18,23 @@ namespace ValuationAsset.Forms
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            string UserName = txtUserName.Text.Trim();
-            string Password = txtPassword.Text.Trim();
+            string userName = txtUserName.Text.Trim();
+            string password = txtPassword.Text.Trim();
 
-            //Call function Login(UserName, Password) return ObjUser
-            //
-
-            //AuthSession.Set(AuthSession.key_UserId, user.ID.ToString());
-            AuthSession.Set(AuthSession.key_UserName, UserName);
-
-            //Login successfull
-            this.Hide();
-            frmHome home = new frmHome();
-            home.Show();
+            var isLogin = AuthSuport.Login(userName, password);
+            if(isLogin == "true")
+            {
+                //Login successfull
+                this.Hide();
+                frmHome home = new frmHome();
+                home.Show();
+            }
+            else
+            {
+                labError.Text = isLogin;
+                labError.ForeColor = Color.Red;
+                labError.Visible = true;
+            }
         }
     }
 }
