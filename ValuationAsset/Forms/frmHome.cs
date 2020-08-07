@@ -26,5 +26,11 @@ namespace ValuationAsset.Forms
         {
             var test = AuthSession.Get(AuthSession.key_UserName);
         }
+
+        private void btnRegister_Click(object sender, EventArgs e)
+        {
+            frmRegister register = new frmRegister();
+            register.ShowDialog();
+        }
     }
 }
