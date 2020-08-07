@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using ValuationAsset.Core;
 
 namespace ValuationAsset.Forms
 {
@@ -22,6 +23,9 @@ namespace ValuationAsset.Forms
 
             //Call function Login(UserName, Password) return ObjUser
             //
+
+            //AuthSession.Set(AuthSession.key_UserId, user.ID.ToString());
+            AuthSession.Set(AuthSession.key_UserName, UserName);
 
             //Login successfull
             this.Hide();

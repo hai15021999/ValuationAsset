@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Windows.Forms;
+using ValuationAsset.Core;
 
 namespace ValuationAsset.Forms
 {
@@ -19,6 +20,11 @@ namespace ValuationAsset.Forms
         private void frmHome_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void frmHome_Load(object sender, EventArgs e)
+        {
+            var test = AuthSession.Get(AuthSession.key_UserName);
         }
     }
 }
