@@ -31,14 +31,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dgvAssets = new System.Windows.Forms.DataGridView();
-            this.clNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clAssetsName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clModel = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clYearOfManufacture = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clYearOfUsing = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clValues = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtMST_CCCD = new System.Windows.Forms.TextBox();
             this.txtCustomerPhoneNumber = new System.Windows.Forms.TextBox();
             this.txtCustomerAddress = new System.Windows.Forms.TextBox();
@@ -65,8 +57,16 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.panel1.SuspendLayout();
+            this.clNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clAssetsName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clModel = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clYearOfManufacture = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clYearOfUsing = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clValues = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAssets)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -83,6 +83,25 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            // 
+            // dgvAssets
+            // 
+            this.dgvAssets.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvAssets.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.clNo,
+            this.clAssetsName,
+            this.clModel,
+            this.clYearOfManufacture,
+            this.clYearOfUsing,
+            this.clQuantity,
+            this.clPrice,
+            this.clValues});
+            this.dgvAssets.Location = new System.Drawing.Point(31, 236);
+            this.dgvAssets.Name = "dgvAssets";
+            this.dgvAssets.RowHeadersWidth = 51;
+            this.dgvAssets.Size = new System.Drawing.Size(1088, 239);
+            this.dgvAssets.TabIndex = 2;
+            this.dgvAssets.Text = "dataGridView1";
             this.panel1.Controls.Add(this.dgvAssets);
             this.panel1.Controls.Add(this.txtMST_CCCD);
             this.panel1.Controls.Add(this.txtCustomerPhoneNumber);
@@ -114,89 +133,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1150, 601);
             this.panel1.TabIndex = 1;
-            // 
-            // dgvAssets
-            // 
-            this.dgvAssets.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvAssets.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.clNo,
-            this.clAssetsName,
-            this.clModel,
-            this.clYearOfManufacture,
-            this.clYearOfUsing,
-            this.clQuantity,
-            this.clPrice,
-            this.clValues});
-            this.dgvAssets.Location = new System.Drawing.Point(31, 236);
-            this.dgvAssets.Name = "dgvAssets";
-            this.dgvAssets.RowHeadersWidth = 51;
-            this.dgvAssets.Size = new System.Drawing.Size(1088, 239);
-            this.dgvAssets.TabIndex = 2;
-            this.dgvAssets.Text = "dataGridView1";
-            // 
-            // clNo
-            // 
-            this.clNo.HeaderText = "STT";
-            this.clNo.MinimumWidth = 6;
-            this.clNo.Name = "clNo";
-            this.clNo.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.clNo.Width = 50;
-            // 
-            // clAssetsName
-            // 
-            this.clAssetsName.HeaderText = "Tên tài sản";
-            this.clAssetsName.MinimumWidth = 6;
-            this.clAssetsName.Name = "clAssetsName";
-            this.clAssetsName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.clAssetsName.Width = 250;
-            // 
-            // clModel
-            // 
-            this.clModel.HeaderText = "Model";
-            this.clModel.MinimumWidth = 6;
-            this.clModel.Name = "clModel";
-            this.clModel.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.clModel.Width = 125;
-            // 
-            // clYearOfManufacture
-            // 
-            this.clYearOfManufacture.HeaderText = "Năm sản xuất";
-            this.clYearOfManufacture.MinimumWidth = 6;
-            this.clYearOfManufacture.Name = "clYearOfManufacture";
-            this.clYearOfManufacture.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.clYearOfManufacture.Width = 125;
-            // 
-            // clYearOfUsing
-            // 
-            this.clYearOfUsing.HeaderText = "Năm đưa vào sử dụng";
-            this.clYearOfUsing.MinimumWidth = 6;
-            this.clYearOfUsing.Name = "clYearOfUsing";
-            this.clYearOfUsing.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.clYearOfUsing.Width = 125;
-            // 
-            // clQuantity
-            // 
-            this.clQuantity.HeaderText = "Số lượng";
-            this.clQuantity.MinimumWidth = 6;
-            this.clQuantity.Name = "clQuantity";
-            this.clQuantity.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.clQuantity.Width = 125;
-            // 
-            // clPrice
-            // 
-            this.clPrice.HeaderText = "Đơn giá";
-            this.clPrice.MinimumWidth = 6;
-            this.clPrice.Name = "clPrice";
-            this.clPrice.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.clPrice.Width = 175;
-            // 
-            // clValues
-            // 
-            this.clValues.HeaderText = "Giá trị";
-            this.clValues.MinimumWidth = 6;
-            this.clValues.Name = "clValues";
-            this.clValues.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.clValues.Width = 125;
             // 
             // txtMST_CCCD
             // 
@@ -416,6 +352,69 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Ngày yêu cầu: ";
             // 
+            // clNo
+            // 
+            this.clNo.HeaderText = "STT";
+            this.clNo.MinimumWidth = 6;
+            this.clNo.Name = "clNo";
+            this.clNo.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.clNo.Width = 50;
+            // 
+            // clAssetsName
+            // 
+            this.clAssetsName.HeaderText = "Tên tài sản";
+            this.clAssetsName.MinimumWidth = 6;
+            this.clAssetsName.Name = "clAssetsName";
+            this.clAssetsName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.clAssetsName.Width = 250;
+            // 
+            // clModel
+            // 
+            this.clModel.HeaderText = "Model";
+            this.clModel.MinimumWidth = 6;
+            this.clModel.Name = "clModel";
+            this.clModel.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // clYearOfManufacture
+            // 
+            this.clYearOfManufacture.HeaderText = "Năm sản xuất";
+            this.clYearOfManufacture.MinimumWidth = 6;
+            this.clYearOfManufacture.Name = "clYearOfManufacture";
+            this.clYearOfManufacture.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.clYearOfManufacture.Width = 125;
+            // 
+            // clYearOfUsing
+            // 
+            this.clYearOfUsing.HeaderText = "Năm đưa vào sử dụng";
+            this.clYearOfUsing.MinimumWidth = 6;
+            this.clYearOfUsing.Name = "clYearOfUsing";
+            this.clYearOfUsing.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.clYearOfUsing.Width = 125;
+            // 
+            // clQuantity
+            // 
+            this.clQuantity.HeaderText = "Số lượng";
+            this.clQuantity.MinimumWidth = 6;
+            this.clQuantity.Name = "clQuantity";
+            this.clQuantity.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.clQuantity.Width = 90;
+            // 
+            // clPrice
+            // 
+            this.clPrice.HeaderText = "Đơn giá";
+            this.clPrice.MinimumWidth = 6;
+            this.clPrice.Name = "clPrice";
+            this.clPrice.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.clPrice.Width = 175;
+            // 
+            // clValues
+            // 
+            this.clValues.HeaderText = "Giá trị";
+            this.clValues.MinimumWidth = 6;
+            this.clValues.Name = "clValues";
+            this.clValues.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.clValues.Width = 125;
+            // 
             // frmPersonalty
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -425,9 +424,9 @@
             this.Controls.Add(this.label1);
             this.Name = "frmPersonalty";
             this.Text = "frmPersonalty";
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAssets)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvAssets)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
