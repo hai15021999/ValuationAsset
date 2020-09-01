@@ -21,8 +21,13 @@ namespace ValuationAsset.Forms
             string userName = txtUserName.Text.Trim();
             string password = txtPassword.Text.Trim();
             string confirmPassword = txtConfirmPassword.Text.Trim();
-
-            if (!password.Equals(confirmPassword))
+            if (password.Equals(""))
+            {
+                lbMessage.Visible = true;
+                lbMessage.Text = "Password must not be empty!";
+                lbMessage.ForeColor = Color.Red;
+            }
+             else if (!password.Equals(confirmPassword))
             {
                 //Show error when input confirm password not similar with password
                 lbMessage.Visible = true;
