@@ -43,7 +43,7 @@
             // 
             // btnRegister
             // 
-            this.btnRegister.Location = new System.Drawing.Point(269, 384);
+            this.btnRegister.Location = new System.Drawing.Point(298, 383);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(167, 29);
             this.btnRegister.TabIndex = 1;

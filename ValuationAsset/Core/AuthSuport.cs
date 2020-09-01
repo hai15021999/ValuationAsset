@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Security.Cryptography;
 using System.Text;
+using ValuationAsset.Core;
 
 namespace ValuationAsset.Core
 {
@@ -43,5 +44,39 @@ namespace ValuationAsset.Core
 
             return "true";
         }
+
+        public static string CheckUserExisted(string userName)
+        {
+            string strSql = "Select ID from tbUser Where UserName = '" + userName + "'";
+            DataAccess da = new DataAccess();
+            var checkUser = da.execSqlQuery2(strSql);
+            if(checkUser != null) {
+                if (checkUser.Rows.Count == 0)
+                {
+                    return "true";
+                }
+                else
+                {
+                    return "UserName has aready existed";
+                }
+            } else
+            {
+                return "Error when check user exists";
+            }
+        }
+
+        public static string Register(string userName, string password)
+        {
+            DataAccess da = new DataAccess();
+            var hashedPwd = GetMD5(password);
+            List<SqlParameter> para = new List<SqlParameter>()
+            {
+                new SqlParameter() { ParameterName = "@userName", SqlDbType = SqlDbType.VarChar, Value = userName },
+                new SqlParameter() { ParameterName = "@password", SqlDbType = SqlDbType.VarChar, Value = hashedPwd }
+            };
+            string queryStr = "Insert Into tbUser(UserName, Password) values(@userName, @password)";
+            return da.CreateUser(queryStr, para);
+        }
+
     }
 }

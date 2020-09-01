@@ -54,7 +54,7 @@ namespace ValuationAsset.Core
             return ds;
         }
 
-        private DataSet execSqlQuery(string queryStr)
+        public DataSet execSqlQuery(string queryStr)
         {
             DataSet ds = null;
             using (SqlConnection connection = new SqlConnection(sConnectionString))
@@ -74,6 +74,27 @@ namespace ValuationAsset.Core
                 connection.Close();
             }
             return ds;
+        }
+
+        public DataTable execSqlQuery2(string queryStr)
+        {
+            DataTable dt = null;
+            using (SqlConnection connection = new SqlConnection(sConnectionString))
+            {
+                connection.Open();
+                using (SqlDataAdapter da = new SqlDataAdapter(queryStr, connection))
+                {
+                    if (dt != null)
+                    {
+                        dt.Dispose();
+                        dt = null;
+                    }
+                    dt = new DataTable();
+                    da.Fill(dt);
+                }
+                connection.Close();
+            }
+            return dt;
         }
 
         public void execSqlNoReturn(string query)
@@ -171,6 +192,29 @@ namespace ValuationAsset.Core
                 command.CommandType = CommandType.StoredProcedure;
             }
             return command;
+        }
+
+        public string CreateUser(string queryStr, List<SqlParameter> parameters)
+        {
+            using (SqlConnection connection = new SqlConnection(sConnectionString))
+            {
+                try
+                {
+                    connection.Open();
+                    using(SqlCommand cmd = connection.CreateCommand())
+                    {
+                        cmd.CommandType = CommandType.Text;
+                        cmd.CommandText = queryStr;
+                        cmd.Parameters.AddRange(parameters);
+
+                        cmd.ExecuteNonQuery();
+                    }
+                } catch (Exception ex)
+                {
+                    return ex.Message;
+                }
+                return "true";
+            }
         }
     }
 }

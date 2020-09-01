@@ -32,11 +32,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.txtUserName = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.txtConfirmPassword = new System.Windows.Forms.TextBox();
-            this.txtUserName = new System.Windows.Forms.TextBox();
-            this.txtCancel = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.btnRegister = new System.Windows.Forms.Button();
+            this.lbMessage = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -99,15 +100,15 @@
             this.txtUserName.Size = new System.Drawing.Size(311, 27);
             this.txtUserName.TabIndex = 1;
             // 
-            // txtCancel
+            // btnCancel
             // 
-            this.txtCancel.Location = new System.Drawing.Point(332, 306);
-            this.txtCancel.Name = "txtCancel";
-            this.txtCancel.Size = new System.Drawing.Size(94, 29);
-            this.txtCancel.TabIndex = 2;
-            this.txtCancel.Text = "Cancel";
-            this.txtCancel.UseVisualStyleBackColor = true;
-            this.txtCancel.Click += new System.EventHandler(this.txtCancel_Click);
+            this.btnCancel.Location = new System.Drawing.Point(332, 306);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(94, 29);
+            this.btnCancel.TabIndex = 2;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnRegister
             // 
@@ -115,17 +116,29 @@
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(94, 29);
             this.btnRegister.TabIndex = 2;
-            this.btnRegister.Text = "Register";
+            this.btnRegister.Text = "Sign Up";
             this.btnRegister.UseVisualStyleBackColor = true;
             this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
+            // 
+            // lbMessage
+            // 
+            this.lbMessage.AutoSize = true;
+            this.lbMessage.ForeColor = System.Drawing.Color.Red;
+            this.lbMessage.Location = new System.Drawing.Point(201, 360);
+            this.lbMessage.Name = "lbMessage";
+            this.lbMessage.Size = new System.Drawing.Size(50, 20);
+            this.lbMessage.TabIndex = 3;
+            this.lbMessage.Text = "label4";
+            this.lbMessage.Visible = false;
             // 
             // frmRegister
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(587, 420);
+            this.Controls.Add(this.lbMessage);
             this.Controls.Add(this.btnRegister);
-            this.Controls.Add(this.txtCancel);
+            this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.txtConfirmPassword);
             this.Controls.Add(this.txtUserName);
             this.Controls.Add(this.txtPassword);
@@ -146,10 +159,11 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txtUserName;
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.TextBox txtConfirmPassword;
-        private System.Windows.Forms.TextBox txtUserName;
-        private System.Windows.Forms.Button txtCancel;
+        private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnRegister;
+        private System.Windows.Forms.Label lbMessage;
     }
 }
