@@ -28,7 +28,8 @@ namespace ValuationAsset.Forms
                 lbMessage.Visible = true;
                 lbMessage.Text = "Confirm password is incorrect!";
                 lbMessage.ForeColor = Color.Red;
-            } else
+            } 
+            else
             {
                 var checkUser = AuthSuport.CheckUserExisted(userName);
                 if (checkUser.Equals("true"))

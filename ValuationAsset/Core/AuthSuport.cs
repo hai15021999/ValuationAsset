@@ -47,21 +47,20 @@ namespace ValuationAsset.Core
 
         public static string CheckUserExisted(string userName)
         {
-            string strSql = "Select ID from tbUser Where UserName = '" + userName + "'";
+            string strSql = "Select top 1 1 from tbUser Where UserName = '" + userName + "'";
             DataAccess da = new DataAccess();
-            var checkUser = da.execSqlQuery2(strSql);
-            if(checkUser != null) {
-                if (checkUser.Rows.Count == 0)
-                {
-                    return "true";
-                }
-                else
+            var checkUser = da.execSqlQuery(strSql);
+            try
+            {
+                if (checkUser.Tables.Count > 0 && checkUser.Tables[0] != null && checkUser.Tables[0].Rows.Count > 0)
                 {
                     return "UserName has aready existed";
                 }
-            } else
+                return "true";
+            }
+            catch(Exception ex)
             {
-                return "Error when check user exists";
+                return ex.Message;
             }
         }
 
