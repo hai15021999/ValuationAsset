@@ -32,5 +32,6 @@ namespace ValuationAsset.Forms
             frmRegister register = new frmRegister();
             register.ShowDialog();
         }
+
     }
 }
