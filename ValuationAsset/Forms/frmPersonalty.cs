@@ -15,5 +15,16 @@ namespace ValuationAsset
             InitializeComponent();
         }
 
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            //to do
+
+            this.Dispose();
+        }
     }
 }
