@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.dtpDate = new System.Windows.Forms.DateTimePicker();
             this.listView1 = new System.Windows.Forms.ListView();
             this.button1 = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
@@ -55,7 +56,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtSo = new System.Windows.Forms.TextBox();
-            this.txtNgayYeuCau = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
@@ -65,6 +65,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.dtpDate);
             this.panel1.Controls.Add(this.listView1);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.label13);
@@ -91,12 +92,20 @@
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.txtSo);
-            this.panel1.Controls.Add(this.txtNgayYeuCau);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(34, 12);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1244, 854);
             this.panel1.TabIndex = 0;
+            // 
+            // dtpDate
+            // 
+            this.dtpDate.CustomFormat = "dd/MM/yyyy";
+            this.dtpDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpDate.Location = new System.Drawing.Point(272, 42);
+            this.dtpDate.Name = "dtpDate";
+            this.dtpDate.Size = new System.Drawing.Size(163, 27);
+            this.dtpDate.TabIndex = 6;
             // 
             // listView1
             // 
@@ -332,15 +341,6 @@
             this.txtSo.Size = new System.Drawing.Size(51, 27);
             this.txtSo.TabIndex = 1;
             // 
-            // txtNgayYeuCau
-            // 
-            this.txtNgayYeuCau.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtNgayYeuCau.Location = new System.Drawing.Point(272, 42);
-            this.txtNgayYeuCau.Name = "txtNgayYeuCau";
-            this.txtNgayYeuCau.Size = new System.Drawing.Size(156, 27);
-            this.txtNgayYeuCau.TabIndex = 1;
-            this.txtNgayYeuCau.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -392,7 +392,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtSo;
-        private System.Windows.Forms.TextBox txtNgayYeuCau;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnThemDongSan;
         private System.Windows.Forms.DataGridView dataGridView1;
@@ -417,5 +416,6 @@
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.Button btnThemBatDongSan;
+        private System.Windows.Forms.DateTimePicker dtpDate;
     }
 }
