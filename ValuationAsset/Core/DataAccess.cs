@@ -76,27 +76,6 @@ namespace ValuationAsset.Core
             return ds;
         }
 
-        public DataTable execSqlQuery2(string queryStr)
-        {
-            DataTable dt = null;
-            using (SqlConnection connection = new SqlConnection(sConnectionString))
-            {
-                connection.Open();
-                using (SqlDataAdapter da = new SqlDataAdapter(queryStr, connection))
-                {
-                    if (dt != null)
-                    {
-                        dt.Dispose();
-                        dt = null;
-                    }
-                    dt = new DataTable();
-                    da.Fill(dt);
-                }
-                connection.Close();
-            }
-            return dt;
-        }
-
         public void execSqlNoReturn(string query)
         {
             string output = "";

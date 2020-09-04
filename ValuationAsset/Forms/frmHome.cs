@@ -50,7 +50,7 @@ namespace ValuationAsset.Forms
 
             BindDataUserList();
 
-            BindDataAssetList(1);
+            BindDataAssetList(1, "", "");
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -90,7 +90,7 @@ namespace ValuationAsset.Forms
             dgvUser.DataSource = users;
         }
 
-        private void BindDataAssetList(int pageIndex)
+        private void BindDataAssetList(int pageIndex, string textSearch, string typeSearch)
         {
             string constring = ConfigurationManager.ConnectionStrings["Entities"].ConnectionString;
             using (SqlConnection con = new SqlConnection(constring))
@@ -100,6 +100,8 @@ namespace ValuationAsset.Forms
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@PageIndex", pageIndex);
                     cmd.Parameters.AddWithValue("@PageSize", PageSize);
+                    cmd.Parameters.AddWithValue("@textSearch", textSearch);
+                    cmd.Parameters.AddWithValue("@typeSearch", typeSearch);
                     cmd.Parameters.Add("@RecordCount", SqlDbType.Int, 4);
                     cmd.Parameters["@RecordCount"].Direction = ParameterDirection.Output;
                     con.Open();
@@ -216,7 +218,34 @@ namespace ValuationAsset.Forms
         private void Page_Click(object sender, EventArgs e)
         {
             Button btnPager = (sender as Button);
-            this.BindDataAssetList(int.Parse(btnPager.Name));
+            if (cbSearchValue.SelectedValue.Equals("Chọn thông tin cần tìm"))
+            {
+                this.BindDataAssetList(int.Parse(btnPager.Name), "", "");
+            }
+            else
+            {
+                if(!string.IsNullOrWhiteSpace(txtSearch.Text))
+                {
+                    lbMessage.Visible = true;
+                    lbMessage.Text = "Search text must not be empty!";
+                    lbMessage.ForeColor = Color.Red;
+                }
+                else
+                {
+                    if (cbSearchValue.SelectedValue.Equals("Số hồ sơ"))
+                    {
+                        this.BindDataAssetList(int.Parse(btnPager.Name), txtSearch.Text, "FileNumber");
+                    }
+                    if (cbSearchValue.SelectedValue.Equals("Tên khách hàng"))
+                    {
+                        this.BindDataAssetList(int.Parse(btnPager.Name), txtSearch.Text, "CustomerName");
+                    }
+                    if (cbSearchValue.SelectedValue.Equals("Giá trị hợp đồng"))
+                    {
+                        this.BindDataAssetList(int.Parse(btnPager.Name), txtSearch.Text, "ContractValue");
+                    }
+                }
+            }
         }
 
         #endregion
@@ -335,7 +364,27 @@ namespace ValuationAsset.Forms
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-
+            if (!string.IsNullOrWhiteSpace(txtSearch.Text))
+            {
+                lbMessage.Visible = true;
+                lbMessage.Text = "Search text must not be empty!";
+                lbMessage.ForeColor = Color.Red;
+            }
+            else
+            {
+                if (cbSearchValue.SelectedValue.Equals("Số hồ sơ"))
+                {
+                    this.BindDataAssetList(1, txtSearch.Text, "FileNumber");
+                }
+                if (cbSearchValue.SelectedValue.Equals("Tên khách hàng"))
+                {
+                    this.BindDataAssetList(1, txtSearch.Text, "CustomerName");
+                }
+                if (cbSearchValue.SelectedValue.Equals("Giá trị hợp đồng"))
+                {
+                    this.BindDataAssetList(1, txtSearch.Text, "ContractValue");
+                }
+            }
         }
     }
 
