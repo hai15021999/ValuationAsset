@@ -54,23 +54,35 @@
             this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.dataGridView4 = new System.Windows.Forms.DataGridView();
-            this.btnSaveStreet = new System.Windows.Forms.Button();
+            this.btnNewStreet = new System.Windows.Forms.Button();
+            this.dgvStreet = new System.Windows.Forms.DataGridView();
+            this.StreetIdd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StreetNamee = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnUpdateStreet = new System.Windows.Forms.Button();
             this.txtStreet = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.dataGridView3 = new System.Windows.Forms.DataGridView();
-            this.btnSaveWard = new System.Windows.Forms.Button();
+            this.btnNewWard = new System.Windows.Forms.Button();
+            this.dgvWard = new System.Windows.Forms.DataGridView();
+            this.WardId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.WardName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnUpdateWard = new System.Windows.Forms.Button();
             this.txtWard = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.btnSaveDistrict = new System.Windows.Forms.Button();
+            this.btnNewDistrict = new System.Windows.Forms.Button();
+            this.dgvDistrict = new System.Windows.Forms.DataGridView();
+            this.DistrictId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DistrictName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnUpdateDistrict = new System.Windows.Forms.Button();
             this.txtDistrict = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnNewProvincial = new System.Windows.Forms.Button();
             this.dgvProvincial = new System.Windows.Forms.DataGridView();
-            this.btnSaveProvincial = new System.Windows.Forms.Button();
+            this.ProvincialId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProvincialName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnUpdateProvincial = new System.Windows.Forms.Button();
             this.txtProvincial = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
@@ -116,21 +128,19 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.ProvincialId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUser)).BeginInit();
             this.tabPage3.SuspendLayout();
             this.groupBox4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvStreet)).BeginInit();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvWard)).BeginInit();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProvincial)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDistrict)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProvincial)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAssets)).BeginInit();
@@ -337,7 +347,7 @@
             this.dgvUser.AllowUserToAddRows = false;
             this.dgvUser.AllowUserToDeleteRows = false;
             this.dgvUser.AllowUserToResizeRows = false;
-            this.dgvUser.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            this.dgvUser.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvUser.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvUser.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Id,
@@ -364,7 +374,6 @@
             this.Id.HeaderText = "Id";
             this.Id.Name = "Id";
             this.Id.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Id.Width = 47;
             // 
             // UserName
             // 
@@ -372,7 +381,6 @@
             this.UserName.HeaderText = "User Name";
             this.UserName.Name = "UserName";
             this.UserName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.UserName.Width = 104;
             // 
             // Status
             // 
@@ -380,7 +388,6 @@
             this.Status.HeaderText = "Status";
             this.Status.Name = "Status";
             this.Status.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Status.Width = 71;
             // 
             // Role
             // 
@@ -388,7 +395,6 @@
             this.Role.HeaderText = "Role";
             this.Role.Name = "Role";
             this.Role.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Role.Width = 62;
             // 
             // RoleId
             // 
@@ -397,7 +403,6 @@
             this.RoleId.Name = "RoleId";
             this.RoleId.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.RoleId.Visible = false;
-            this.RoleId.Width = 79;
             // 
             // Delete
             // 
@@ -424,8 +429,9 @@
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.dataGridView4);
-            this.groupBox4.Controls.Add(this.btnSaveStreet);
+            this.groupBox4.Controls.Add(this.btnNewStreet);
+            this.groupBox4.Controls.Add(this.dgvStreet);
+            this.groupBox4.Controls.Add(this.btnUpdateStreet);
             this.groupBox4.Controls.Add(this.txtStreet);
             this.groupBox4.Controls.Add(this.label20);
             this.groupBox4.Location = new System.Drawing.Point(981, 13);
@@ -435,23 +441,56 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Đường";
             // 
-            // dataGridView4
+            // btnNewStreet
             // 
-            this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView4.Location = new System.Drawing.Point(6, 127);
-            this.dataGridView4.Name = "dataGridView4";
-            this.dataGridView4.Size = new System.Drawing.Size(291, 330);
-            this.dataGridView4.TabIndex = 3;
-            this.dataGridView4.Text = "dataGridView4";
+            this.btnNewStreet.Location = new System.Drawing.Point(58, 77);
+            this.btnNewStreet.Name = "btnNewStreet";
+            this.btnNewStreet.Size = new System.Drawing.Size(96, 29);
+            this.btnNewStreet.TabIndex = 4;
+            this.btnNewStreet.Text = "Tạo mới";
+            this.btnNewStreet.UseVisualStyleBackColor = true;
+            this.btnNewStreet.Click += new System.EventHandler(this.btnNewStreet_Click);
             // 
-            // btnSaveStreet
+            // dgvStreet
             // 
-            this.btnSaveStreet.Location = new System.Drawing.Point(125, 79);
-            this.btnSaveStreet.Name = "btnSaveStreet";
-            this.btnSaveStreet.Size = new System.Drawing.Size(75, 23);
-            this.btnSaveStreet.TabIndex = 2;
-            this.btnSaveStreet.Text = "Lưu";
-            this.btnSaveStreet.UseVisualStyleBackColor = true;
+            this.dgvStreet.AllowUserToAddRows = false;
+            this.dgvStreet.AllowUserToDeleteRows = false;
+            this.dgvStreet.AllowUserToResizeRows = false;
+            this.dgvStreet.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvStreet.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvStreet.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.StreetIdd,
+            this.StreetNamee});
+            this.dgvStreet.Location = new System.Drawing.Point(6, 127);
+            this.dgvStreet.MultiSelect = false;
+            this.dgvStreet.Name = "dgvStreet";
+            this.dgvStreet.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvStreet.Size = new System.Drawing.Size(291, 330);
+            this.dgvStreet.TabIndex = 3;
+            this.dgvStreet.Text = "dataGridView4";
+            this.dgvStreet.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvStreet_CellClick);
+            // 
+            // StreetIdd
+            // 
+            this.StreetIdd.DataPropertyName = "ID";
+            this.StreetIdd.HeaderText = "Mã";
+            this.StreetIdd.Name = "StreetIdd";
+            // 
+            // StreetNamee
+            // 
+            this.StreetNamee.DataPropertyName = "Name";
+            this.StreetNamee.HeaderText = "Tên";
+            this.StreetNamee.Name = "StreetNamee";
+            // 
+            // btnUpdateStreet
+            // 
+            this.btnUpdateStreet.Location = new System.Drawing.Point(192, 79);
+            this.btnUpdateStreet.Name = "btnUpdateStreet";
+            this.btnUpdateStreet.Size = new System.Drawing.Size(96, 29);
+            this.btnUpdateStreet.TabIndex = 2;
+            this.btnUpdateStreet.Text = "Cập nhật";
+            this.btnUpdateStreet.UseVisualStyleBackColor = true;
+            this.btnUpdateStreet.Click += new System.EventHandler(this.btnUpdateStreet_Click);
             // 
             // txtStreet
             // 
@@ -471,8 +510,9 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.dataGridView3);
-            this.groupBox3.Controls.Add(this.btnSaveWard);
+            this.groupBox3.Controls.Add(this.btnNewWard);
+            this.groupBox3.Controls.Add(this.dgvWard);
+            this.groupBox3.Controls.Add(this.btnUpdateWard);
             this.groupBox3.Controls.Add(this.txtWard);
             this.groupBox3.Controls.Add(this.label19);
             this.groupBox3.Location = new System.Drawing.Point(657, 13);
@@ -482,23 +522,56 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Phường/Xã";
             // 
-            // dataGridView3
+            // btnNewWard
             // 
-            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Location = new System.Drawing.Point(6, 127);
-            this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.Size = new System.Drawing.Size(291, 330);
-            this.dataGridView3.TabIndex = 3;
-            this.dataGridView3.Text = "dataGridView3";
+            this.btnNewWard.Location = new System.Drawing.Point(59, 79);
+            this.btnNewWard.Name = "btnNewWard";
+            this.btnNewWard.Size = new System.Drawing.Size(96, 29);
+            this.btnNewWard.TabIndex = 4;
+            this.btnNewWard.Text = "Tạo mới";
+            this.btnNewWard.UseVisualStyleBackColor = true;
+            this.btnNewWard.Click += new System.EventHandler(this.btnNewWard_Click);
             // 
-            // btnSaveWard
+            // dgvWard
             // 
-            this.btnSaveWard.Location = new System.Drawing.Point(119, 79);
-            this.btnSaveWard.Name = "btnSaveWard";
-            this.btnSaveWard.Size = new System.Drawing.Size(75, 23);
-            this.btnSaveWard.TabIndex = 2;
-            this.btnSaveWard.Text = "Lưu";
-            this.btnSaveWard.UseVisualStyleBackColor = true;
+            this.dgvWard.AllowUserToAddRows = false;
+            this.dgvWard.AllowUserToDeleteRows = false;
+            this.dgvWard.AllowUserToResizeRows = false;
+            this.dgvWard.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvWard.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvWard.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.WardId,
+            this.WardName});
+            this.dgvWard.Location = new System.Drawing.Point(6, 127);
+            this.dgvWard.MultiSelect = false;
+            this.dgvWard.Name = "dgvWard";
+            this.dgvWard.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvWard.Size = new System.Drawing.Size(291, 330);
+            this.dgvWard.TabIndex = 3;
+            this.dgvWard.Text = "dataGridView3";
+            this.dgvWard.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvWard_CellClick);
+            // 
+            // WardId
+            // 
+            this.WardId.DataPropertyName = "ID";
+            this.WardId.HeaderText = "Mã";
+            this.WardId.Name = "WardId";
+            // 
+            // WardName
+            // 
+            this.WardName.DataPropertyName = "Name";
+            this.WardName.HeaderText = "Tên";
+            this.WardName.Name = "WardName";
+            // 
+            // btnUpdateWard
+            // 
+            this.btnUpdateWard.Location = new System.Drawing.Point(184, 79);
+            this.btnUpdateWard.Name = "btnUpdateWard";
+            this.btnUpdateWard.Size = new System.Drawing.Size(96, 29);
+            this.btnUpdateWard.TabIndex = 2;
+            this.btnUpdateWard.Text = "Cập nhật";
+            this.btnUpdateWard.UseVisualStyleBackColor = true;
+            this.btnUpdateWard.Click += new System.EventHandler(this.btnUpdateWard_Click);
             // 
             // txtWard
             // 
@@ -518,8 +591,9 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.dataGridView2);
-            this.groupBox2.Controls.Add(this.btnSaveDistrict);
+            this.groupBox2.Controls.Add(this.btnNewDistrict);
+            this.groupBox2.Controls.Add(this.dgvDistrict);
+            this.groupBox2.Controls.Add(this.btnUpdateDistrict);
             this.groupBox2.Controls.Add(this.txtDistrict);
             this.groupBox2.Controls.Add(this.label16);
             this.groupBox2.Location = new System.Drawing.Point(332, 13);
@@ -529,23 +603,56 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Quận/Huyện";
             // 
-            // dataGridView2
+            // btnNewDistrict
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(6, 127);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(290, 330);
-            this.dataGridView2.TabIndex = 3;
-            this.dataGridView2.Text = "dataGridView2";
+            this.btnNewDistrict.Location = new System.Drawing.Point(56, 78);
+            this.btnNewDistrict.Name = "btnNewDistrict";
+            this.btnNewDistrict.Size = new System.Drawing.Size(96, 29);
+            this.btnNewDistrict.TabIndex = 4;
+            this.btnNewDistrict.Text = "Tạo mới";
+            this.btnNewDistrict.UseVisualStyleBackColor = true;
+            this.btnNewDistrict.Click += new System.EventHandler(this.btnNewDistrict_Click);
             // 
-            // btnSaveDistrict
+            // dgvDistrict
             // 
-            this.btnSaveDistrict.Location = new System.Drawing.Point(117, 79);
-            this.btnSaveDistrict.Name = "btnSaveDistrict";
-            this.btnSaveDistrict.Size = new System.Drawing.Size(75, 23);
-            this.btnSaveDistrict.TabIndex = 2;
-            this.btnSaveDistrict.Text = "Lưu";
-            this.btnSaveDistrict.UseVisualStyleBackColor = true;
+            this.dgvDistrict.AllowUserToAddRows = false;
+            this.dgvDistrict.AllowUserToDeleteRows = false;
+            this.dgvDistrict.AllowUserToResizeRows = false;
+            this.dgvDistrict.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvDistrict.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDistrict.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.DistrictId,
+            this.DistrictName});
+            this.dgvDistrict.Location = new System.Drawing.Point(6, 127);
+            this.dgvDistrict.MultiSelect = false;
+            this.dgvDistrict.Name = "dgvDistrict";
+            this.dgvDistrict.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvDistrict.Size = new System.Drawing.Size(290, 330);
+            this.dgvDistrict.TabIndex = 3;
+            this.dgvDistrict.Text = "dataGridView2";
+            this.dgvDistrict.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDistrict_CellClick);
+            // 
+            // DistrictId
+            // 
+            this.DistrictId.DataPropertyName = "ID";
+            this.DistrictId.HeaderText = "Mã";
+            this.DistrictId.Name = "DistrictId";
+            // 
+            // DistrictName
+            // 
+            this.DistrictName.DataPropertyName = "Name";
+            this.DistrictName.HeaderText = "Tên";
+            this.DistrictName.Name = "DistrictName";
+            // 
+            // btnUpdateDistrict
+            // 
+            this.btnUpdateDistrict.Location = new System.Drawing.Point(176, 79);
+            this.btnUpdateDistrict.Name = "btnUpdateDistrict";
+            this.btnUpdateDistrict.Size = new System.Drawing.Size(96, 29);
+            this.btnUpdateDistrict.TabIndex = 2;
+            this.btnUpdateDistrict.Text = "Cập nhật";
+            this.btnUpdateDistrict.UseVisualStyleBackColor = true;
+            this.btnUpdateDistrict.Click += new System.EventHandler(this.btnUpdateDistrict_Click);
             // 
             // txtDistrict
             // 
@@ -565,26 +672,9 @@
             // 
             // groupBox1
             // 
-            // 
-            // dgvProvincial
-            // 
-            this.dgvProvincial.AllowUserToAddRows = false;
-            this.dgvProvincial.AllowUserToDeleteRows = false;
-            this.dgvProvincial.AllowUserToResizeRows = false;
-            this.dgvProvincial.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
-            this.dgvProvincial.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProvincial.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ProvincialId,
-            this.Name});
-            this.dgvProvincial.Location = new System.Drawing.Point(6, 127);
-            this.dgvProvincial.MultiSelect = false;
-            this.dgvProvincial.Name = "dgvProvincial";
-            this.dgvProvincial.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvProvincial.Size = new System.Drawing.Size(290, 330);
-            this.dgvProvincial.TabIndex = 3;
-            this.dgvProvincial.Text = "dataGridView1";
+            this.groupBox1.Controls.Add(this.btnNewProvincial);
             this.groupBox1.Controls.Add(this.dgvProvincial);
-            this.groupBox1.Controls.Add(this.btnSaveProvincial);
+            this.groupBox1.Controls.Add(this.btnUpdateProvincial);
             this.groupBox1.Controls.Add(this.txtProvincial);
             this.groupBox1.Controls.Add(this.label15);
             this.groupBox1.Location = new System.Drawing.Point(10, 13);
@@ -594,14 +684,58 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Tỉnh/Thành Phố";
             // 
-            // btnSaveProvincial
+            // btnNewProvincial
             // 
-            this.btnSaveProvincial.Location = new System.Drawing.Point(111, 79);
-            this.btnSaveProvincial.Name = "btnSaveProvincial";
-            this.btnSaveProvincial.Size = new System.Drawing.Size(75, 23);
-            this.btnSaveProvincial.TabIndex = 2;
-            this.btnSaveProvincial.Text = "Lưu";
-            this.btnSaveProvincial.UseVisualStyleBackColor = true;
+            this.btnNewProvincial.Location = new System.Drawing.Point(56, 79);
+            this.btnNewProvincial.Name = "btnNewProvincial";
+            this.btnNewProvincial.Size = new System.Drawing.Size(96, 29);
+            this.btnNewProvincial.TabIndex = 4;
+            this.btnNewProvincial.Text = "Tạo mới";
+            this.btnNewProvincial.UseVisualStyleBackColor = true;
+            this.btnNewProvincial.Click += new System.EventHandler(this.btnNewProvincial_Click);
+            // 
+            // dgvProvincial
+            // 
+            this.dgvProvincial.AllowUserToAddRows = false;
+            this.dgvProvincial.AllowUserToDeleteRows = false;
+            this.dgvProvincial.AllowUserToResizeRows = false;
+            this.dgvProvincial.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvProvincial.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvProvincial.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ProvincialId,
+            this.ProvincialName});
+            this.dgvProvincial.Location = new System.Drawing.Point(6, 127);
+            this.dgvProvincial.MultiSelect = false;
+            this.dgvProvincial.Name = "dgvProvincial";
+            this.dgvProvincial.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvProvincial.Size = new System.Drawing.Size(290, 330);
+            this.dgvProvincial.TabIndex = 3;
+            this.dgvProvincial.Text = "dataGridView1";
+            this.dgvProvincial.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProvincial_CellClick);
+            // 
+            // ProvincialId
+            // 
+            this.ProvincialId.DataPropertyName = "ID";
+            this.ProvincialId.HeaderText = "Mã";
+            this.ProvincialId.Name = "ProvincialId";
+            this.ProvincialId.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // ProvincialName
+            // 
+            this.ProvincialName.DataPropertyName = "Name";
+            this.ProvincialName.HeaderText = "Tên";
+            this.ProvincialName.Name = "ProvincialName";
+            this.ProvincialName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // btnUpdateProvincial
+            // 
+            this.btnUpdateProvincial.Location = new System.Drawing.Point(176, 79);
+            this.btnUpdateProvincial.Name = "btnUpdateProvincial";
+            this.btnUpdateProvincial.Size = new System.Drawing.Size(96, 29);
+            this.btnUpdateProvincial.TabIndex = 2;
+            this.btnUpdateProvincial.Text = "Cập nhật";
+            this.btnUpdateProvincial.UseVisualStyleBackColor = true;
+            this.btnUpdateProvincial.Click += new System.EventHandler(this.btnUpdateProvincial_Click);
             // 
             // txtProvincial
             // 
@@ -658,7 +792,7 @@
             "Giá trị hợp đồng"});
             this.cbSearchValue.Location = new System.Drawing.Point(174, 25);
             this.cbSearchValue.Name = "cbSearchValue";
-            this.cbSearchValue.Size = new System.Drawing.Size(121, 27);
+            this.cbSearchValue.Size = new System.Drawing.Size(169, 27);
             this.cbSearchValue.TabIndex = 9;
             // 
             // pnlPager
@@ -682,10 +816,10 @@
             // 
             // txtSearch
             // 
-            this.txtSearch.Location = new System.Drawing.Point(302, 27);
+            this.txtSearch.Location = new System.Drawing.Point(350, 27);
             this.txtSearch.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(303, 26);
+            this.txtSearch.Size = new System.Drawing.Size(255, 26);
             this.txtSearch.TabIndex = 7;
             // 
             // btnSearch
@@ -991,22 +1125,6 @@
             this.label10.TabIndex = 0;
             this.label10.Text = "Tổng giá trị tài sản:";
             // 
-            // ProvincialId
-            // 
-            this.ProvincialId.DataPropertyName = "ID";
-            this.ProvincialId.HeaderText = "Mã";
-            this.ProvincialId.Name = "ProvincialId";
-            this.ProvincialId.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.ProvincialId.Width = 55;
-            // 
-            // Name
-            // 
-            this.Name.DataPropertyName = "Name";
-            this.Name.HeaderText = "Tên";
-            this.Name.Name = "Name";
-            this.Name.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Name.Width = 57;
-            // 
             // frmHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -1028,16 +1146,16 @@
             this.tabPage3.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvStreet)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvWard)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProvincial)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDistrict)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProvincial)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -1117,26 +1235,36 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ContractNumberFull;
         private System.Windows.Forms.DataGridViewTextBoxColumn ContractValue;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.DataGridView dataGridView4;
+        private System.Windows.Forms.DataGridView dgvStreet;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.DataGridView dataGridView3;
+        private System.Windows.Forms.DataGridView dgvWard;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView dgvDistrict;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView dgvProvincial;
-        private System.Windows.Forms.Button btnSaveProvincial;
+        private System.Windows.Forms.Button btnUpdateProvincial;
         private System.Windows.Forms.TextBox txtProvincial;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Button btnSaveDistrict;
+        private System.Windows.Forms.Button btnUpdateDistrict;
         private System.Windows.Forms.TextBox txtDistrict;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Button btnSaveStreet;
+        private System.Windows.Forms.Button btnUpdateStreet;
         private System.Windows.Forms.TextBox txtStreet;
         private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Button btnSaveWard;
+        private System.Windows.Forms.Button btnUpdateWard;
         private System.Windows.Forms.TextBox txtWard;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProvincialId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ProvincialName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DistrictId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DistrictName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn WardId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn WardName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn StreetIdd;
+        private System.Windows.Forms.DataGridViewTextBoxColumn StreetNamee;
+        private System.Windows.Forms.Button btnNewDistrict;
+        private System.Windows.Forms.Button btnNewProvincial;
+        private System.Windows.Forms.Button btnNewStreet;
+        private System.Windows.Forms.Button btnNewWard;
     }
 }

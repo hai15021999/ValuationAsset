@@ -53,6 +53,8 @@ namespace ValuationAsset.Forms
             BindDataAssetList(1, "", "");
 
             BindDataProvincialList();
+
+            cbSearchValue.SelectedIndex = 0;
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -267,6 +269,30 @@ namespace ValuationAsset.Forms
             dgvProvincial.DataSource = provinces;
         }
 
+        private void BindDataDistrictList(int provincialId)
+        {
+            string strQuery = string.Format("SELECT * FROM tbDistrict WHERE ProvinceId = {0}", provincialId);
+            var districts = da.execSqlQuery(strQuery).Tables[0];
+            dgvDistrict.AutoGenerateColumns = false;
+            dgvDistrict.DataSource = districts;
+        }
+
+        private void BindDataWardList(int districtId)
+        {
+            string strQuery = string.Format("SELECT * FROM tbWard WHERE DistrictId = {0}", districtId);
+            var wards = da.execSqlQuery(strQuery).Tables[0];
+            dgvWard.AutoGenerateColumns = false;
+            dgvWard.DataSource = wards;
+        }
+
+        private void BindDataStreetList(int districtId)
+        {
+            string strQuery = string.Format("SELECT * FROM tbStreet WHERE DistrictId = {0}", districtId);
+            var streets = da.execSqlQuery(strQuery).Tables[0];
+            dgvStreet.AutoGenerateColumns = false;
+            dgvStreet.DataSource = streets;
+        }
+
         #endregion
 
         private void btnNewUser_Click(object sender, EventArgs e)
@@ -404,6 +430,77 @@ namespace ValuationAsset.Forms
                     this.BindDataAssetList(1, txtSearch.Text, "ContractValue");
                 }
             }
+        }
+
+        private void dgvProvincial_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string strId = dgvProvincial.CurrentRow.Cells["ProvincialId"].Value.ToString();
+            int id = int.Parse(strId);
+            BindDataDistrictList(id);
+
+            txtProvincial.Text = dgvProvincial.CurrentRow.Cells["ProvincialName"].Value.ToString();
+        }
+
+        private void dgvDistrict_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string strId = dgvDistrict.CurrentRow.Cells["DistrictId"].Value.ToString();
+            int id = int.Parse(strId);
+            BindDataWardList(id);
+            BindDataStreetList(id);
+
+            txtDistrict.Text = dgvDistrict.CurrentRow.Cells["DistrictName"].Value.ToString();
+        }
+
+        private void dgvWard_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txtWard.Text = dgvWard.CurrentRow.Cells["WardName"].Value.ToString();
+        }
+
+        private void dgvStreet_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txtStreet.Text = dgvStreet.CurrentRow.Cells["StreetNamee"].Value.ToString();
+        }
+
+        private void btnNewProvincial_Click(object sender, EventArgs e)
+        {
+            string strQuery = "";
+            da.execSqlQuery(strQuery);
+            BindDataProvincialList();
+        }
+
+        private void btnUpdateProvincial_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnNewDistrict_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnUpdateDistrict_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnNewWard_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnUpdateWard_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnNewStreet_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnUpdateStreet_Click(object sender, EventArgs e)
+        {
+
         }
     }
 
