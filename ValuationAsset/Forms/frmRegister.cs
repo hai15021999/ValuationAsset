@@ -39,7 +39,7 @@ namespace ValuationAsset.Forms
                 var checkUser = AuthSuport.CheckUserExisted(userName);
                 if (checkUser.Equals("true"))
                 {
-                    var registration = AuthSuport.Register(userName, password);
+                    //var registration = AuthSuport.Register(userName, password);
                     MessageBox.Show("Sign Up success");
                     this.Dispose();
                 } else

@@ -64,17 +64,13 @@ namespace ValuationAsset.Core
             }
         }
 
-        public static string Register(string userName, string password)
+        public static void Register(int? userId, string userName, string password, int roleId, int deactive, int isCreate)
         {
             DataAccess da = new DataAccess();
             var hashedPwd = GetMD5(password);
-            List<SqlParameter> para = new List<SqlParameter>()
-            {
-                new SqlParameter() { ParameterName = "@userName", SqlDbType = SqlDbType.VarChar, Value = userName },
-                new SqlParameter() { ParameterName = "@password", SqlDbType = SqlDbType.VarChar, Value = hashedPwd }
-            };
-            string queryStr = "Insert Into tbUser(UserName, Password) values(@userName, @password)";
-            return da.CreateUser(queryStr, para);
+            
+            string queryStr = string.Format("sp_CreateUser {0}, '{1}', '{2}', {3}, {4}, {5}", userId, userName, hashedPwd, roleId, deactive, isCreate);
+            da.execSqlNoReturn(queryStr);
         }
 
     }

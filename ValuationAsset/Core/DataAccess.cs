@@ -193,29 +193,6 @@ namespace ValuationAsset.Core
             }
             return command;
         }
-
-        public string CreateUser(string queryStr, List<SqlParameter> parameters)
-        {
-            using (SqlConnection connection = new SqlConnection(sConnectionString))
-            {
-                try
-                {
-                    connection.Open();
-                    using(SqlCommand cmd = connection.CreateCommand())
-                    {
-                        cmd.CommandType = CommandType.Text;
-                        cmd.CommandText = queryStr;
-                        cmd.Parameters.AddRange(parameters);
-
-                        cmd.ExecuteNonQuery();
-                    }
-                } catch (Exception ex)
-                {
-                    return ex.Message;
-                }
-                return "true";
-            }
-        }
     }
 }
 
