@@ -30,11 +30,11 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txtYearOfUsing = new System.Windows.Forms.ComboBox();
+            this.txtYearOfManufacture = new System.Windows.Forms.ComboBox();
             this.txtPrice = new System.Windows.Forms.TextBox();
             this.txtUnitPrice = new System.Windows.Forms.TextBox();
             this.txtQuantity = new System.Windows.Forms.TextBox();
-            this.txtYearOfUsing = new System.Windows.Forms.TextBox();
-            this.txtYearOfManufacture = new System.Windows.Forms.TextBox();
             this.txtAssetModel = new System.Windows.Forms.TextBox();
             this.txtNameOfAsset = new System.Windows.Forms.TextBox();
             this.btnCancel = new System.Windows.Forms.Button();
@@ -62,11 +62,11 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.txtYearOfUsing);
+            this.panel1.Controls.Add(this.txtYearOfManufacture);
             this.panel1.Controls.Add(this.txtPrice);
             this.panel1.Controls.Add(this.txtUnitPrice);
             this.panel1.Controls.Add(this.txtQuantity);
-            this.panel1.Controls.Add(this.txtYearOfUsing);
-            this.panel1.Controls.Add(this.txtYearOfManufacture);
             this.panel1.Controls.Add(this.txtAssetModel);
             this.panel1.Controls.Add(this.txtNameOfAsset);
             this.panel1.Controls.Add(this.btnCancel);
@@ -83,53 +83,64 @@
             this.panel1.Size = new System.Drawing.Size(882, 554);
             this.panel1.TabIndex = 1;
             // 
+            // txtYearOfUsing
+            // 
+            this.txtYearOfUsing.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.txtYearOfUsing.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtYearOfUsing.FormattingEnabled = true;
+            this.txtYearOfUsing.Location = new System.Drawing.Point(267, 224);
+            this.txtYearOfUsing.Name = "txtYearOfUsing";
+            this.txtYearOfUsing.Size = new System.Drawing.Size(517, 31);
+            this.txtYearOfUsing.TabIndex = 4;
+            // 
+            // txtYearOfManufacture
+            // 
+            this.txtYearOfManufacture.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.txtYearOfManufacture.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtYearOfManufacture.FormattingEnabled = true;
+            this.txtYearOfManufacture.Location = new System.Drawing.Point(267, 165);
+            this.txtYearOfManufacture.Name = "txtYearOfManufacture";
+            this.txtYearOfManufacture.Size = new System.Drawing.Size(517, 31);
+            this.txtYearOfManufacture.TabIndex = 4;
+            // 
             // txtPrice
             // 
+            this.txtPrice.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtPrice.Location = new System.Drawing.Point(267, 392);
             this.txtPrice.Name = "txtPrice";
-            this.txtPrice.Size = new System.Drawing.Size(517, 27);
+            this.txtPrice.Size = new System.Drawing.Size(517, 30);
             this.txtPrice.TabIndex = 2;
             // 
             // txtUnitPrice
             // 
+            this.txtUnitPrice.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtUnitPrice.Location = new System.Drawing.Point(267, 338);
             this.txtUnitPrice.Name = "txtUnitPrice";
-            this.txtUnitPrice.Size = new System.Drawing.Size(517, 27);
+            this.txtUnitPrice.Size = new System.Drawing.Size(517, 30);
             this.txtUnitPrice.TabIndex = 2;
             // 
             // txtQuantity
             // 
+            this.txtQuantity.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtQuantity.Location = new System.Drawing.Point(267, 280);
             this.txtQuantity.Name = "txtQuantity";
-            this.txtQuantity.Size = new System.Drawing.Size(517, 27);
+            this.txtQuantity.Size = new System.Drawing.Size(517, 30);
             this.txtQuantity.TabIndex = 2;
-            // 
-            // txtYearOfUsing
-            // 
-            this.txtYearOfUsing.Location = new System.Drawing.Point(267, 224);
-            this.txtYearOfUsing.Name = "txtYearOfUsing";
-            this.txtYearOfUsing.Size = new System.Drawing.Size(517, 27);
-            this.txtYearOfUsing.TabIndex = 2;
-            // 
-            // txtYearOfManufacture
-            // 
-            this.txtYearOfManufacture.Location = new System.Drawing.Point(267, 161);
-            this.txtYearOfManufacture.Name = "txtYearOfManufacture";
-            this.txtYearOfManufacture.Size = new System.Drawing.Size(517, 27);
-            this.txtYearOfManufacture.TabIndex = 2;
             // 
             // txtAssetModel
             // 
+            this.txtAssetModel.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtAssetModel.Location = new System.Drawing.Point(267, 99);
             this.txtAssetModel.Name = "txtAssetModel";
-            this.txtAssetModel.Size = new System.Drawing.Size(517, 27);
+            this.txtAssetModel.Size = new System.Drawing.Size(517, 30);
             this.txtAssetModel.TabIndex = 2;
             // 
             // txtNameOfAsset
             // 
+            this.txtNameOfAsset.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtNameOfAsset.Location = new System.Drawing.Point(267, 44);
             this.txtNameOfAsset.Name = "txtNameOfAsset";
-            this.txtNameOfAsset.Size = new System.Drawing.Size(517, 27);
+            this.txtNameOfAsset.Size = new System.Drawing.Size(517, 30);
             this.txtNameOfAsset.TabIndex = 2;
             // 
             // btnCancel
@@ -257,12 +268,12 @@
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.TextBox txtQuantity;
         private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox txtYearOfManufactore;
         private System.Windows.Forms.TextBox txtAssetModel;
         private System.Windows.Forms.TextBox txtNameOfAsset;
-        private System.Windows.Forms.TextBox txtYearOfManufacture;
-        private System.Windows.Forms.TextBox txtYearOfUsing;
         private System.Windows.Forms.TextBox txtUnitPrice;
         private System.Windows.Forms.TextBox txtPrice;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox txtYearOfManufacture;
+        private System.Windows.Forms.ComboBox txtYearOfUsing;
     }
 }
