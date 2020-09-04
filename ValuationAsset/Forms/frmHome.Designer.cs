@@ -53,6 +53,26 @@
             this.RoleId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.dataGridView4 = new System.Windows.Forms.DataGridView();
+            this.btnSaveStreet = new System.Windows.Forms.Button();
+            this.txtStreet = new System.Windows.Forms.TextBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.btnSaveWard = new System.Windows.Forms.Button();
+            this.txtWard = new System.Windows.Forms.TextBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.btnSaveDistrict = new System.Windows.Forms.Button();
+            this.txtDistrict = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.dgvProvincial = new System.Windows.Forms.DataGridView();
+            this.btnSaveProvincial = new System.Windows.Forms.Button();
+            this.txtProvincial = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panel1 = new System.Windows.Forms.Panel();
             this.cbSearchValue = new System.Windows.Forms.ComboBox();
@@ -61,6 +81,25 @@
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.dgvAssets = new System.Windows.Forms.DataGridView();
+            this.CustomerId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CustomerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TypeAsset = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AssetName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Model = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.YearOfManufacture = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.YearOfUse = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Number = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UnitPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ParcelOfLand = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Map = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Acreage = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SoilType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StreetId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StreetName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ValueCTXD = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RequestDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ContractNumberFull = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ContractValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label12 = new System.Windows.Forms.Label();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -77,10 +116,21 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
+            this.ProvincialId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUser)).BeginInit();
+            this.tabPage3.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
+            this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
+            this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProvincial)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAssets)).BeginInit();
@@ -298,6 +348,7 @@
             this.Delete});
             this.dgvUser.Location = new System.Drawing.Point(677, 11);
             this.dgvUser.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgvUser.MultiSelect = false;
             this.dgvUser.Name = "dgvUser";
             this.dgvUser.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
             this.dgvUser.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -360,12 +411,213 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.groupBox4);
+            this.tabPage3.Controls.Add(this.groupBox3);
+            this.tabPage3.Controls.Add(this.groupBox2);
+            this.tabPage3.Controls.Add(this.groupBox1);
             this.tabPage3.Location = new System.Drawing.Point(4, 28);
             this.tabPage3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Size = new System.Drawing.Size(1294, 484);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Quản lý địa điểm";
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.dataGridView4);
+            this.groupBox4.Controls.Add(this.btnSaveStreet);
+            this.groupBox4.Controls.Add(this.txtStreet);
+            this.groupBox4.Controls.Add(this.label20);
+            this.groupBox4.Location = new System.Drawing.Point(981, 13);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(303, 463);
+            this.groupBox4.TabIndex = 0;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Đường";
+            // 
+            // dataGridView4
+            // 
+            this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView4.Location = new System.Drawing.Point(6, 127);
+            this.dataGridView4.Name = "dataGridView4";
+            this.dataGridView4.Size = new System.Drawing.Size(291, 330);
+            this.dataGridView4.TabIndex = 3;
+            this.dataGridView4.Text = "dataGridView4";
+            // 
+            // btnSaveStreet
+            // 
+            this.btnSaveStreet.Location = new System.Drawing.Point(125, 79);
+            this.btnSaveStreet.Name = "btnSaveStreet";
+            this.btnSaveStreet.Size = new System.Drawing.Size(75, 23);
+            this.btnSaveStreet.TabIndex = 2;
+            this.btnSaveStreet.Text = "Lưu";
+            this.btnSaveStreet.UseVisualStyleBackColor = true;
+            // 
+            // txtStreet
+            // 
+            this.txtStreet.Location = new System.Drawing.Point(58, 38);
+            this.txtStreet.Name = "txtStreet";
+            this.txtStreet.Size = new System.Drawing.Size(229, 26);
+            this.txtStreet.TabIndex = 1;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(17, 41);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(35, 19);
+            this.label20.TabIndex = 0;
+            this.label20.Text = "Tên:";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.dataGridView3);
+            this.groupBox3.Controls.Add(this.btnSaveWard);
+            this.groupBox3.Controls.Add(this.txtWard);
+            this.groupBox3.Controls.Add(this.label19);
+            this.groupBox3.Location = new System.Drawing.Point(657, 13);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(303, 463);
+            this.groupBox3.TabIndex = 0;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Phường/Xã";
+            // 
+            // dataGridView3
+            // 
+            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView3.Location = new System.Drawing.Point(6, 127);
+            this.dataGridView3.Name = "dataGridView3";
+            this.dataGridView3.Size = new System.Drawing.Size(291, 330);
+            this.dataGridView3.TabIndex = 3;
+            this.dataGridView3.Text = "dataGridView3";
+            // 
+            // btnSaveWard
+            // 
+            this.btnSaveWard.Location = new System.Drawing.Point(119, 79);
+            this.btnSaveWard.Name = "btnSaveWard";
+            this.btnSaveWard.Size = new System.Drawing.Size(75, 23);
+            this.btnSaveWard.TabIndex = 2;
+            this.btnSaveWard.Text = "Lưu";
+            this.btnSaveWard.UseVisualStyleBackColor = true;
+            // 
+            // txtWard
+            // 
+            this.txtWard.Location = new System.Drawing.Point(59, 38);
+            this.txtWard.Name = "txtWard";
+            this.txtWard.Size = new System.Drawing.Size(229, 26);
+            this.txtWard.TabIndex = 1;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(18, 41);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(35, 19);
+            this.label19.TabIndex = 0;
+            this.label19.Text = "Tên:";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.dataGridView2);
+            this.groupBox2.Controls.Add(this.btnSaveDistrict);
+            this.groupBox2.Controls.Add(this.txtDistrict);
+            this.groupBox2.Controls.Add(this.label16);
+            this.groupBox2.Location = new System.Drawing.Point(332, 13);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(302, 463);
+            this.groupBox2.TabIndex = 0;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Quận/Huyện";
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Location = new System.Drawing.Point(6, 127);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.Size = new System.Drawing.Size(290, 330);
+            this.dataGridView2.TabIndex = 3;
+            this.dataGridView2.Text = "dataGridView2";
+            // 
+            // btnSaveDistrict
+            // 
+            this.btnSaveDistrict.Location = new System.Drawing.Point(117, 79);
+            this.btnSaveDistrict.Name = "btnSaveDistrict";
+            this.btnSaveDistrict.Size = new System.Drawing.Size(75, 23);
+            this.btnSaveDistrict.TabIndex = 2;
+            this.btnSaveDistrict.Text = "Lưu";
+            this.btnSaveDistrict.UseVisualStyleBackColor = true;
+            // 
+            // txtDistrict
+            // 
+            this.txtDistrict.Location = new System.Drawing.Point(56, 38);
+            this.txtDistrict.Name = "txtDistrict";
+            this.txtDistrict.Size = new System.Drawing.Size(229, 26);
+            this.txtDistrict.TabIndex = 1;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(15, 41);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(35, 19);
+            this.label16.TabIndex = 0;
+            this.label16.Text = "Tên:";
+            // 
+            // groupBox1
+            // 
+            // 
+            // dgvProvincial
+            // 
+            this.dgvProvincial.AllowUserToAddRows = false;
+            this.dgvProvincial.AllowUserToDeleteRows = false;
+            this.dgvProvincial.AllowUserToResizeRows = false;
+            this.dgvProvincial.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            this.dgvProvincial.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvProvincial.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ProvincialId,
+            this.Name});
+            this.dgvProvincial.Location = new System.Drawing.Point(6, 127);
+            this.dgvProvincial.MultiSelect = false;
+            this.dgvProvincial.Name = "dgvProvincial";
+            this.dgvProvincial.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvProvincial.Size = new System.Drawing.Size(290, 330);
+            this.dgvProvincial.TabIndex = 3;
+            this.dgvProvincial.Text = "dataGridView1";
+            this.groupBox1.Controls.Add(this.dgvProvincial);
+            this.groupBox1.Controls.Add(this.btnSaveProvincial);
+            this.groupBox1.Controls.Add(this.txtProvincial);
+            this.groupBox1.Controls.Add(this.label15);
+            this.groupBox1.Location = new System.Drawing.Point(10, 13);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(302, 463);
+            this.groupBox1.TabIndex = 0;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Tỉnh/Thành Phố";
+            // 
+            // btnSaveProvincial
+            // 
+            this.btnSaveProvincial.Location = new System.Drawing.Point(111, 79);
+            this.btnSaveProvincial.Name = "btnSaveProvincial";
+            this.btnSaveProvincial.Size = new System.Drawing.Size(75, 23);
+            this.btnSaveProvincial.TabIndex = 2;
+            this.btnSaveProvincial.Text = "Lưu";
+            this.btnSaveProvincial.UseVisualStyleBackColor = true;
+            // 
+            // txtProvincial
+            // 
+            this.txtProvincial.Location = new System.Drawing.Point(56, 38);
+            this.txtProvincial.Name = "txtProvincial";
+            this.txtProvincial.Size = new System.Drawing.Size(229, 26);
+            this.txtProvincial.TabIndex = 1;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(15, 41);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(35, 19);
+            this.label15.TabIndex = 0;
+            this.label15.Text = "Tên:";
             // 
             // tabPage2
             // 
@@ -455,14 +707,149 @@
             this.dgvAssets.AllowUserToResizeRows = false;
             this.dgvAssets.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.dgvAssets.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvAssets.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.CustomerId,
+            this.CustomerName,
+            this.TypeAsset,
+            this.AssetName,
+            this.Model,
+            this.YearOfManufacture,
+            this.YearOfUse,
+            this.Number,
+            this.UnitPrice,
+            this.ParcelOfLand,
+            this.Map,
+            this.Acreage,
+            this.SoilType,
+            this.StreetId,
+            this.StreetName,
+            this.ValueCTXD,
+            this.RequestDate,
+            this.ContractNumberFull,
+            this.ContractValue});
             this.dgvAssets.Location = new System.Drawing.Point(27, 70);
             this.dgvAssets.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgvAssets.MultiSelect = false;
             this.dgvAssets.Name = "dgvAssets";
             this.dgvAssets.RowHeadersWidth = 51;
             this.dgvAssets.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvAssets.Size = new System.Drawing.Size(1232, 353);
             this.dgvAssets.TabIndex = 2;
             this.dgvAssets.Text = "dataGridView1";
+            // 
+            // CustomerId
+            // 
+            this.CustomerId.HeaderText = "Mã khách hàng";
+            this.CustomerId.Name = "CustomerId";
+            this.CustomerId.Visible = false;
+            this.CustomerId.Width = 127;
+            // 
+            // CustomerName
+            // 
+            this.CustomerName.HeaderText = "Tên khách hàng";
+            this.CustomerName.Name = "CustomerName";
+            this.CustomerName.Width = 129;
+            // 
+            // TypeAsset
+            // 
+            this.TypeAsset.HeaderText = "Loại tài sản";
+            this.TypeAsset.Name = "TypeAsset";
+            this.TypeAsset.Width = 103;
+            // 
+            // AssetName
+            // 
+            this.AssetName.HeaderText = "Tên tài sản";
+            this.AssetName.Name = "AssetName";
+            this.AssetName.Width = 99;
+            // 
+            // Model
+            // 
+            this.Model.HeaderText = "Model";
+            this.Model.Name = "Model";
+            this.Model.Width = 74;
+            // 
+            // YearOfManufacture
+            // 
+            this.YearOfManufacture.HeaderText = "Năm sản xuất";
+            this.YearOfManufacture.Name = "YearOfManufacture";
+            this.YearOfManufacture.Width = 117;
+            // 
+            // YearOfUse
+            // 
+            this.YearOfUse.HeaderText = "Năm sử dụng";
+            this.YearOfUse.Name = "YearOfUse";
+            this.YearOfUse.Width = 116;
+            // 
+            // Number
+            // 
+            this.Number.HeaderText = "Số lượng";
+            this.Number.Name = "Number";
+            this.Number.Width = 89;
+            // 
+            // UnitPrice
+            // 
+            this.UnitPrice.HeaderText = "Đơn giá";
+            this.UnitPrice.Name = "UnitPrice";
+            this.UnitPrice.Width = 81;
+            // 
+            // ParcelOfLand
+            // 
+            this.ParcelOfLand.HeaderText = "Thửa đất";
+            this.ParcelOfLand.Name = "ParcelOfLand";
+            this.ParcelOfLand.Width = 89;
+            // 
+            // Map
+            // 
+            this.Map.HeaderText = "Tờ bản đồ";
+            this.Map.Name = "Map";
+            this.Map.Width = 97;
+            // 
+            // Acreage
+            // 
+            this.Acreage.HeaderText = "Diện tích";
+            this.Acreage.Name = "Acreage";
+            this.Acreage.Width = 87;
+            // 
+            // SoilType
+            // 
+            this.SoilType.HeaderText = "Loại đất";
+            this.SoilType.Name = "SoilType";
+            this.SoilType.Width = 84;
+            // 
+            // StreetId
+            // 
+            this.StreetId.HeaderText = "Mã đường";
+            this.StreetId.Name = "StreetId";
+            this.StreetId.Width = 98;
+            // 
+            // StreetName
+            // 
+            this.StreetName.HeaderText = "Tên đường";
+            this.StreetName.Name = "StreetName";
+            // 
+            // ValueCTXD
+            // 
+            this.ValueCTXD.HeaderText = "Giá trị CTXD";
+            this.ValueCTXD.Name = "ValueCTXD";
+            this.ValueCTXD.Width = 117;
+            // 
+            // RequestDate
+            // 
+            this.RequestDate.HeaderText = "Ngày yêu cầu";
+            this.RequestDate.Name = "RequestDate";
+            this.RequestDate.Width = 117;
+            // 
+            // ContractNumberFull
+            // 
+            this.ContractNumberFull.HeaderText = "Số hồ sơ";
+            this.ContractNumberFull.Name = "ContractNumberFull";
+            this.ContractNumberFull.Width = 88;
+            // 
+            // ContractValue
+            // 
+            this.ContractValue.HeaderText = "Giá trị hồ sơ";
+            this.ContractValue.Name = "ContractValue";
+            this.ContractValue.Width = 108;
             // 
             // label12
             // 
@@ -604,6 +991,22 @@
             this.label10.TabIndex = 0;
             this.label10.Text = "Tổng giá trị tài sản:";
             // 
+            // ProvincialId
+            // 
+            this.ProvincialId.DataPropertyName = "ID";
+            this.ProvincialId.HeaderText = "Mã";
+            this.ProvincialId.Name = "ProvincialId";
+            this.ProvincialId.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.ProvincialId.Width = 55;
+            // 
+            // Name
+            // 
+            this.Name.DataPropertyName = "Name";
+            this.Name.HeaderText = "Tên";
+            this.Name.Name = "Name";
+            this.Name.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Name.Width = 57;
+            // 
             // frmHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -622,6 +1025,19 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUser)).EndInit();
+            this.tabPage3.ResumeLayout(false);
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProvincial)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -681,5 +1097,46 @@
         private System.Windows.Forms.DataGridViewButtonColumn Delete;
         private System.Windows.Forms.Panel pnlPager;
         private System.Windows.Forms.ComboBox cbSearchValue;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CustomerId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CustomerName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TypeAsset;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AssetName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Model;
+        private System.Windows.Forms.DataGridViewTextBoxColumn YearOfManufacture;
+        private System.Windows.Forms.DataGridViewTextBoxColumn YearOfUse;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Number;
+        private System.Windows.Forms.DataGridViewTextBoxColumn UnitPrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ParcelOfLand;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Map;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Acreage;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SoilType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn StreetId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn StreetName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ValueCTXD;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RequestDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ContractNumberFull;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ContractValue;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.DataGridView dataGridView4;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.DataGridView dataGridView3;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.DataGridView dgvProvincial;
+        private System.Windows.Forms.Button btnSaveProvincial;
+        private System.Windows.Forms.TextBox txtProvincial;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Button btnSaveDistrict;
+        private System.Windows.Forms.TextBox txtDistrict;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Button btnSaveStreet;
+        private System.Windows.Forms.TextBox txtStreet;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Button btnSaveWard;
+        private System.Windows.Forms.TextBox txtWard;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ProvincialId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Name;
     }
 }

@@ -51,12 +51,22 @@ namespace ValuationAsset.Forms
             BindDataUserList();
 
             BindDataAssetList(1, "", "");
+
+            BindDataProvincialList();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
             frmAssetInformation addAsset = new frmAssetInformation();
-            addAsset.ShowDialog();
+            DialogResult dr = addAsset.ShowDialog();
+            if (dr == DialogResult.Cancel)
+            {
+                addAsset.Close();
+            }
+            else if (dr == DialogResult.OK)
+            {
+                MessageBox.Show("test");
+            }
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
@@ -67,7 +77,7 @@ namespace ValuationAsset.Forms
             //btnCancel.Visible = true;
         }
 
-        #region
+        #region Function
 
         private void GetDataCombobox(ComboBox cmb, string strQuery)
         {
@@ -107,6 +117,7 @@ namespace ValuationAsset.Forms
                     con.Open();
                     DataTable dt = new DataTable();
                     dt.Load(cmd.ExecuteReader());
+                    dgvAssets.AutoGenerateColumns = false;
                     dgvAssets.DataSource = dt;
                     con.Close();
                     int recordCount = Convert.ToInt32(cmd.Parameters["@RecordCount"].Value);
@@ -246,6 +257,14 @@ namespace ValuationAsset.Forms
                     }
                 }
             }
+        }
+
+        private void BindDataProvincialList()
+        {
+            string strQuery = "select * from tbProvince";
+            var provinces = da.execSqlQuery(strQuery).Tables[0];
+            dgvProvincial.AutoGenerateColumns = false;
+            dgvProvincial.DataSource = provinces;
         }
 
         #endregion

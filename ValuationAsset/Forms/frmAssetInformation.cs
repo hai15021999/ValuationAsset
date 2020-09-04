@@ -18,13 +18,29 @@ namespace ValuationAsset.Forms
         private void btnThemDongSan_Click(object sender, EventArgs e)
         {
             frmPersonalty personalty = new frmPersonalty();
-            personalty.ShowDialog();
+            DialogResult dr = personalty.ShowDialog();
+            if (dr == DialogResult.Cancel)
+            {
+                personalty.Close();
+            }
+            else if (dr == DialogResult.OK)
+            {
+                MessageBox.Show("test");
+            }
         }
 
         private void btnThemBatDongSan_Click(object sender, EventArgs e)
         {
             frmRealEstate realEstate = new frmRealEstate();
-            realEstate.ShowDialog();
+            DialogResult dr = realEstate.ShowDialog();
+            if (dr == DialogResult.Cancel)
+            {
+                realEstate.Close();
+            }
+            else if (dr == DialogResult.OK)
+            {
+                MessageBox.Show("test");
+            }
         }
     }
 }
