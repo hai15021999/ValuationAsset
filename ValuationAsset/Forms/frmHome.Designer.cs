@@ -55,6 +55,8 @@
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.pnlPager = new System.Windows.Forms.Panel();
             this.btnAdd = new System.Windows.Forms.Button();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
@@ -380,6 +382,8 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.comboBox1);
+            this.panel1.Controls.Add(this.pnlPager);
             this.panel1.Controls.Add(this.btnAdd);
             this.panel1.Controls.Add(this.txtSearch);
             this.panel1.Controls.Add(this.btnSearch);
@@ -388,8 +392,28 @@
             this.panel1.Location = new System.Drawing.Point(3, 2);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1291, 452);
+            this.panel1.Size = new System.Drawing.Size(1291, 480);
             this.panel1.TabIndex = 1;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Số hồ sơ",
+            "Tên khách hàng",
+            "Giá trị hợp đồng"});
+            this.comboBox1.Location = new System.Drawing.Point(174, 25);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 27);
+            this.comboBox1.TabIndex = 9;
+            // 
+            // pnlPager
+            // 
+            this.pnlPager.Location = new System.Drawing.Point(27, 428);
+            this.pnlPager.Name = "pnlPager";
+            this.pnlPager.Size = new System.Drawing.Size(1232, 45);
+            this.pnlPager.TabIndex = 2;
             // 
             // btnAdd
             // 
@@ -405,10 +429,10 @@
             // 
             // txtSearch
             // 
-            this.txtSearch.Location = new System.Drawing.Point(199, 24);
+            this.txtSearch.Location = new System.Drawing.Point(302, 27);
             this.txtSearch.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(405, 26);
+            this.txtSearch.Size = new System.Drawing.Size(303, 26);
             this.txtSearch.TabIndex = 7;
             // 
             // btnSearch
@@ -421,15 +445,21 @@
             this.btnSearch.TabIndex = 6;
             this.btnSearch.Text = "Tìm hồ sơ";
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // dgvAssets
             // 
+            this.dgvAssets.AllowUserToAddRows = false;
+            this.dgvAssets.AllowUserToDeleteRows = false;
+            this.dgvAssets.AllowUserToResizeRows = false;
+            this.dgvAssets.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.dgvAssets.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAssets.Location = new System.Drawing.Point(27, 70);
             this.dgvAssets.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvAssets.Name = "dgvAssets";
             this.dgvAssets.RowHeadersWidth = 51;
-            this.dgvAssets.Size = new System.Drawing.Size(1232, 372);
+            this.dgvAssets.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvAssets.Size = new System.Drawing.Size(1232, 353);
             this.dgvAssets.TabIndex = 2;
             this.dgvAssets.Text = "dataGridView1";
             // 
@@ -648,5 +678,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Role;
         private System.Windows.Forms.DataGridViewTextBoxColumn RoleId;
         private System.Windows.Forms.DataGridViewButtonColumn Delete;
+        private System.Windows.Forms.Panel pnlPager;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }
