@@ -36,7 +36,7 @@ namespace ValuationAsset.Forms
 
         private string GetNumberSetting()
         {
-            string strQuery = "select value from tbSetting where Key = 'TemplateContractNumber'";
+            string strQuery = "select [Value] from tbSetting where [Key] = 'TemplateContractNumber'";
             var numberSetting = da.execSqlQuery(strQuery).Tables[0].Rows[0][0].ToString();
 
             return numberSetting;
@@ -149,7 +149,7 @@ namespace ValuationAsset.Forms
                 if (isCreate)
                 {
                     frmRealEstate realEstate = new frmRealEstate();
-                    //realEstate.ContractId = ContractId;
+                    realEstate.ContractId = ContractId;
                     DialogResult dr = realEstate.ShowDialog();
                     if (dr == DialogResult.OK)
                     {
@@ -178,6 +178,39 @@ namespace ValuationAsset.Forms
                 dgvAssets.DataSource = assets;
 
                 txtAssetTotalPrice.Text = ret.Tables[1].Rows[0][0].ToString();
+
+                txtNumber.Text = assets.Rows.Count.ToString();
+            }
+        }
+
+        private void dgvAssets_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var type = dgvAssets.CurrentRow.Cells["Type"].Value.ToString();
+            var assetIdstr = dgvAssets.CurrentRow.Cells["ID"].Value.ToString();
+
+            if (type.Equals("Động Sản"))
+            {
+                frmPersonalty personalty = new frmPersonalty();
+                personalty.ContractId = ContractId;
+                personalty.AssetId = int.Parse(assetIdstr);
+                DialogResult dr = personalty.ShowDialog();
+                if (dr == DialogResult.OK)
+                {
+                    //bind data to dgvAssets
+                    BindDataAssetList();
+                }
+            }
+            if (type.Equals("Bất Động Sản"))
+            {
+                frmRealEstate realEstate = new frmRealEstate();
+                realEstate.ContractId = ContractId;
+                realEstate.AssetId = int.Parse(assetIdstr);
+                DialogResult dr = realEstate.ShowDialog();
+                if (dr == DialogResult.OK)
+                {
+                    //bind data to dgvAssets
+                    BindDataAssetList();
+                }
             }
         }
     }

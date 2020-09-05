@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.dtpDateCCTT = new System.Windows.Forms.DateTimePicker();
             this.label14 = new System.Windows.Forms.Label();
             this.dtpDate = new System.Windows.Forms.DateTimePicker();
             this.listView1 = new System.Windows.Forms.ListView();
@@ -59,7 +60,7 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.txtSo_NgayCCTT = new System.Windows.Forms.TextBox();
+            this.txtNumber = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -74,7 +75,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
-            this.dtpDateCCTT = new System.Windows.Forms.DateTimePicker();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAssets)).BeginInit();
             this.SuspendLayout();
@@ -96,7 +96,7 @@
             this.panel1.Controls.Add(this.label12);
             this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.label7);
-            this.panel1.Controls.Add(this.txtSo_NgayCCTT);
+            this.panel1.Controls.Add(this.txtNumber);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.label11);
             this.panel1.Controls.Add(this.label5);
@@ -114,6 +114,17 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1148, 767);
             this.panel1.TabIndex = 0;
+            // 
+            // dtpDateCCTT
+            // 
+            this.dtpDateCCTT.CustomFormat = "dd/MM/yyyy";
+            this.dtpDateCCTT.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.dtpDateCCTT.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpDateCCTT.Location = new System.Drawing.Point(198, 551);
+            this.dtpDateCCTT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dtpDateCCTT.Name = "dtpDateCCTT";
+            this.dtpDateCCTT.Size = new System.Drawing.Size(136, 26);
+            this.dtpDateCCTT.TabIndex = 6;
             // 
             // label14
             // 
@@ -235,6 +246,7 @@
             this.dgvAssets.Size = new System.Drawing.Size(1046, 179);
             this.dgvAssets.TabIndex = 2;
             this.dgvAssets.Text = "dataGridView1";
+            this.dgvAssets.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAssets_CellDoubleClick);
             // 
             // ID
             // 
@@ -397,14 +409,15 @@
             this.label7.TabIndex = 0;
             this.label7.Text = "Địa chỉ:";
             // 
-            // txtSo_NgayCCTT
+            // txtNumber
             // 
-            this.txtSo_NgayCCTT.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtSo_NgayCCTT.Location = new System.Drawing.Point(440, 551);
-            this.txtSo_NgayCCTT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtSo_NgayCCTT.Name = "txtSo_NgayCCTT";
-            this.txtSo_NgayCCTT.Size = new System.Drawing.Size(45, 26);
-            this.txtSo_NgayCCTT.TabIndex = 1;
+            this.txtNumber.Enabled = false;
+            this.txtNumber.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtNumber.Location = new System.Drawing.Point(440, 551);
+            this.txtNumber.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtNumber.Name = "txtNumber";
+            this.txtNumber.Size = new System.Drawing.Size(45, 26);
+            this.txtNumber.TabIndex = 1;
             // 
             // label6
             // 
@@ -530,17 +543,6 @@
             this.columnHeader2.Text = "Title";
             this.columnHeader2.Width = 1000;
             // 
-            // dtpDateCCTT
-            // 
-            this.dtpDateCCTT.CustomFormat = "dd/MM/yyyy";
-            this.dtpDateCCTT.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.dtpDateCCTT.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpDateCCTT.Location = new System.Drawing.Point(198, 551);
-            this.dtpDateCCTT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dtpDateCCTT.Name = "dtpDateCCTT";
-            this.dtpDateCCTT.Size = new System.Drawing.Size(136, 26);
-            this.dtpDateCCTT.TabIndex = 6;
-            // 
             // frmAssetInformation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -590,7 +592,7 @@
         private System.Windows.Forms.TextBox txtMST_CCCD;
         private System.Windows.Forms.TextBox txtCustomerPhoneNo;
         private System.Windows.Forms.DataGridView dgvAssets;
-        private System.Windows.Forms.TextBox txtSo_NgayCCTT;
+        private System.Windows.Forms.TextBox txtNumber;
         private System.Windows.Forms.TextBox txtAssetTotalPrice;
         private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.Button button1;

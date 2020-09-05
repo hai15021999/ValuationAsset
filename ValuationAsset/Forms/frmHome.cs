@@ -50,7 +50,7 @@ namespace ValuationAsset.Forms
 
             BindDataUserList();
 
-            BindDataAssetList(1, "", "");
+            BindDataContractList(1, "", "");
 
             BindDataProvincialList();
 
@@ -102,12 +102,12 @@ namespace ValuationAsset.Forms
             dgvUser.DataSource = users;
         }
 
-        private void BindDataAssetList(int pageIndex, string textSearch, string typeSearch)
+        private void BindDataContractList(int pageIndex, string textSearch, string typeSearch)
         {
             string constring = ConfigurationManager.ConnectionStrings["Entities"].ConnectionString;
             using (SqlConnection con = new SqlConnection(constring))
             {
-                using (SqlCommand cmd = new SqlCommand("sp_GetAsset", con))
+                using (SqlCommand cmd = new SqlCommand("sp_GetContractAsset", con))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@PageIndex", pageIndex);
@@ -119,27 +119,13 @@ namespace ValuationAsset.Forms
                     con.Open();
                     DataTable dt = new DataTable();
                     dt.Load(cmd.ExecuteReader());
-                    dgvAssets.AutoGenerateColumns = false;
-                    dgvAssets.DataSource = dt;
+                    dgvContracts.AutoGenerateColumns = false;
+                    dgvContracts.DataSource = dt;
                     con.Close();
                     int recordCount = Convert.ToInt32(cmd.Parameters["@RecordCount"].Value);
                     this.PopulatePager(recordCount, pageIndex);
                 }
             }
-
-            //string strQuery = "sp_GetAsset";
-            //List<SqlParameter> para = new List<SqlParameter>()
-            //{
-            //    new SqlParameter() { ParameterName = "@PageIndex", SqlDbType = SqlDbType.Int, Value = pageIndex },
-            //    new SqlParameter() { ParameterName = "@PageSize", SqlDbType = SqlDbType.Int, Value = PageSize }
-            //};
-            
-            //var assets = da.execSqlReturn(strQuery, para).Tables[0];
-            //dgvAssets.AutoGenerateColumns = true;
-            //dgvAssets.DataSource = assets;
-
-            //int recordCount = 10;
-            //this.PopulatePager(recordCount, pageIndex);
         }
 
         private void PopulatePager(int recordCount, int currentPage)
@@ -233,7 +219,7 @@ namespace ValuationAsset.Forms
             Button btnPager = (sender as Button);
             if (cbSearchValue.SelectedValue.Equals("Chọn thông tin cần tìm"))
             {
-                this.BindDataAssetList(int.Parse(btnPager.Name), "", "");
+                this.BindDataContractList(int.Parse(btnPager.Name), "", "");
             }
             else
             {
@@ -247,15 +233,15 @@ namespace ValuationAsset.Forms
                 {
                     if (cbSearchValue.SelectedValue.Equals("Số hồ sơ"))
                     {
-                        this.BindDataAssetList(int.Parse(btnPager.Name), txtSearch.Text, "FileNumber");
+                        this.BindDataContractList(int.Parse(btnPager.Name), txtSearch.Text, "FileNumber");
                     }
                     if (cbSearchValue.SelectedValue.Equals("Tên khách hàng"))
                     {
-                        this.BindDataAssetList(int.Parse(btnPager.Name), txtSearch.Text, "CustomerName");
+                        this.BindDataContractList(int.Parse(btnPager.Name), txtSearch.Text, "CustomerName");
                     }
                     if (cbSearchValue.SelectedValue.Equals("Giá trị hợp đồng"))
                     {
-                        this.BindDataAssetList(int.Parse(btnPager.Name), txtSearch.Text, "ContractValue");
+                        this.BindDataContractList(int.Parse(btnPager.Name), txtSearch.Text, "ContractValue");
                     }
                 }
             }
@@ -419,15 +405,15 @@ namespace ValuationAsset.Forms
             {
                 if (cbSearchValue.SelectedItem.Equals("Số hồ sơ"))
                 {
-                    this.BindDataAssetList(1, txtSearch.Text, "FileNumber");
+                    this.BindDataContractList(1, txtSearch.Text, "FileNumber");
                 }
                 if (cbSearchValue.SelectedItem.Equals("Tên khách hàng"))
                 {
-                    this.BindDataAssetList(1, txtSearch.Text, "CustomerName");
+                    this.BindDataContractList(1, txtSearch.Text, "CustomerName");
                 }
                 if (cbSearchValue.SelectedItem.Equals("Giá trị hợp đồng"))
                 {
-                    this.BindDataAssetList(1, txtSearch.Text, "ContractValue");
+                    this.BindDataContractList(1, txtSearch.Text, "ContractValue");
                 }
             }
         }

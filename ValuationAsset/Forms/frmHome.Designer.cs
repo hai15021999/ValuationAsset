@@ -92,25 +92,11 @@
             this.btnAdd = new System.Windows.Forms.Button();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
-            this.dgvAssets = new System.Windows.Forms.DataGridView();
+            this.dgvContracts = new System.Windows.Forms.DataGridView();
+            this.ContractId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CustomerId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CustomerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TypeAsset = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AssetName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Model = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.YearOfManufacture = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.YearOfUse = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Number = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UnitPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ParcelOfLand = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Map = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Acreage = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SoilType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.StreetId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.StreetName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ValueCTXD = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RequestDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ContractNumberFull = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NumberFull = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ContractValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label12 = new System.Windows.Forms.Label();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -143,7 +129,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvProvincial)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvAssets)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvContracts)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -773,7 +759,7 @@
             this.panel1.Controls.Add(this.btnAdd);
             this.panel1.Controls.Add(this.txtSearch);
             this.panel1.Controls.Add(this.btnSearch);
-            this.panel1.Controls.Add(this.dgvAssets);
+            this.panel1.Controls.Add(this.dgvContracts);
             this.panel1.Controls.Add(this.label12);
             this.panel1.Location = new System.Drawing.Point(3, 2);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -834,156 +820,55 @@
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
-            // dgvAssets
+            // dgvContracts
             // 
-            this.dgvAssets.AllowUserToAddRows = false;
-            this.dgvAssets.AllowUserToDeleteRows = false;
-            this.dgvAssets.AllowUserToResizeRows = false;
-            this.dgvAssets.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
-            this.dgvAssets.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvAssets.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvContracts.AllowUserToAddRows = false;
+            this.dgvContracts.AllowUserToDeleteRows = false;
+            this.dgvContracts.AllowUserToResizeRows = false;
+            this.dgvContracts.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvContracts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvContracts.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ContractId,
             this.CustomerId,
             this.CustomerName,
-            this.TypeAsset,
-            this.AssetName,
-            this.Model,
-            this.YearOfManufacture,
-            this.YearOfUse,
-            this.Number,
-            this.UnitPrice,
-            this.ParcelOfLand,
-            this.Map,
-            this.Acreage,
-            this.SoilType,
-            this.StreetId,
-            this.StreetName,
-            this.ValueCTXD,
-            this.RequestDate,
-            this.ContractNumberFull,
+            this.NumberFull,
             this.ContractValue});
-            this.dgvAssets.Location = new System.Drawing.Point(27, 70);
-            this.dgvAssets.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dgvAssets.MultiSelect = false;
-            this.dgvAssets.Name = "dgvAssets";
-            this.dgvAssets.RowHeadersWidth = 51;
-            this.dgvAssets.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvAssets.Size = new System.Drawing.Size(1232, 353);
-            this.dgvAssets.TabIndex = 2;
-            this.dgvAssets.Text = "dataGridView1";
+            this.dgvContracts.Location = new System.Drawing.Point(27, 70);
+            this.dgvContracts.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgvContracts.MultiSelect = false;
+            this.dgvContracts.Name = "dgvContracts";
+            this.dgvContracts.RowHeadersWidth = 51;
+            this.dgvContracts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvContracts.Size = new System.Drawing.Size(1232, 353);
+            this.dgvContracts.TabIndex = 2;
+            this.dgvContracts.Text = "dataGridView1";
+            // 
+            // ContractId
+            // 
+            this.ContractId.HeaderText = "Mã hợp đồng";
+            this.ContractId.Name = "ContractId";
+            this.ContractId.Visible = false;
             // 
             // CustomerId
             // 
             this.CustomerId.HeaderText = "Mã khách hàng";
             this.CustomerId.Name = "CustomerId";
             this.CustomerId.Visible = false;
-            this.CustomerId.Width = 127;
             // 
             // CustomerName
             // 
             this.CustomerName.HeaderText = "Tên khách hàng";
             this.CustomerName.Name = "CustomerName";
-            this.CustomerName.Width = 129;
             // 
-            // TypeAsset
+            // NumberFull
             // 
-            this.TypeAsset.HeaderText = "Loại tài sản";
-            this.TypeAsset.Name = "TypeAsset";
-            this.TypeAsset.Width = 103;
-            // 
-            // AssetName
-            // 
-            this.AssetName.HeaderText = "Tên tài sản";
-            this.AssetName.Name = "AssetName";
-            this.AssetName.Width = 99;
-            // 
-            // Model
-            // 
-            this.Model.HeaderText = "Model";
-            this.Model.Name = "Model";
-            this.Model.Width = 74;
-            // 
-            // YearOfManufacture
-            // 
-            this.YearOfManufacture.HeaderText = "Năm sản xuất";
-            this.YearOfManufacture.Name = "YearOfManufacture";
-            this.YearOfManufacture.Width = 117;
-            // 
-            // YearOfUse
-            // 
-            this.YearOfUse.HeaderText = "Năm sử dụng";
-            this.YearOfUse.Name = "YearOfUse";
-            this.YearOfUse.Width = 116;
-            // 
-            // Number
-            // 
-            this.Number.HeaderText = "Số lượng";
-            this.Number.Name = "Number";
-            this.Number.Width = 89;
-            // 
-            // UnitPrice
-            // 
-            this.UnitPrice.HeaderText = "Đơn giá";
-            this.UnitPrice.Name = "UnitPrice";
-            this.UnitPrice.Width = 81;
-            // 
-            // ParcelOfLand
-            // 
-            this.ParcelOfLand.HeaderText = "Thửa đất";
-            this.ParcelOfLand.Name = "ParcelOfLand";
-            this.ParcelOfLand.Width = 89;
-            // 
-            // Map
-            // 
-            this.Map.HeaderText = "Tờ bản đồ";
-            this.Map.Name = "Map";
-            this.Map.Width = 97;
-            // 
-            // Acreage
-            // 
-            this.Acreage.HeaderText = "Diện tích";
-            this.Acreage.Name = "Acreage";
-            this.Acreage.Width = 87;
-            // 
-            // SoilType
-            // 
-            this.SoilType.HeaderText = "Loại đất";
-            this.SoilType.Name = "SoilType";
-            this.SoilType.Width = 84;
-            // 
-            // StreetId
-            // 
-            this.StreetId.HeaderText = "Mã đường";
-            this.StreetId.Name = "StreetId";
-            this.StreetId.Width = 98;
-            // 
-            // StreetName
-            // 
-            this.StreetName.HeaderText = "Tên đường";
-            this.StreetName.Name = "StreetName";
-            // 
-            // ValueCTXD
-            // 
-            this.ValueCTXD.HeaderText = "Giá trị CTXD";
-            this.ValueCTXD.Name = "ValueCTXD";
-            this.ValueCTXD.Width = 117;
-            // 
-            // RequestDate
-            // 
-            this.RequestDate.HeaderText = "Ngày yêu cầu";
-            this.RequestDate.Name = "RequestDate";
-            this.RequestDate.Width = 117;
-            // 
-            // ContractNumberFull
-            // 
-            this.ContractNumberFull.HeaderText = "Số hồ sơ";
-            this.ContractNumberFull.Name = "ContractNumberFull";
-            this.ContractNumberFull.Width = 88;
+            this.NumberFull.HeaderText = "Số hợp đồng";
+            this.NumberFull.Name = "NumberFull";
             // 
             // ContractValue
             // 
-            this.ContractValue.HeaderText = "Giá trị hồ sơ";
+            this.ContractValue.HeaderText = "Giá trị hợp đồng";
             this.ContractValue.Name = "ContractValue";
-            this.ContractValue.Width = 108;
             // 
             // label12
             // 
@@ -1159,7 +1044,7 @@
             this.tabPage2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvAssets)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvContracts)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1198,7 +1083,7 @@
         private System.Windows.Forms.TextBox txtConfirm;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dgvAssets;
+        private System.Windows.Forms.DataGridView dgvContracts;
         private System.Windows.Forms.CheckBox chkDeactive;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtUserName;
@@ -1215,25 +1100,6 @@
         private System.Windows.Forms.DataGridViewButtonColumn Delete;
         private System.Windows.Forms.Panel pnlPager;
         private System.Windows.Forms.ComboBox cbSearchValue;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CustomerId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CustomerName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TypeAsset;
-        private System.Windows.Forms.DataGridViewTextBoxColumn AssetName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Model;
-        private System.Windows.Forms.DataGridViewTextBoxColumn YearOfManufacture;
-        private System.Windows.Forms.DataGridViewTextBoxColumn YearOfUse;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Number;
-        private System.Windows.Forms.DataGridViewTextBoxColumn UnitPrice;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ParcelOfLand;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Map;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Acreage;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SoilType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn StreetId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn StreetName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ValueCTXD;
-        private System.Windows.Forms.DataGridViewTextBoxColumn RequestDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ContractNumberFull;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ContractValue;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.DataGridView dgvStreet;
         private System.Windows.Forms.GroupBox groupBox3;
@@ -1266,5 +1132,10 @@
         private System.Windows.Forms.Button btnNewProvincial;
         private System.Windows.Forms.Button btnNewStreet;
         private System.Windows.Forms.Button btnNewWard;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ContractId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CustomerId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CustomerName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NumberFull;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ContractValue;
     }
 }
