@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvFile = new System.Windows.Forms.DataGridView();
             this.FileId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FileName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dtpDateCCTT = new System.Windows.Forms.DateTimePicker();
@@ -79,13 +79,13 @@
             this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvFile)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAssets)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.dataGridView1);
+            this.panel1.Controls.Add(this.dgvFile);
             this.panel1.Controls.Add(this.dtpDateCCTT);
             this.panel1.Controls.Add(this.label14);
             this.panel1.Controls.Add(this.dtpDate);
@@ -119,23 +119,23 @@
             this.panel1.Size = new System.Drawing.Size(1148, 767);
             this.panel1.TabIndex = 0;
             // 
-            // dataGridView1
+            // dgvFile
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AllowUserToResizeRows = false;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvFile.AllowUserToAddRows = false;
+            this.dgvFile.AllowUserToDeleteRows = false;
+            this.dgvFile.AllowUserToResizeRows = false;
+            this.dgvFile.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvFile.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvFile.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.FileId,
             this.FileName});
-            this.dataGridView1.Location = new System.Drawing.Point(198, 598);
-            this.dataGridView1.MultiSelect = false;
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(521, 150);
-            this.dataGridView1.TabIndex = 8;
-            this.dataGridView1.Text = "dataGridView1";
+            this.dgvFile.Location = new System.Drawing.Point(198, 598);
+            this.dgvFile.MultiSelect = false;
+            this.dgvFile.Name = "dgvFile";
+            this.dgvFile.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvFile.Size = new System.Drawing.Size(521, 150);
+            this.dgvFile.TabIndex = 8;
+            this.dgvFile.Text = "dataGridView1";
             // 
             // FileId
             // 
@@ -585,7 +585,7 @@
             this.Load += new System.EventHandler(this.frmAssetInformation_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvFile)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAssets)).EndInit();
             this.ResumeLayout(false);
 
@@ -647,7 +647,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn WardName;
         private System.Windows.Forms.DateTimePicker dtpDateCCTT;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvFile;
         private System.Windows.Forms.DataGridViewTextBoxColumn FileId;
         private System.Windows.Forms.DataGridViewTextBoxColumn FileName;
     }
