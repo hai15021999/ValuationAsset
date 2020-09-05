@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
@@ -37,6 +38,7 @@ namespace ValuationAsset.Forms
                     txtThuaDat.Text = realEstate.Rows[0]["ParcelOfLand"].ToString();
                     txtToBD.Text = realEstate.Rows[0]["Map"].ToString();
                     txtDienTich.Text = realEstate.Rows[0]["Acreage"].ToString();
+                    txtLoaiDat.Text = realEstate.Rows[0]["SoilType"].ToString();
                     cbTinh_Thanh.SelectedValue = location.Rows[0]["ProvinceId"].ToString();
                     cbQuan_Huyen.SelectedValue = location.Rows[0]["DistrictId"].ToString();
                     cbPhuong_Xa.SelectedValue = realEstate.Rows[0]["WardId"].ToString();
@@ -56,9 +58,48 @@ namespace ValuationAsset.Forms
         private void btnSave_Click(object sender, EventArgs e)
         {
             //to do
+            try
+            {
+                string ParcelOfLand = txtThuaDat.Text.Trim();
+                string Map = txtToBD.Text.Trim();
+                float Acreage = float.Parse(txtDienTich.Text.Trim());
+                string SoilType = txtLoaiDat.Text.Trim();
+                //int ProvinceId = int.Parse(cbTinh_Thanh.SelectedValue.ToString());
+                //int DistrictId = int.Parse(cbQuan_Huyen.SelectedValue.ToString());
+                int WardId = int.Parse(cbPhuong_Xa.SelectedValue.ToString());
+                int StreetId = int.Parse(cbQuan_Huyen.SelectedValue.ToString());
+                float UnitPrice = float.Parse(txtDonGia.Text.Trim());
+                float ValueCTXD = float.Parse(txtTongGiaCTXD.Text.Trim());
+                float Value = float.Parse(txtTongGiaTri.Text.Trim());
+                if (string.IsNullOrEmpty(ParcelOfLand) || string.IsNullOrEmpty(Map) || string.IsNullOrEmpty(txtDienTich.Text.Trim()) ||
+                    string.IsNullOrEmpty(SoilType) || string.IsNullOrEmpty(txtDonGia.Text.Trim()) || string.IsNullOrEmpty(txtTongGiaCTXD.Text.Trim()) ||
+                    string.IsNullOrEmpty(txtTongGiaTri.Text.Trim()))
+                {
+                    MessageBox.Show("Vui lòng không để trống bất kì mục nào!");
+                } else {
+                    List<SqlParameter> para = new List<SqlParameter>()
+                    {
+                        new SqlParameter() { ParameterName = "@contractId", SqlDbType = SqlDbType.Int, Value = ContractId },
+                        new SqlParameter() { ParameterName = "@type", SqlDbType = SqlDbType.VarChar, Value = "Bất Động Sản" },
+                        new SqlParameter() { ParameterName = "@parcelOfLand", SqlDbType = SqlDbType.VarChar, Value = ParcelOfLand },
+                        new SqlParameter() { ParameterName = "@map", SqlDbType = SqlDbType.VarChar, Value = Map },
+                        new SqlParameter() { ParameterName = "@acreage", SqlDbType = SqlDbType.Float, Value = Acreage },
+                        new SqlParameter() { ParameterName = "@soilType", SqlDbType = SqlDbType.VarChar, Value = SoilType },
+                        new SqlParameter() { ParameterName = "@streetId", SqlDbType = SqlDbType.Int, Value = StreetId },
+                        new SqlParameter() { ParameterName = "@valueCTXD", SqlDbType = SqlDbType.Float, Value = ValueCTXD },
+                        new SqlParameter() { ParameterName = "@wardId", SqlDbType = SqlDbType.Int, Value = WardId },
+                        new SqlParameter() { ParameterName = "@unitPrice", SqlDbType = SqlDbType.Float, Value = UnitPrice },
+                        new SqlParameter() { ParameterName = "@value", SqlDbType = SqlDbType.Float, Value = Value }
+                    };
+                    da.execSqlReturn("sp_CreateAsset", para);
 
-
-            this.Dispose();
+                    this.DialogResult = DialogResult.OK;
+                    this.Dispose();
+                }
+            } catch (Exception ex)
+            {
+                MessageBox.Show("Gặp sự cố: " + ex.Message);
+            }
         }
 
         private void cbTinh_Thanh_SelectedIndexChanged(object sender, EventArgs e)
@@ -81,11 +122,6 @@ namespace ValuationAsset.Forms
                 BindDataStreetList(districtId);
             }
             catch { }
-        }
-
-        private void cbPhuong_Xa_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void BindDataProvincialList()

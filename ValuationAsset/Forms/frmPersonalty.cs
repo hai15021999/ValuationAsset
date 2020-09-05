@@ -50,15 +50,19 @@ namespace ValuationAsset
                 string model = txtAssetModel.Text.Trim();
                 string yearOfManufacture = txtYearOfManufacture.SelectedItem.ToString();
                 string yearOfUsing = txtYearOfUsing.SelectedItem.ToString();
-                if (name.Equals("") || model.Equals("") || yearOfManufacture.Equals("") || yearOfUsing.Equals(""))
+                string quant = txtQuantity.Text.Trim();
+                string uniPrice = txtUnitPrice.Text.Trim();
+                string val = txtPrice.Text.Trim();
+                if (name.Equals("") || model.Equals("") || yearOfManufacture.Equals("") || yearOfUsing.Equals("") || quant.Equals("") ||
+                    uniPrice.Equals("") || val.Equals(""))
                 {
                     MessageBox.Show("Vui lòng không để trống bất kì mục nào!");
                 }
                 else
                 {
-                    int quantity = int.Parse(txtQuantity.Text.Trim());
-                    float unitPrice = float.Parse(txtUnitPrice.Text.Trim());
-                    float value = float.Parse(txtPrice.Text.Trim());
+                    int quantity = int.Parse(quant);
+                    float unitPrice = float.Parse(uniPrice);
+                    float value = float.Parse(val);
 
                     List<SqlParameter> para = new List<SqlParameter>()
                     {
@@ -85,28 +89,31 @@ namespace ValuationAsset
             } 
             catch (Exception ex)
             {
-                if (ex.ToString().Contains(txtQuantity.Text.Trim())){
-                    MessageBox.Show("Vui lòng không nhập ký tự khác ký tự số vào mục Số lượng!");
-                } else if (ex.ToString().Contains(txtUnitPrice.Text.Trim()))
-                {
-                    MessageBox.Show("Vui lòng không nhập ký tự khác ký tự số vào mục đơn giá!");
-                }
-                else if (ex.ToString().Contains(txtPrice.Text.Trim()))
-                {
-                    MessageBox.Show("Vui lòng không nhập ký tự khác ký tự số vào mục giá trị!");
-                }
-                else if (ex.ToString().Contains(txtYearOfManufacture.Text.Trim()))
-                {
-                    MessageBox.Show("Vui lòng nhập năm sản xuất!");
-                }
-                else if (ex.ToString().Contains(txtYearOfUsing.Text.Trim()))
-                {
-                    MessageBox.Show("Vui lòng nhập năm đưa vào sử dụng!");
-                }
-                else
-                {
-                    MessageBox.Show("Gặp sự cố: " + ex.Message);
-                }
+                //if (ex.ToString().Contains(txtQuantity.Text.Trim())){
+                //    MessageBox.Show("Vui lòng không nhập ký tự khác ký tự số vào mục Số lượng!");
+                //} else if (ex.ToString().Contains(txtUnitPrice.Text.Trim()))
+                //{
+                //    MessageBox.Show("Vui lòng không nhập ký tự khác ký tự số vào mục đơn giá!");
+                //}
+                //else if (ex.ToString().Contains(txtPrice.Text.Trim()))
+                //{
+                //    MessageBox.Show("Vui lòng không nhập ký tự khác ký tự số vào mục giá trị!");
+                //}
+                //else if (ex.ToString().Contains(txtYearOfManufacture.Text.Trim()))
+                //{
+                //    MessageBox.Show("Vui lòng nhập năm sản xuất!");
+                //}
+                //else if (ex.ToString().Contains(txtYearOfUsing.Text.Trim()))
+                //{
+                //    MessageBox.Show("Vui lòng nhập năm đưa vào sử dụng!");
+                //}
+                //else
+                //{
+                //    MessageBox.Show("Gặp sự cố: " + ex.Message);
+                //}
+
+                MessageBox.Show("Gặp sự cố: " + ex.Message);
+
             }
         }
 
