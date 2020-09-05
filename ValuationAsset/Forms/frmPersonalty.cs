@@ -12,6 +12,7 @@ namespace ValuationAsset
     public partial class frmPersonalty : Form
     {
         public int ContractId { get; set; }
+        public int AssetId { get; set; }
 
         public frmPersonalty()
         {

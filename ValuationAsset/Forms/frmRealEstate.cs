@@ -11,6 +11,10 @@ namespace ValuationAsset.Forms
 {
     public partial class frmRealEstate : Form
     {
+        public int ContractId { get; set; }
+        public int AssetId { get; set; }
+
+
         public frmRealEstate()
         {
             InitializeComponent();
