@@ -89,31 +89,18 @@ namespace ValuationAsset
             } 
             catch (Exception ex)
             {
-                //if (ex.ToString().Contains(txtQuantity.Text.Trim())){
-                //    MessageBox.Show("Vui lòng không nhập ký tự khác ký tự số vào mục Số lượng!");
-                //} else if (ex.ToString().Contains(txtUnitPrice.Text.Trim()))
-                //{
-                //    MessageBox.Show("Vui lòng không nhập ký tự khác ký tự số vào mục đơn giá!");
-                //}
-                //else if (ex.ToString().Contains(txtPrice.Text.Trim()))
-                //{
-                //    MessageBox.Show("Vui lòng không nhập ký tự khác ký tự số vào mục giá trị!");
-                //}
-                //else if (ex.ToString().Contains(txtYearOfManufacture.Text.Trim()))
-                //{
-                //    MessageBox.Show("Vui lòng nhập năm sản xuất!");
-                //}
-                //else if (ex.ToString().Contains(txtYearOfUsing.Text.Trim()))
-                //{
-                //    MessageBox.Show("Vui lòng nhập năm đưa vào sử dụng!");
-                //}
-                //else
-                //{
-                //    MessageBox.Show("Gặp sự cố: " + ex.Message);
-                //}
-
-                MessageBox.Show("Gặp sự cố: " + ex.Message);
-
+                if (ex.ToString().Contains(txtUnitPrice.Text.Trim()))
+                {
+                    MessageBox.Show("Vui lòng nhập đúng đơn giá!");
+                }
+                else if (ex.ToString().Contains(txtPrice.Text.Trim()))
+                {
+                    MessageBox.Show("Vui lòng nhập đúng giá trị!");
+                }
+                else
+                {
+                    MessageBox.Show("Gặp sự cố: " + ex.Message);
+                }
             }
         }
 
@@ -143,19 +130,19 @@ namespace ValuationAsset
 
         private void txtQuantity_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
+            if ((!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar)))
                 e.Handled = true;
         }
 
         private void txtUnitPrice_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
+            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar) && (e.KeyChar.CompareTo('.') != 0))
                 e.Handled = true;
         }
 
         private void txtPrice_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
+            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar) && (e.KeyChar.CompareTo('.') != 0))
                 e.Handled = true;
         }
     }

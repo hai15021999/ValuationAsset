@@ -98,7 +98,25 @@ namespace ValuationAsset.Forms
                 }
             } catch (Exception ex)
             {
-                MessageBox.Show("Gặp sự cố: " + ex.Message);
+                if (ex.ToString().Contains(txtDienTich.Text))
+                {
+                    MessageBox.Show("Vui lòng nhập đúng diện tích!");
+                } else if (ex.ToString().Contains(txtDonGia.Text))
+                {
+                    MessageBox.Show("Vui lòng nhập đúng đơn giá!");
+                }
+                else if (ex.ToString().Contains(txtTongGiaCTXD.Text))
+                {
+                    MessageBox.Show("Vui lòng nhập đúng tổng giá CTXD!");
+                }
+                else if (ex.ToString().Contains(txtTongGiaTri.Text))
+                {
+                    MessageBox.Show("Vui lòng nhập đúng tổng giá trị!");
+                } else
+                {
+                   MessageBox.Show("Gặp sự cố: " + ex.Message);
+                }
+               
             }
         }
 
@@ -178,25 +196,25 @@ namespace ValuationAsset.Forms
 
         private void txtDienTich_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
+            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar) && (e.KeyChar.CompareTo('.') != 0))
                 e.Handled = true;
         }
 
         private void txtDonGia_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
+            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar) && (e.KeyChar.CompareTo('.') != 0))
                 e.Handled = true;
         }
 
         private void txtTongGiaCTXD_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
+            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar) && (e.KeyChar.CompareTo('.') != 0))
                 e.Handled = true;
         }
 
         private void txtTongGiaTri_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
+            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar) && (e.KeyChar.CompareTo('.') != 0))
                 e.Handled = true;
         }
     }
