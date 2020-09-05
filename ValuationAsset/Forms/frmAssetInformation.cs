@@ -32,7 +32,7 @@ namespace ValuationAsset.Forms
             }
             else
             {
-
+                BindDataFileList();
             }
         }
 
@@ -185,6 +185,18 @@ namespace ValuationAsset.Forms
             }
         }
 
+        private void BindDataFileList()
+        {
+            if (ContractId > 0)
+            {
+                string strQuery = string.Format("select * from tbContractFile where ContractId = {0}", ContractId);
+                var ret = da.execSqlQuery(strQuery);
+                var assets = ret.Tables[0];
+                dgvFile.AutoGenerateColumns = false;
+                dgvFile.DataSource = assets;
+            }
+        }
+
         private void dgvAssets_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             var type = dgvAssets.CurrentRow.Cells["Type"].Value.ToString();
@@ -241,6 +253,8 @@ namespace ValuationAsset.Forms
 
                             string strQuery = string.Format("insert into tbContractFile(ContractId, FileName, FileData) Values({0}, {1}, {2})", ContractId, fileName, data);
                             da.execSqlQuery(strQuery);
+
+                            BindDataFileList();
                         }
                         catch (SecurityException ex)
                         {
