@@ -4,6 +4,8 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
+using System.Security;
 using System.Text;
 using System.Windows.Forms;
 using ValuationAsset.Core;
@@ -211,6 +213,46 @@ namespace ValuationAsset.Forms
                     //bind data to dgvAssets
                     BindDataAssetList();
                 }
+            }
+        }
+
+        private void btnAttachFile_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (ContractId == 0)
+                {
+                    MessageBox.Show("Hồ sơ chưa được tạo.", "Thông báo", MessageBoxButtons.OK);
+                }
+                else
+                {
+                    if (openFileDialog1.ShowDialog() == DialogResult.OK)
+                    {
+                        try
+                        {
+                            var fileName = openFileDialog1.SafeFileName;
+                            var filePath = openFileDialog1.FileName;
+
+                            FileInfo fInfo = new FileInfo(filePath);
+                            long numBytes = fInfo.Length;
+                            FileStream fStream = new FileStream(filePath, FileMode.Open, FileAccess.Read);
+                            BinaryReader br = new BinaryReader(fStream);
+                            var data = br.ReadBytes((int)numBytes);
+
+                            string strQuery = string.Format("insert into tbContractFile(ContractId, FileName, FileData) Values({0}, {1}, {2})", ContractId, fileName, data);
+                            da.execSqlQuery(strQuery);
+                        }
+                        catch (SecurityException ex)
+                        {
+                            MessageBox.Show($"Security error.\n\nError message: {ex.Message}\n\n" +
+                            $"Details:\n\n{ex.StackTrace}");
+                        }
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK);
             }
         }
     }

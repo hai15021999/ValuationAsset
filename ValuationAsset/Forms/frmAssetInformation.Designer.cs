@@ -29,11 +29,13 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.FileId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FileName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dtpDateCCTT = new System.Windows.Forms.DateTimePicker();
             this.label14 = new System.Windows.Forms.Label();
             this.dtpDate = new System.Windows.Forms.DateTimePicker();
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnAttachFile = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
             this.btnThemBatDongSan = new System.Windows.Forms.Button();
             this.btnThemDongSan = new System.Windows.Forms.Button();
@@ -75,17 +77,19 @@
             this.label1 = new System.Windows.Forms.Label();
             this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAssets)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.dataGridView1);
             this.panel1.Controls.Add(this.dtpDateCCTT);
             this.panel1.Controls.Add(this.label14);
             this.panel1.Controls.Add(this.dtpDate);
-            this.panel1.Controls.Add(this.listView1);
-            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.btnAttachFile);
             this.panel1.Controls.Add(this.label13);
             this.panel1.Controls.Add(this.btnThemBatDongSan);
             this.panel1.Controls.Add(this.btnThemDongSan);
@@ -114,6 +118,37 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1148, 767);
             this.panel1.TabIndex = 0;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToResizeRows = false;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.FileId,
+            this.FileName});
+            this.dataGridView1.Location = new System.Drawing.Point(198, 598);
+            this.dataGridView1.MultiSelect = false;
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(521, 150);
+            this.dataGridView1.TabIndex = 8;
+            this.dataGridView1.Text = "dataGridView1";
+            // 
+            // FileId
+            // 
+            this.FileId.DataPropertyName = "ID";
+            this.FileId.HeaderText = "Mã";
+            this.FileId.Name = "FileId";
+            this.FileId.Visible = false;
+            // 
+            // FileName
+            // 
+            this.FileName.DataPropertyName = "FileName";
+            this.FileName.HeaderText = "Tên File";
+            this.FileName.Name = "FileName";
             // 
             // dtpDateCCTT
             // 
@@ -147,27 +182,17 @@
             this.dtpDate.Size = new System.Drawing.Size(114, 26);
             this.dtpDate.TabIndex = 6;
             // 
-            // listView1
+            // btnAttachFile
             // 
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(193, 598);
-            this.listView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(933, 159);
-            this.listView1.TabIndex = 5;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
-            // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button1.Location = new System.Drawing.Point(63, 598);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(112, 30);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Đính kèm file";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnAttachFile.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnAttachFile.Location = new System.Drawing.Point(63, 598);
+            this.btnAttachFile.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnAttachFile.Name = "btnAttachFile";
+            this.btnAttachFile.Size = new System.Drawing.Size(112, 30);
+            this.btnAttachFile.TabIndex = 4;
+            this.btnAttachFile.Text = "Đính kèm file";
+            this.btnAttachFile.UseVisualStyleBackColor = true;
+            this.btnAttachFile.Click += new System.EventHandler(this.btnAttachFile_Click);
             // 
             // label13
             // 
@@ -543,6 +568,10 @@
             this.columnHeader2.Text = "Title";
             this.columnHeader2.Width = 1000;
             // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
             // frmAssetInformation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -556,6 +585,7 @@
             this.Load += new System.EventHandler(this.frmAssetInformation_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAssets)).EndInit();
             this.ResumeLayout(false);
 
@@ -578,7 +608,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnThemDongSan;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox textBox10;
@@ -594,8 +623,7 @@
         private System.Windows.Forms.DataGridView dgvAssets;
         private System.Windows.Forms.TextBox txtNumber;
         private System.Windows.Forms.TextBox txtAssetTotalPrice;
-        private System.Windows.Forms.ListView listView1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnAttachFile;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.Button btnThemBatDongSan;
@@ -618,5 +646,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn StreetName;
         private System.Windows.Forms.DataGridViewTextBoxColumn WardName;
         private System.Windows.Forms.DateTimePicker dtpDateCCTT;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FileId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FileName;
     }
 }
