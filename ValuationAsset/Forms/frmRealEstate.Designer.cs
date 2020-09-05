@@ -337,6 +337,7 @@
             // 
             // cbDuong
             // 
+            this.cbDuong.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbDuong.FormattingEnabled = true;
             this.cbDuong.Location = new System.Drawing.Point(288, 399);
             this.cbDuong.Name = "cbDuong";
@@ -345,6 +346,7 @@
             // 
             // cbPhuong_Xa
             // 
+            this.cbPhuong_Xa.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbPhuong_Xa.FormattingEnabled = true;
             this.cbPhuong_Xa.Location = new System.Drawing.Point(288, 345);
             this.cbPhuong_Xa.Name = "cbPhuong_Xa";
@@ -353,19 +355,23 @@
             // 
             // cbQuan_Huyen
             // 
+            this.cbQuan_Huyen.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbQuan_Huyen.FormattingEnabled = true;
             this.cbQuan_Huyen.Location = new System.Drawing.Point(288, 295);
             this.cbQuan_Huyen.Name = "cbQuan_Huyen";
             this.cbQuan_Huyen.Size = new System.Drawing.Size(485, 28);
             this.cbQuan_Huyen.TabIndex = 2;
+            this.cbQuan_Huyen.SelectedIndexChanged += new System.EventHandler(this.cbQuan_Huyen_SelectedIndexChanged);
             // 
             // cbTinh_Thanh
             // 
+            this.cbTinh_Thanh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbTinh_Thanh.FormattingEnabled = true;
             this.cbTinh_Thanh.Location = new System.Drawing.Point(288, 244);
             this.cbTinh_Thanh.Name = "cbTinh_Thanh";
             this.cbTinh_Thanh.Size = new System.Drawing.Size(485, 28);
             this.cbTinh_Thanh.TabIndex = 2;
+            this.cbTinh_Thanh.SelectedIndexChanged += new System.EventHandler(this.cbTinh_Thanh_SelectedIndexChanged);
             // 
             // txtLoaiDat
             // 

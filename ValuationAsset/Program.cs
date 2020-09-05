@@ -18,7 +18,7 @@ namespace ValuationAsset
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmHome());
+            Application.Run(new frmRealEstate());
         }
     }
 }
