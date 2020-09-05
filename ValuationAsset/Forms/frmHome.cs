@@ -417,15 +417,15 @@ namespace ValuationAsset.Forms
             }
             else
             {
-                if (cbSearchValue.SelectedValue.Equals("Số hồ sơ"))
+                if (cbSearchValue.SelectedItem.Equals("Số hồ sơ"))
                 {
                     this.BindDataAssetList(1, txtSearch.Text, "FileNumber");
                 }
-                if (cbSearchValue.SelectedValue.Equals("Tên khách hàng"))
+                if (cbSearchValue.SelectedItem.Equals("Tên khách hàng"))
                 {
                     this.BindDataAssetList(1, txtSearch.Text, "CustomerName");
                 }
-                if (cbSearchValue.SelectedValue.Equals("Giá trị hợp đồng"))
+                if (cbSearchValue.SelectedItem.Equals("Giá trị hợp đồng"))
                 {
                     this.BindDataAssetList(1, txtSearch.Text, "ContractValue");
                 }

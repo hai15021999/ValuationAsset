@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label14 = new System.Windows.Forms.Label();
             this.dtpDate = new System.Windows.Forms.DateTimePicker();
             this.listView1 = new System.Windows.Forms.ListView();
             this.button1 = new System.Windows.Forms.Button();
@@ -53,13 +54,11 @@
             this.txtCustomerName = new System.Windows.Forms.TextBox();
             this.txtGiaTri_CCTT_HD = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.labTemplateNumber = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtSo = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
-            this.label14 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAssets)).BeginInit();
             this.SuspendLayout();
@@ -91,15 +90,24 @@
             this.panel1.Controls.Add(this.txtCustomerName);
             this.panel1.Controls.Add(this.txtGiaTri_CCTT_HD);
             this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.labTemplateNumber);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.txtSo);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(12, 2);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1148, 767);
             this.panel1.TabIndex = 0;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Times New Roman", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label14.Location = new System.Drawing.Point(405, 35);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(275, 32);
+            this.label14.TabIndex = 7;
+            this.label14.Text = "THÔNG TIN HỒ SƠ";
             // 
             // dtpDate
             // 
@@ -109,7 +117,7 @@
             this.dtpDate.Location = new System.Drawing.Point(239, 105);
             this.dtpDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtpDate.Name = "dtpDate";
-            this.dtpDate.Size = new System.Drawing.Size(143, 26);
+            this.dtpDate.Size = new System.Drawing.Size(114, 26);
             this.dtpDate.TabIndex = 6;
             // 
             // listView1
@@ -342,15 +350,14 @@
             this.label4.TabIndex = 0;
             this.label4.Text = "GIÁ TRỊ CCTT/HĐ";
             // 
-            // label3
+            // labTemplateNumber
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(485, 108);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(138, 19);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "/2020/GYC-EXIMA";
+            this.labTemplateNumber.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labTemplateNumber.Location = new System.Drawing.Point(440, 108);
+            this.labTemplateNumber.Name = "labTemplateNumber";
+            this.labTemplateNumber.Size = new System.Drawing.Size(183, 19);
+            this.labTemplateNumber.TabIndex = 0;
+            this.labTemplateNumber.Text = "/2020/GYC-EXIMA";
             // 
             // label2
             // 
@@ -362,20 +369,11 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "Số:";
             // 
-            // txtSo
-            // 
-            this.txtSo.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtSo.Location = new System.Drawing.Point(440, 105);
-            this.txtSo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtSo.Name = "txtSo";
-            this.txtSo.Size = new System.Drawing.Size(45, 26);
-            this.txtSo.TabIndex = 1;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(124, 103);
+            this.label1.Location = new System.Drawing.Point(124, 108);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(99, 19);
             this.label1.TabIndex = 0;
@@ -391,16 +389,6 @@
             this.columnHeader2.Text = "Title";
             this.columnHeader2.Width = 1000;
             // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Times New Roman", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label14.Location = new System.Drawing.Point(405, 35);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(275, 32);
-            this.label14.TabIndex = 7;
-            this.label14.Text = "THÔNG TIN HỒ SƠ";
-            // 
             // frmAssetInformation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -411,6 +399,7 @@
             this.Name = "frmAssetInformation";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Asset Manager";
+            this.Load += new System.EventHandler(this.frmAssetInformation_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAssets)).EndInit();
@@ -431,9 +420,8 @@
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label labTemplateNumber;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtSo;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnThemDongSan;
         private System.Windows.Forms.DataGridView dataGridView1;

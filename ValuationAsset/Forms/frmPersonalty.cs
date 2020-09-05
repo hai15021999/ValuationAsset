@@ -11,6 +11,8 @@ namespace ValuationAsset
 {
     public partial class frmPersonalty : Form
     {
+        public int ContractId { get; set; }
+
         public frmPersonalty()
         {
             InitializeComponent();
@@ -63,10 +65,9 @@ namespace ValuationAsset
 
                     da.execSqlQuery(queryStr);
 
-                    MessageBox.Show("Lưu hoàn tất.");
-
+                    this.DialogResult = DialogResult.OK;
                     this.Dispose();
-
+                    //MessageBox.Show("Lưu hoàn tất.");
                 }
             } 
             catch (Exception ex)
