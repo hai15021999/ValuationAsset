@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
@@ -59,10 +60,23 @@ namespace ValuationAsset
                     float unitPrice = float.Parse(txtUnitPrice.Text.Trim());
                     float value = float.Parse(txtPrice.Text.Trim());
 
-                    string queryStr = string.Format("Insert into tbAsset(Type, Name, Model, YearOfManufacture, YearOfUse, Number, UnitPrice, Value) " +
-                        "values(N'{0}', N'{1}', N'{2}', '{3}', '{4}', '{5}', '{6}', '{7}')", "Động Sản", name, model, yearOfManufacture, yearOfUsing, quantity, unitPrice, value);
+                    List<SqlParameter> para = new List<SqlParameter>()
+                    {
+                        new SqlParameter() { ParameterName = "@contractId", SqlDbType = SqlDbType.Int, Value = ContractId },
+                        new SqlParameter() { ParameterName = "@type", SqlDbType = SqlDbType.VarChar, Value = "Động Sản" },
+                        new SqlParameter() { ParameterName = "@name", SqlDbType = SqlDbType.VarChar, Value = name },
+                        new SqlParameter() { ParameterName = "@model", SqlDbType = SqlDbType.VarChar, Value = model },
+                        new SqlParameter() { ParameterName = "@yearOfManufacture", SqlDbType = SqlDbType.VarChar, Value = yearOfManufacture },
+                        new SqlParameter() { ParameterName = "@yearOfUse", SqlDbType = SqlDbType.VarChar, Value = yearOfUsing },
+                        new SqlParameter() { ParameterName = "@number", SqlDbType = SqlDbType.Int, Value = quantity },
+                        new SqlParameter() { ParameterName = "@unitPrice", SqlDbType = SqlDbType.Float, Value = unitPrice },
+                        new SqlParameter() { ParameterName = "@value", SqlDbType = SqlDbType.Float, Value = value }
+                    };
 
-                    da.execSqlQuery(queryStr);
+                    //string queryStr = string.Format("Insert into tbAsset(Type, Name, Model, YearOfManufacture, YearOfUse, Number, UnitPrice, Value) " +
+                    //    "values(N'{0}', N'{1}', N'{2}', '{3}', '{4}', '{5}', '{6}', '{7}')", "Động Sản", name, model, yearOfManufacture, yearOfUsing, quantity, unitPrice, value);
+
+                    da.execSqlReturn("sp_CreateAsset", para);
 
                     this.DialogResult = DialogResult.OK;
                     this.Dispose();
@@ -118,6 +132,24 @@ namespace ValuationAsset
                     txtPrice.Text = personalty.Rows[0]["Value"].ToString();
                 }
             }
+        }
+
+        private void txtQuantity_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
+                e.Handled = true;
+        }
+
+        private void txtUnitPrice_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
+                e.Handled = true;
+        }
+
+        private void txtPrice_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
+                e.Handled = true;
         }
     }
 }

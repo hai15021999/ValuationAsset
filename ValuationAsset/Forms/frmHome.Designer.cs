@@ -177,7 +177,7 @@
             this.panel2.Location = new System.Drawing.Point(18, 11);
             this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(635, 458);
+            this.panel2.Size = new System.Drawing.Size(582, 458);
             this.panel2.TabIndex = 2;
             // 
             // label14
@@ -196,7 +196,7 @@
             this.lbMessage.ForeColor = System.Drawing.Color.Red;
             this.lbMessage.Location = new System.Drawing.Point(0, 419);
             this.lbMessage.Name = "lbMessage";
-            this.lbMessage.Size = new System.Drawing.Size(635, 21);
+            this.lbMessage.Size = new System.Drawing.Size(582, 21);
             this.lbMessage.TabIndex = 8;
             this.lbMessage.Text = "label14";
             this.lbMessage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -342,13 +342,15 @@
             this.Role,
             this.RoleId,
             this.Delete});
-            this.dgvUser.Location = new System.Drawing.Point(677, 11);
+            this.dgvUser.GridColor = System.Drawing.Color.White;
+            this.dgvUser.Location = new System.Drawing.Point(606, 11);
             this.dgvUser.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvUser.MultiSelect = false;
             this.dgvUser.Name = "dgvUser";
+            this.dgvUser.ReadOnly = true;
             this.dgvUser.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
             this.dgvUser.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvUser.Size = new System.Drawing.Size(607, 458);
+            this.dgvUser.Size = new System.Drawing.Size(619, 458);
             this.dgvUser.TabIndex = 0;
             this.dgvUser.Text = "dataGridView1";
             this.dgvUser.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUser_CellClick);
@@ -359,6 +361,7 @@
             this.Id.DataPropertyName = "ID";
             this.Id.HeaderText = "Id";
             this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
             this.Id.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
             // UserName
@@ -366,6 +369,7 @@
             this.UserName.DataPropertyName = "UserName";
             this.UserName.HeaderText = "User Name";
             this.UserName.Name = "UserName";
+            this.UserName.ReadOnly = true;
             this.UserName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
             // Status
@@ -373,6 +377,7 @@
             this.Status.DataPropertyName = "Status";
             this.Status.HeaderText = "Status";
             this.Status.Name = "Status";
+            this.Status.ReadOnly = true;
             this.Status.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
             // Role
@@ -380,6 +385,7 @@
             this.Role.DataPropertyName = "Role";
             this.Role.HeaderText = "Role";
             this.Role.Name = "Role";
+            this.Role.ReadOnly = true;
             this.Role.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
             // RoleId
@@ -387,6 +393,7 @@
             this.RoleId.DataPropertyName = "RoleId";
             this.RoleId.HeaderText = "Role Id";
             this.RoleId.Name = "RoleId";
+            this.RoleId.ReadOnly = true;
             this.RoleId.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.RoleId.Visible = false;
             // 
@@ -395,6 +402,7 @@
             this.Delete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.Delete.HeaderText = "Xóa";
             this.Delete.Name = "Delete";
+            this.Delete.ReadOnly = true;
             this.Delete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Delete.Text = "Xóa";
             this.Delete.UseColumnTextForButtonValue = true;
@@ -450,6 +458,7 @@
             this.dgvStreet.Location = new System.Drawing.Point(6, 127);
             this.dgvStreet.MultiSelect = false;
             this.dgvStreet.Name = "dgvStreet";
+            this.dgvStreet.ReadOnly = true;
             this.dgvStreet.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvStreet.Size = new System.Drawing.Size(291, 330);
             this.dgvStreet.TabIndex = 3;
@@ -461,12 +470,14 @@
             this.StreetIdd.DataPropertyName = "ID";
             this.StreetIdd.HeaderText = "Mã";
             this.StreetIdd.Name = "StreetIdd";
+            this.StreetIdd.ReadOnly = true;
             // 
             // StreetNamee
             // 
             this.StreetNamee.DataPropertyName = "Name";
             this.StreetNamee.HeaderText = "Tên";
             this.StreetNamee.Name = "StreetNamee";
+            this.StreetNamee.ReadOnly = true;
             // 
             // btnUpdateStreet
             // 
@@ -531,6 +542,7 @@
             this.dgvWard.Location = new System.Drawing.Point(6, 127);
             this.dgvWard.MultiSelect = false;
             this.dgvWard.Name = "dgvWard";
+            this.dgvWard.ReadOnly = true;
             this.dgvWard.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvWard.Size = new System.Drawing.Size(291, 330);
             this.dgvWard.TabIndex = 3;
@@ -542,12 +554,14 @@
             this.WardId.DataPropertyName = "ID";
             this.WardId.HeaderText = "Mã";
             this.WardId.Name = "WardId";
+            this.WardId.ReadOnly = true;
             // 
             // WardName
             // 
             this.WardName.DataPropertyName = "Name";
             this.WardName.HeaderText = "Tên";
             this.WardName.Name = "WardName";
+            this.WardName.ReadOnly = true;
             // 
             // btnUpdateWard
             // 
@@ -612,6 +626,7 @@
             this.dgvDistrict.Location = new System.Drawing.Point(6, 127);
             this.dgvDistrict.MultiSelect = false;
             this.dgvDistrict.Name = "dgvDistrict";
+            this.dgvDistrict.ReadOnly = true;
             this.dgvDistrict.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDistrict.Size = new System.Drawing.Size(290, 330);
             this.dgvDistrict.TabIndex = 3;
@@ -623,12 +638,14 @@
             this.DistrictId.DataPropertyName = "ID";
             this.DistrictId.HeaderText = "Mã";
             this.DistrictId.Name = "DistrictId";
+            this.DistrictId.ReadOnly = true;
             // 
             // DistrictName
             // 
             this.DistrictName.DataPropertyName = "Name";
             this.DistrictName.HeaderText = "Tên";
             this.DistrictName.Name = "DistrictName";
+            this.DistrictName.ReadOnly = true;
             // 
             // btnUpdateDistrict
             // 
@@ -693,6 +710,7 @@
             this.dgvProvincial.Location = new System.Drawing.Point(6, 127);
             this.dgvProvincial.MultiSelect = false;
             this.dgvProvincial.Name = "dgvProvincial";
+            this.dgvProvincial.ReadOnly = true;
             this.dgvProvincial.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvProvincial.Size = new System.Drawing.Size(290, 330);
             this.dgvProvincial.TabIndex = 3;
@@ -704,6 +722,7 @@
             this.ProvincialId.DataPropertyName = "ID";
             this.ProvincialId.HeaderText = "Mã";
             this.ProvincialId.Name = "ProvincialId";
+            this.ProvincialId.ReadOnly = true;
             this.ProvincialId.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
             // ProvincialName
@@ -711,6 +730,7 @@
             this.ProvincialName.DataPropertyName = "Name";
             this.ProvincialName.HeaderText = "Tên";
             this.ProvincialName.Name = "ProvincialName";
+            this.ProvincialName.ReadOnly = true;
             this.ProvincialName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
             // btnUpdateProvincial
@@ -773,7 +793,7 @@
             this.cbSearchValue.FormattingEnabled = true;
             this.cbSearchValue.Items.AddRange(new object[] {
             "Chọn thông tin cần tìm",
-            "Số hồ sơ",
+            "Số hợp đồng",
             "Tên khách hàng",
             "Giá trị hợp đồng"});
             this.cbSearchValue.Location = new System.Drawing.Point(174, 25);
@@ -837,38 +857,50 @@
             this.dgvContracts.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvContracts.MultiSelect = false;
             this.dgvContracts.Name = "dgvContracts";
+            this.dgvContracts.ReadOnly = true;
             this.dgvContracts.RowHeadersWidth = 51;
             this.dgvContracts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvContracts.Size = new System.Drawing.Size(1232, 353);
             this.dgvContracts.TabIndex = 2;
             this.dgvContracts.Text = "dataGridView1";
+            this.dgvContracts.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvContracts_CellDoubleClick);
             // 
             // ContractId
             // 
+            this.ContractId.DataPropertyName = "ContractId";
             this.ContractId.HeaderText = "Mã hợp đồng";
             this.ContractId.Name = "ContractId";
+            this.ContractId.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.ContractId.Visible = false;
             // 
             // CustomerId
             // 
+            this.CustomerId.DataPropertyName = "CustomerId";
             this.CustomerId.HeaderText = "Mã khách hàng";
             this.CustomerId.Name = "CustomerId";
+            this.CustomerId.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.CustomerId.Visible = false;
             // 
             // CustomerName
             // 
+            this.CustomerName.DataPropertyName = "CustomerName";
             this.CustomerName.HeaderText = "Tên khách hàng";
             this.CustomerName.Name = "CustomerName";
+            this.CustomerName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
             // NumberFull
             // 
+            this.NumberFull.DataPropertyName = "NumberFull";
             this.NumberFull.HeaderText = "Số hợp đồng";
             this.NumberFull.Name = "NumberFull";
+            this.NumberFull.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
             // ContractValue
             // 
+            this.ContractValue.DataPropertyName = "ContractValue";
             this.ContractValue.HeaderText = "Giá trị hợp đồng";
             this.ContractValue.Name = "ContractValue";
+            this.ContractValue.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
             // label12
             // 
@@ -1092,12 +1124,6 @@
         private System.Windows.Forms.Button btnUpdateUser;
         private System.Windows.Forms.Label lbMessage;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn UserName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Status;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Role;
-        private System.Windows.Forms.DataGridViewTextBoxColumn RoleId;
-        private System.Windows.Forms.DataGridViewButtonColumn Delete;
         private System.Windows.Forms.Panel pnlPager;
         private System.Windows.Forms.ComboBox cbSearchValue;
         private System.Windows.Forms.GroupBox groupBox4;
@@ -1137,5 +1163,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn CustomerName;
         private System.Windows.Forms.DataGridViewTextBoxColumn NumberFull;
         private System.Windows.Forms.DataGridViewTextBoxColumn ContractValue;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn UserName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Status;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Role;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RoleId;
+        private System.Windows.Forms.DataGridViewButtonColumn Delete;
     }
 }

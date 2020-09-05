@@ -36,11 +36,15 @@ namespace ValuationAsset.Core
                 new SqlParameter() { ParameterName = "@password", SqlDbType = SqlDbType.VarChar, Value = hashedPwd }
             };
             string queryExc = "sp_Login";
-            var login = da.execSqlReturn(queryExc, para).Tables[0].Rows[0][0].ToString();
-            if (login == "0")
+            var ret = da.execSqlReturn(queryExc, para);
+            var success = ret.Tables[0].Rows[0][0].ToString();
+            if (success == "0")
                 return "Invalid UserName or Password.";
 
-            AuthSession.Set(AuthSession.key_UserName, userName);
+            var info = ret.Tables[1];
+            AuthSession.Set(AuthSession.key_UserId, info.Rows[0][0].ToString());
+            AuthSession.Set(AuthSession.key_UserName, info.Rows[0][1].ToString());
+            AuthSession.Set(AuthSession.key_Role, info.Rows[0][3].ToString());
 
             return "true";
         }

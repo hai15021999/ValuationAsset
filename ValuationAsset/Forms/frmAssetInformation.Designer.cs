@@ -113,10 +113,11 @@
             this.panel1.Controls.Add(this.labTemplateNumber);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
+            this.panel1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.panel1.Location = new System.Drawing.Point(12, 2);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1148, 767);
+            this.panel1.Size = new System.Drawing.Size(1148, 730);
             this.panel1.TabIndex = 0;
             // 
             // dgvFile
@@ -129,9 +130,10 @@
             this.dgvFile.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.FileId,
             this.FileName});
-            this.dgvFile.Location = new System.Drawing.Point(198, 598);
+            this.dgvFile.Location = new System.Drawing.Point(193, 554);
             this.dgvFile.MultiSelect = false;
             this.dgvFile.Name = "dgvFile";
+            this.dgvFile.ReadOnly = true;
             this.dgvFile.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvFile.Size = new System.Drawing.Size(521, 150);
             this.dgvFile.TabIndex = 8;
@@ -142,6 +144,7 @@
             this.FileId.DataPropertyName = "ID";
             this.FileId.HeaderText = "Mã";
             this.FileId.Name = "FileId";
+            this.FileId.ReadOnly = true;
             this.FileId.Visible = false;
             // 
             // FileName
@@ -149,13 +152,14 @@
             this.FileName.DataPropertyName = "FileName";
             this.FileName.HeaderText = "Tên File";
             this.FileName.Name = "FileName";
+            this.FileName.ReadOnly = true;
             // 
             // dtpDateCCTT
             // 
             this.dtpDateCCTT.CustomFormat = "dd/MM/yyyy";
             this.dtpDateCCTT.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.dtpDateCCTT.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpDateCCTT.Location = new System.Drawing.Point(198, 551);
+            this.dtpDateCCTT.Location = new System.Drawing.Point(686, 269);
             this.dtpDateCCTT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtpDateCCTT.Name = "dtpDateCCTT";
             this.dtpDateCCTT.Size = new System.Drawing.Size(136, 26);
@@ -180,16 +184,16 @@
             this.dtpDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtpDate.Name = "dtpDate";
             this.dtpDate.Size = new System.Drawing.Size(114, 26);
-            this.dtpDate.TabIndex = 6;
+            this.dtpDate.TabIndex = 0;
             // 
             // btnAttachFile
             // 
             this.btnAttachFile.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnAttachFile.Location = new System.Drawing.Point(63, 598);
+            this.btnAttachFile.Location = new System.Drawing.Point(63, 554);
             this.btnAttachFile.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAttachFile.Name = "btnAttachFile";
             this.btnAttachFile.Size = new System.Drawing.Size(112, 30);
-            this.btnAttachFile.TabIndex = 4;
+            this.btnAttachFile.TabIndex = 9;
             this.btnAttachFile.Text = "Đính kèm file";
             this.btnAttachFile.UseVisualStyleBackColor = true;
             this.btnAttachFile.Click += new System.EventHandler(this.btnAttachFile_Click);
@@ -198,7 +202,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label13.Location = new System.Drawing.Point(941, 554);
+            this.label13.Location = new System.Drawing.Point(1077, 601);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(43, 19);
             this.label13.TabIndex = 0;
@@ -211,7 +215,7 @@
             this.btnThemBatDongSan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnThemBatDongSan.Name = "btnThemBatDongSan";
             this.btnThemBatDongSan.Size = new System.Drawing.Size(130, 30);
-            this.btnThemBatDongSan.TabIndex = 4;
+            this.btnThemBatDongSan.TabIndex = 8;
             this.btnThemBatDongSan.Text = "Thêm Bất động sản";
             this.btnThemBatDongSan.UseVisualStyleBackColor = true;
             this.btnThemBatDongSan.Click += new System.EventHandler(this.btnThemBatDongSan_Click);
@@ -223,7 +227,7 @@
             this.btnThemDongSan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnThemDongSan.Name = "btnThemDongSan";
             this.btnThemDongSan.Size = new System.Drawing.Size(130, 30);
-            this.btnThemDongSan.TabIndex = 4;
+            this.btnThemDongSan.TabIndex = 7;
             this.btnThemDongSan.Text = "Thêm Động sản";
             this.btnThemDongSan.UseVisualStyleBackColor = true;
             this.btnThemDongSan.Click += new System.EventHandler(this.btnThemDongSan_Click);
@@ -232,7 +236,7 @@
             // 
             this.txtAssetTotalPrice.Enabled = false;
             this.txtAssetTotalPrice.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtAssetTotalPrice.Location = new System.Drawing.Point(717, 551);
+            this.txtAssetTotalPrice.Location = new System.Drawing.Point(853, 598);
             this.txtAssetTotalPrice.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtAssetTotalPrice.Name = "txtAssetTotalPrice";
             this.txtAssetTotalPrice.Size = new System.Drawing.Size(218, 26);
@@ -266,6 +270,7 @@
             this.dgvAssets.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvAssets.MultiSelect = false;
             this.dgvAssets.Name = "dgvAssets";
+            this.dgvAssets.ReadOnly = true;
             this.dgvAssets.RowHeadersWidth = 51;
             this.dgvAssets.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvAssets.Size = new System.Drawing.Size(1046, 179);
@@ -278,117 +283,133 @@
             this.ID.DataPropertyName = "ID";
             this.ID.HeaderText = "Mã tài sản";
             this.ID.Name = "ID";
-            this.ID.Width = 86;
+            this.ID.ReadOnly = true;
+            this.ID.Width = 97;
             // 
             // Type
             // 
             this.Type.DataPropertyName = "Type";
             this.Type.HeaderText = "Loại tài sản";
             this.Type.Name = "Type";
-            this.Type.Width = 91;
+            this.Type.ReadOnly = true;
+            this.Type.Width = 103;
             // 
             // AssetName
             // 
             this.AssetName.DataPropertyName = "AssetName";
             this.AssetName.HeaderText = "Tên tài sản";
             this.AssetName.Name = "AssetName";
-            this.AssetName.Width = 87;
+            this.AssetName.ReadOnly = true;
+            this.AssetName.Width = 99;
             // 
             // Model
             // 
             this.Model.DataPropertyName = "Model";
             this.Model.HeaderText = "Model";
             this.Model.Name = "Model";
-            this.Model.Width = 66;
+            this.Model.ReadOnly = true;
+            this.Model.Width = 74;
             // 
             // YearOfManufacture
             // 
             this.YearOfManufacture.DataPropertyName = "YearOfManufacture";
             this.YearOfManufacture.HeaderText = "Năm sản xuất";
             this.YearOfManufacture.Name = "YearOfManufacture";
-            this.YearOfManufacture.Width = 105;
+            this.YearOfManufacture.ReadOnly = true;
+            this.YearOfManufacture.Width = 117;
             // 
             // YearOfUse
             // 
             this.YearOfUse.DataPropertyName = "YearOfUse";
             this.YearOfUse.HeaderText = "Năm sử dụng";
             this.YearOfUse.Name = "YearOfUse";
-            this.YearOfUse.Width = 104;
+            this.YearOfUse.ReadOnly = true;
+            this.YearOfUse.Width = 116;
             // 
             // Number
             // 
             this.Number.DataPropertyName = "Number";
             this.Number.HeaderText = "Số lượng";
             this.Number.Name = "Number";
-            this.Number.Width = 79;
+            this.Number.ReadOnly = true;
+            this.Number.Width = 89;
             // 
             // UnitPrice
             // 
             this.UnitPrice.DataPropertyName = "UnitPrice";
             this.UnitPrice.HeaderText = "Đơn giá";
             this.UnitPrice.Name = "UnitPrice";
-            this.UnitPrice.Width = 73;
+            this.UnitPrice.ReadOnly = true;
+            this.UnitPrice.Width = 81;
             // 
             // Value
             // 
             this.Value.DataPropertyName = "Value";
             this.Value.HeaderText = "Giá trị tài sản";
             this.Value.Name = "Value";
+            this.Value.ReadOnly = true;
+            this.Value.Width = 113;
             // 
             // ParcelOfLand
             // 
             this.ParcelOfLand.DataPropertyName = "ParcelOfLand";
             this.ParcelOfLand.HeaderText = "Thửa đất";
             this.ParcelOfLand.Name = "ParcelOfLand";
-            this.ParcelOfLand.Width = 78;
+            this.ParcelOfLand.ReadOnly = true;
+            this.ParcelOfLand.Width = 89;
             // 
             // Map
             // 
             this.Map.DataPropertyName = "Map";
             this.Map.HeaderText = "Tờ bản đồ";
             this.Map.Name = "Map";
-            this.Map.Width = 85;
+            this.Map.ReadOnly = true;
+            this.Map.Width = 97;
             // 
             // Acreage
             // 
             this.Acreage.DataPropertyName = "Acreage";
             this.Acreage.HeaderText = "Diện tích";
             this.Acreage.Name = "Acreage";
-            this.Acreage.Width = 79;
+            this.Acreage.ReadOnly = true;
+            this.Acreage.Width = 87;
             // 
             // SoilType
             // 
             this.SoilType.DataPropertyName = "SoilType";
             this.SoilType.HeaderText = "Loại đất";
             this.SoilType.Name = "SoilType";
-            this.SoilType.Width = 74;
+            this.SoilType.ReadOnly = true;
+            this.SoilType.Width = 84;
             // 
             // ValueCTXD
             // 
             this.ValueCTXD.DataPropertyName = "ValueCTXD";
             this.ValueCTXD.HeaderText = "Giá trị CTXD";
             this.ValueCTXD.Name = "ValueCTXD";
-            this.ValueCTXD.Width = 95;
+            this.ValueCTXD.ReadOnly = true;
+            this.ValueCTXD.Width = 117;
             // 
             // StreetName
             // 
             this.StreetName.DataPropertyName = "StreetName";
             this.StreetName.HeaderText = "Tên đường";
             this.StreetName.Name = "StreetName";
-            this.StreetName.Width = 88;
+            this.StreetName.ReadOnly = true;
             // 
             // WardName
             // 
             this.WardName.DataPropertyName = "WardName";
             this.WardName.HeaderText = "Phường/Xã";
             this.WardName.Name = "WardName";
-            this.WardName.Width = 92;
+            this.WardName.ReadOnly = true;
+            this.WardName.Width = 103;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label10.Location = new System.Drawing.Point(104, 554);
+            this.label10.Location = new System.Drawing.Point(592, 272);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(88, 19);
             this.label10.TabIndex = 0;
@@ -408,7 +429,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label12.Location = new System.Drawing.Point(589, 554);
+            this.label12.Location = new System.Drawing.Point(725, 601);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(122, 19);
             this.label12.TabIndex = 0;
@@ -438,7 +459,7 @@
             // 
             this.txtNumber.Enabled = false;
             this.txtNumber.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtNumber.Location = new System.Drawing.Point(440, 551);
+            this.txtNumber.Location = new System.Drawing.Point(853, 553);
             this.txtNumber.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtNumber.Name = "txtNumber";
             this.txtNumber.Size = new System.Drawing.Size(45, 26);
@@ -458,7 +479,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label11.Location = new System.Drawing.Point(367, 554);
+            this.label11.Location = new System.Drawing.Point(771, 556);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(67, 19);
             this.label11.TabIndex = 0;
@@ -480,8 +501,8 @@
             this.txtCustomerPhoneNo.Location = new System.Drawing.Point(238, 269);
             this.txtCustomerPhoneNo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtCustomerPhoneNo.Name = "txtCustomerPhoneNo";
-            this.txtCustomerPhoneNo.Size = new System.Drawing.Size(728, 26);
-            this.txtCustomerPhoneNo.TabIndex = 1;
+            this.txtCustomerPhoneNo.Size = new System.Drawing.Size(278, 26);
+            this.txtCustomerPhoneNo.TabIndex = 5;
             // 
             // txtMST_CCCD
             // 
@@ -490,7 +511,7 @@
             this.txtMST_CCCD.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtMST_CCCD.Name = "txtMST_CCCD";
             this.txtMST_CCCD.Size = new System.Drawing.Size(728, 26);
-            this.txtMST_CCCD.TabIndex = 1;
+            this.txtMST_CCCD.TabIndex = 4;
             // 
             // txtCustomerAddress
             // 
@@ -499,7 +520,7 @@
             this.txtCustomerAddress.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtCustomerAddress.Name = "txtCustomerAddress";
             this.txtCustomerAddress.Size = new System.Drawing.Size(728, 26);
-            this.txtCustomerAddress.TabIndex = 1;
+            this.txtCustomerAddress.TabIndex = 3;
             // 
             // txtCustomerName
             // 
@@ -508,7 +529,7 @@
             this.txtCustomerName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtCustomerName.Name = "txtCustomerName";
             this.txtCustomerName.Size = new System.Drawing.Size(728, 26);
-            this.txtCustomerName.TabIndex = 1;
+            this.txtCustomerName.TabIndex = 2;
             // 
             // txtGiaTri_CCTT_HD
             // 
@@ -518,6 +539,7 @@
             this.txtGiaTri_CCTT_HD.Name = "txtGiaTri_CCTT_HD";
             this.txtGiaTri_CCTT_HD.Size = new System.Drawing.Size(165, 26);
             this.txtGiaTri_CCTT_HD.TabIndex = 1;
+            this.txtGiaTri_CCTT_HD.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtGiaTri_CCTT_HD_KeyPress);
             // 
             // label4
             // 
@@ -576,7 +598,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1160, 770);
+            this.ClientSize = new System.Drawing.Size(1161, 770);
             this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frmAssetInformation";

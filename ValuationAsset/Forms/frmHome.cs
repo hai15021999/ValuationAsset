@@ -21,7 +21,7 @@ namespace ValuationAsset.Forms
         }
 
         DataAccess da = new DataAccess();
-        int PageSize = 5;
+        int PageSize = 10;
 
         //initButton để thiết lập hiển thị của những button nên hiện và nên ẩn khi vừa load form
         private void init()
@@ -104,28 +104,19 @@ namespace ValuationAsset.Forms
 
         private void BindDataContractList(int pageIndex, string textSearch, string typeSearch)
         {
-            string constring = ConfigurationManager.ConnectionStrings["Entities"].ConnectionString;
-            using (SqlConnection con = new SqlConnection(constring))
+            List<SqlParameter> para = new List<SqlParameter>()
             {
-                using (SqlCommand cmd = new SqlCommand("sp_GetContractAsset", con))
-                {
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@PageIndex", pageIndex);
-                    cmd.Parameters.AddWithValue("@PageSize", PageSize);
-                    cmd.Parameters.AddWithValue("@textSearch", textSearch);
-                    cmd.Parameters.AddWithValue("@typeSearch", typeSearch);
-                    cmd.Parameters.Add("@RecordCount", SqlDbType.Int, 4);
-                    cmd.Parameters["@RecordCount"].Direction = ParameterDirection.Output;
-                    con.Open();
-                    DataTable dt = new DataTable();
-                    dt.Load(cmd.ExecuteReader());
-                    dgvContracts.AutoGenerateColumns = false;
-                    dgvContracts.DataSource = dt;
-                    con.Close();
-                    int recordCount = Convert.ToInt32(cmd.Parameters["@RecordCount"].Value);
-                    this.PopulatePager(recordCount, pageIndex);
-                }
-            }
+                new SqlParameter() { ParameterName = "@PageIndex", SqlDbType = SqlDbType.Int, Value = pageIndex },
+                new SqlParameter() { ParameterName = "@PageSize", SqlDbType = SqlDbType.Int, Value = PageSize },
+                new SqlParameter() { ParameterName = "@textSearch", SqlDbType = SqlDbType.VarChar, Value = textSearch },
+                new SqlParameter() { ParameterName = "@typeSearch", SqlDbType = SqlDbType.VarChar, Value = typeSearch }
+            };
+            var ret = da.execSqlReturn("sp_GetContractAsset", para);
+            dgvContracts.AutoGenerateColumns = false;
+            dgvContracts.DataSource = ret.Tables[0];
+
+            int recordCount = Convert.ToInt32(ret.Tables[1].Rows[0][0].ToString());
+            this.PopulatePager(recordCount, pageIndex);
         }
 
         private void PopulatePager(int recordCount, int currentPage)
@@ -231,7 +222,7 @@ namespace ValuationAsset.Forms
                 }
                 else
                 {
-                    if (cbSearchValue.SelectedValue.Equals("Số hồ sơ"))
+                    if (cbSearchValue.SelectedValue.Equals("Số hợp đồng"))
                     {
                         this.BindDataContractList(int.Parse(btnPager.Name), txtSearch.Text, "FileNumber");
                     }
@@ -285,7 +276,7 @@ namespace ValuationAsset.Forms
         {
             try
             {
-                string userName = txtUserName.Text.Trim();
+                string userName = txtUserName.Text.Trim().ToLower();
                 string password = txtPassword.Text.Trim();
                 string confirmPassword = txtConfirm.Text.Trim();
                 if (password.Equals(""))
@@ -340,31 +331,52 @@ namespace ValuationAsset.Forms
             try
             {
                 string idStr = dgvUser.CurrentRow.Cells["ID"].Value.ToString();
-                string userName = txtUserName.Text.Trim();
-                string password = txtPassword.Text.Trim();
-                string confirmPassword = txtConfirm.Text.Trim();
-                int roleId = int.Parse(cbPermission.SelectedValue.ToString());
-                int active = chkDeactive.Checked ? 1 : 0;
+                string userName = dgvUser.CurrentRow.Cells["UserName"].Value.ToString();
+                if(userName.ToLower().Equals("admin"))
+                {
+                    if(!txtUserName.Text.Trim().ToLower().Equals("admin"))
+                    {
+                        lbMessage.Visible = true;
+                        lbMessage.Text = "Tài khoản admin không thể đổi tên tài khoản.";
+                        lbMessage.ForeColor = Color.Red;
+                    }
+                    else
+                    {
+                        int roleId = int.Parse(cbPermission.SelectedValue.ToString());
+                        int active = chkDeactive.Checked ? 1 : 0;
 
-                if (string.IsNullOrWhiteSpace(idStr) || string.IsNullOrWhiteSpace(userName) || string.IsNullOrWhiteSpace(password) || string.IsNullOrWhiteSpace(confirmPassword))
-                {
-                    lbMessage.Visible = true;
-                    lbMessage.Text = "User Name, Password is not empty.";
-                    lbMessage.ForeColor = Color.Red;
-                }
-                else if (!password.Equals(confirmPassword))
-                {
-                    //Show error when input confirm password not similar with password
-                    lbMessage.Visible = true;
-                    lbMessage.Text = "Confirm password is incorrect.";
-                    lbMessage.ForeColor = Color.Red;
-                }
-                else
-                {
-                    int id = !string.IsNullOrWhiteSpace(idStr) ? int.Parse(idStr) : 0;
-                    AuthSuport.Register(id, userName, password, roleId, active, 0);
-                    MessageBox.Show("Update success", "Message");
-                    BindDataUserList();
+                        if (string.IsNullOrWhiteSpace(idStr) || string.IsNullOrWhiteSpace(txtUserName.Text.Trim())
+                            || string.IsNullOrWhiteSpace(txtPassword.Text.Trim()) || string.IsNullOrWhiteSpace(txtConfirm.Text.Trim()))
+                        {
+                            lbMessage.Visible = true;
+                            lbMessage.Text = "User Name, Password is not empty.";
+                            lbMessage.ForeColor = Color.Red;
+                        }
+                        else if (!txtPassword.Text.Trim().Equals(txtConfirm.Text.Trim()))
+                        {
+                            //Show error when input confirm password not similar with password
+                            lbMessage.Visible = true;
+                            lbMessage.Text = "Confirm password is incorrect.";
+                            lbMessage.ForeColor = Color.Red;
+                        }
+                        else
+                        {
+                            var checkUser = AuthSuport.CheckUserExisted(txtUserName.Text.Trim());
+                            if (checkUser.Equals("true"))
+                            {
+                                int id = !string.IsNullOrWhiteSpace(idStr) ? int.Parse(idStr) : 0;
+                                AuthSuport.Register(id, txtUserName.Text.Trim().ToLower(), txtPassword.Text.Trim(), roleId, active, 0);
+                                MessageBox.Show("Update success", "Message");
+                                BindDataUserList();
+                            }
+                            else
+                            {
+                                lbMessage.Visible = true;
+                                lbMessage.Text = checkUser;
+                                lbMessage.ForeColor = Color.Red;
+                            }
+                        }
+                    }    
                 }
             }
             catch(Exception ex)
@@ -395,15 +407,13 @@ namespace ValuationAsset.Forms
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace(txtSearch.Text))
+            if (cbSearchValue.SelectedItem.Equals("Chọn thông tin cần tìm"))
             {
-                lbMessage.Visible = true;
-                lbMessage.Text = "Search text must not be empty!";
-                lbMessage.ForeColor = Color.Red;
+                this.BindDataContractList(1, txtSearch.Text, "");
             }
             else
             {
-                if (cbSearchValue.SelectedItem.Equals("Số hồ sơ"))
+                if (cbSearchValue.SelectedItem.Equals("Số hợp đồng"))
                 {
                     this.BindDataContractList(1, txtSearch.Text, "FileNumber");
                 }
@@ -487,6 +497,14 @@ namespace ValuationAsset.Forms
         private void btnUpdateStreet_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void dgvContracts_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            frmAssetInformation addAsset = new frmAssetInformation();
+            addAsset.ContractId = int.Parse(dgvContracts.CurrentRow.Cells["ContractId"].Value.ToString());
+            addAsset.contractNumberFull = dgvContracts.CurrentRow.Cells["NumberFull"].Value.ToString();
+            DialogResult dr = addAsset.ShowDialog();
         }
     }
 

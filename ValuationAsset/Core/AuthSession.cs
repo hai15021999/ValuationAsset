@@ -27,5 +27,6 @@ namespace ValuationAsset.Core
 
         public static string key_UserId = "UserId";
         public static string key_UserName = "UserName";
+        public static string key_Role = "Role";
     }
 }

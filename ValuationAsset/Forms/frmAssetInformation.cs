@@ -15,7 +15,7 @@ namespace ValuationAsset.Forms
     public partial class frmAssetInformation : Form
     {
         DataAccess da = new DataAccess();
-        public static int ContractId = 0;
+        public int? ContractId { get; set; }
         public string contractNumberFull { get; set; }
 
         public frmAssetInformation()
@@ -50,7 +50,7 @@ namespace ValuationAsset.Forms
             {
                 bool isCreate = false;
 
-                if (ContractId > 0)
+                if (ContractId.HasValue)
                 {
                     isCreate = true;
                 }
@@ -83,7 +83,7 @@ namespace ValuationAsset.Forms
                         var contractIdStr = da.execSqlReturn("sp_CreateCustomerAndContract", paraCreateCustomerAndContract).Tables[0].Rows[0][0].ToString();
                         ContractId = int.Parse(contractIdStr);
 
-                        if (ContractId > 0) isCreate = true;
+                        if (ContractId.HasValue) isCreate = true;
                     }
                 }
 
@@ -111,7 +111,7 @@ namespace ValuationAsset.Forms
             {
                 bool isCreate = false;
 
-                if (ContractId > 0)
+                if (ContractId.HasValue)
                 {
                     isCreate = true;
                 }
@@ -144,7 +144,7 @@ namespace ValuationAsset.Forms
                         var contractIdStr = da.execSqlReturn("sp_CreateCustomerAndContract", paraCreateCustomerAndContract).Tables[0].Rows[0][0].ToString();
                         ContractId = int.Parse(contractIdStr);
 
-                        if (ContractId > 0) isCreate = true;
+                        if (ContractId.HasValue) isCreate = true;
                     }
                 }
 
@@ -168,7 +168,7 @@ namespace ValuationAsset.Forms
 
         private void BindDataAssetList()
         {
-            if(ContractId > 0)
+            if(ContractId.HasValue)
             {
                 List<SqlParameter> para = new List<SqlParameter>()
                 {
@@ -187,7 +187,7 @@ namespace ValuationAsset.Forms
 
         private void BindDataFileList()
         {
-            if (ContractId > 0)
+            if (ContractId.HasValue)
             {
                 string strQuery = string.Format("select * from tbContractFile where ContractId = {0}", ContractId);
                 var ret = da.execSqlQuery(strQuery);
@@ -232,7 +232,7 @@ namespace ValuationAsset.Forms
         {
             try
             {
-                if (ContractId == 0)
+                if (!ContractId.HasValue)
                 {
                     MessageBox.Show("Hồ sơ chưa được tạo.", "Thông báo", MessageBoxButtons.OK);
                 }
@@ -268,6 +268,12 @@ namespace ValuationAsset.Forms
             {
                 MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK);
             }
+        }
+
+        private void txtGiaTri_CCTT_HD_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
+                e.Handled = true;
         }
     }
 }
