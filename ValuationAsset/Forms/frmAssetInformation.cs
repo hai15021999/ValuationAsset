@@ -57,26 +57,26 @@ namespace ValuationAsset.Forms
                     if (MessageBox.Show("Thông tin sẽ được lưu lại. Bạn có tiếp tục?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
                         List<SqlParameter> paraGetNumber = new List<SqlParameter>()
-                    {
-                        new SqlParameter() { ParameterName = "@year", SqlDbType = SqlDbType.Int, Value = DateTime.Now.Year },
-                        new SqlParameter() { ParameterName = "@type", SqlDbType = SqlDbType.VarChar, Value = "Contract" }
-                    };
+                        {
+                            new SqlParameter() { ParameterName = "@year", SqlDbType = SqlDbType.Int, Value = DateTime.Now.Year },
+                            new SqlParameter() { ParameterName = "@type", SqlDbType = SqlDbType.VarChar, Value = "Contract" }
+                        };
                         var number = da.execSqlReturn("sp_GetNumber", paraGetNumber).Tables[0].Rows[0][0].ToString();
 
                         var numberSetting = GetNumberSetting();
                         labTemplateNumber.Text = numberSetting.Replace("[Number]/[Year]", number + "/" + DateTime.Now.Year + "/");
 
                         List<SqlParameter> paraCreateCustomerAndContract = new List<SqlParameter>()
-                    {
-                        new SqlParameter() { ParameterName = "@requestDate", SqlDbType = SqlDbType.DateTime, Value = dtpDate.Value },
-                        new SqlParameter() { ParameterName = "@contractValue", SqlDbType = SqlDbType.Float, Value = double.Parse(txtGiaTri_CCTT_HD.Text) },
-                        new SqlParameter() { ParameterName = "@customerName", SqlDbType = SqlDbType.VarChar, Value = txtCustomerName.Text.Trim() },
-                        new SqlParameter() { ParameterName = "@address", SqlDbType = SqlDbType.VarChar, Value = txtCustomerAddress.Text.Trim() },
-                        new SqlParameter() { ParameterName = "@mst", SqlDbType = SqlDbType.VarChar, Value = txtMST_CCCD.Text.Trim() },
-                        new SqlParameter() { ParameterName = "@phone", SqlDbType = SqlDbType.VarChar, Value = txtCustomerPhoneNo.Text.Trim() },
-                        new SqlParameter() { ParameterName = "@number", SqlDbType = SqlDbType.Int, Value = int.Parse(number) },
-                        new SqlParameter() { ParameterName = "@year", SqlDbType = SqlDbType.Int, Value = DateTime.Now.Year }
-                    };
+                        {
+                            new SqlParameter() { ParameterName = "@requestDate", SqlDbType = SqlDbType.DateTime, Value = dtpDate.Value },
+                            new SqlParameter() { ParameterName = "@contractValue", SqlDbType = SqlDbType.Float, Value = double.Parse(txtGiaTri_CCTT_HD.Text) },
+                            new SqlParameter() { ParameterName = "@customerName", SqlDbType = SqlDbType.VarChar, Value = txtCustomerName.Text.Trim() },
+                            new SqlParameter() { ParameterName = "@address", SqlDbType = SqlDbType.VarChar, Value = txtCustomerAddress.Text.Trim() },
+                            new SqlParameter() { ParameterName = "@mst", SqlDbType = SqlDbType.VarChar, Value = txtMST_CCCD.Text.Trim() },
+                            new SqlParameter() { ParameterName = "@phone", SqlDbType = SqlDbType.VarChar, Value = txtCustomerPhoneNo.Text.Trim() },
+                            new SqlParameter() { ParameterName = "@number", SqlDbType = SqlDbType.Int, Value = int.Parse(number) },
+                            new SqlParameter() { ParameterName = "@year", SqlDbType = SqlDbType.Int, Value = DateTime.Now.Year }
+                        };
                         var contractIdStr = da.execSqlReturn("sp_CreateCustomerAndContract", paraCreateCustomerAndContract).Tables[0].Rows[0][0].ToString();
                         ContractId = int.Parse(contractIdStr);
 
@@ -92,6 +92,7 @@ namespace ValuationAsset.Forms
                     if (dr == DialogResult.OK)
                     {
                         //bind data to dgvAssets
+                        BindDataAssetList();
                     }
                 }
             }
@@ -151,12 +152,27 @@ namespace ValuationAsset.Forms
                     if (dr == DialogResult.OK)
                     {
                         //bind data to dgvAssets
+                        BindDataAssetList();
                     }
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK);
+            }
+        }
+
+        private void BindDataAssetList()
+        {
+            if(ContractId > 0)
+            {
+                List<SqlParameter> para = new List<SqlParameter>()
+                {
+                    new SqlParameter() { ParameterName = "@contractId", SqlDbType = SqlDbType.Int, Value = ContractId }
+                };
+                var assets = da.execSqlReturn("sp_GetAssetByContract", para).Tables[0];
+                dgvAssets.AutoGenerateColumns = false;
+                dgvAssets.DataSource = assets;
             }
         }
     }

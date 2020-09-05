@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.dgvAssets = new System.Windows.Forms.DataGridView();
             this.label14 = new System.Windows.Forms.Label();
             this.dtpDate = new System.Windows.Forms.DateTimePicker();
             this.listView1 = new System.Windows.Forms.ListView();
@@ -37,7 +38,6 @@
             this.btnThemBatDongSan = new System.Windows.Forms.Button();
             this.btnThemDongSan = new System.Windows.Forms.Button();
             this.txtAssetTotalPrice = new System.Windows.Forms.TextBox();
-            this.dgvAssets = new System.Windows.Forms.DataGridView();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
@@ -59,12 +59,62 @@
             this.label1 = new System.Windows.Forms.Label();
             this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
-            this.panel1.SuspendLayout();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AssetName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Model = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.YearOfManufacture = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.YearOfUse = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Number = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UnitPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Value = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ParcelOfLand = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Map = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Acreage = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SoilType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ValueCTXD = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StreetName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.WardName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAssets)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            // 
+            // dgvAssets
+            // 
+            this.dgvAssets.AllowUserToAddRows = false;
+            this.dgvAssets.AllowUserToDeleteRows = false;
+            this.dgvAssets.AllowUserToResizeRows = false;
+            this.dgvAssets.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            this.dgvAssets.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvAssets.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ID,
+            this.Type,
+            this.AssetName,
+            this.Model,
+            this.YearOfManufacture,
+            this.YearOfUse,
+            this.Number,
+            this.UnitPrice,
+            this.Value,
+            this.ParcelOfLand,
+            this.Map,
+            this.Acreage,
+            this.SoilType,
+            this.ValueCTXD,
+            this.StreetName,
+            this.WardName});
+            this.dgvAssets.Location = new System.Drawing.Point(47, 356);
+            this.dgvAssets.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgvAssets.MultiSelect = false;
+            this.dgvAssets.Name = "dgvAssets";
+            this.dgvAssets.RowHeadersWidth = 51;
+            this.dgvAssets.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvAssets.Size = new System.Drawing.Size(1046, 179);
+            this.dgvAssets.TabIndex = 2;
+            this.dgvAssets.Text = "dataGridView1";
             this.panel1.Controls.Add(this.label14);
             this.panel1.Controls.Add(this.dtpDate);
             this.panel1.Controls.Add(this.listView1);
@@ -184,17 +234,6 @@
             this.txtAssetTotalPrice.Name = "txtAssetTotalPrice";
             this.txtAssetTotalPrice.Size = new System.Drawing.Size(218, 26);
             this.txtAssetTotalPrice.TabIndex = 1;
-            // 
-            // dgvAssets
-            // 
-            this.dgvAssets.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvAssets.Location = new System.Drawing.Point(47, 356);
-            this.dgvAssets.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dgvAssets.Name = "dgvAssets";
-            this.dgvAssets.RowHeadersWidth = 51;
-            this.dgvAssets.Size = new System.Drawing.Size(1046, 179);
-            this.dgvAssets.TabIndex = 2;
-            this.dgvAssets.Text = "dataGridView1";
             // 
             // label10
             // 
@@ -389,6 +428,118 @@
             this.columnHeader2.Text = "Title";
             this.columnHeader2.Width = 1000;
             // 
+            // ID
+            // 
+            this.ID.DataPropertyName = "ID";
+            this.ID.HeaderText = "Mã tài sản";
+            this.ID.Name = "ID";
+            this.ID.Width = 63;
+            // 
+            // Type
+            // 
+            this.Type.DataPropertyName = "Type";
+            this.Type.HeaderText = "Loại tài sản";
+            this.Type.Name = "Type";
+            this.Type.Width = 61;
+            // 
+            // AssetName
+            // 
+            this.AssetName.DataPropertyName = "AssetName";
+            this.AssetName.HeaderText = "Tên tài sản";
+            this.AssetName.Name = "AssetName";
+            this.AssetName.Width = 50;
+            // 
+            // Model
+            // 
+            this.Model.DataPropertyName = "Model";
+            this.Model.HeaderText = "Model";
+            this.Model.Name = "Model";
+            this.Model.Width = 66;
+            // 
+            // YearOfManufacture
+            // 
+            this.YearOfManufacture.DataPropertyName = "YearOfManufacture";
+            this.YearOfManufacture.HeaderText = "Năm sản xuất";
+            this.YearOfManufacture.Name = "YearOfManufacture";
+            this.YearOfManufacture.Width = 70;
+            // 
+            // YearOfUse
+            // 
+            this.YearOfUse.DataPropertyName = "YearOfUse";
+            this.YearOfUse.HeaderText = "Năm sử dụng";
+            this.YearOfUse.Name = "YearOfUse";
+            this.YearOfUse.Width = 70;
+            // 
+            // Number
+            // 
+            this.Number.DataPropertyName = "Number";
+            this.Number.HeaderText = "Số lượng";
+            this.Number.Name = "Number";
+            this.Number.Width = 73;
+            // 
+            // UnitPrice
+            // 
+            this.UnitPrice.DataPropertyName = "UnitPrice";
+            this.UnitPrice.HeaderText = "Đơn giá";
+            this.UnitPrice.Name = "UnitPrice";
+            this.UnitPrice.Width = 68;
+            // 
+            // Value
+            // 
+            this.Value.DataPropertyName = "Value";
+            this.Value.HeaderText = "Giá trị tài sản";
+            this.Value.Name = "Value";
+            this.Value.Width = 61;
+            // 
+            // ParcelOfLand
+            // 
+            this.ParcelOfLand.DataPropertyName = "ParcelOfLand";
+            this.ParcelOfLand.HeaderText = "Thửa đất";
+            this.ParcelOfLand.Name = "ParcelOfLand";
+            this.ParcelOfLand.Width = 72;
+            // 
+            // Map
+            // 
+            this.Map.DataPropertyName = "Map";
+            this.Map.HeaderText = "Tờ bản đồ";
+            this.Map.Name = "Map";
+            this.Map.Width = 52;
+            // 
+            // Acreage
+            // 
+            this.Acreage.DataPropertyName = "Acreage";
+            this.Acreage.HeaderText = "Diện tích";
+            this.Acreage.Name = "Acreage";
+            this.Acreage.Width = 73;
+            // 
+            // SoilType
+            // 
+            this.SoilType.DataPropertyName = "SoilType";
+            this.SoilType.HeaderText = "Loại đất";
+            this.SoilType.Name = "SoilType";
+            this.SoilType.Width = 69;
+            // 
+            // ValueCTXD
+            // 
+            this.ValueCTXD.DataPropertyName = "ValueCTXD";
+            this.ValueCTXD.HeaderText = "Giá trị CTXD";
+            this.ValueCTXD.Name = "ValueCTXD";
+            this.ValueCTXD.Width = 61;
+            // 
+            // StreetName
+            // 
+            this.StreetName.DataPropertyName = "StreetName";
+            this.StreetName.HeaderText = "Tên đường";
+            this.StreetName.Name = "StreetName";
+            this.StreetName.Width = 81;
+            // 
+            // WardName
+            // 
+            this.WardName.DataPropertyName = "WardName";
+            this.WardName.HeaderText = "Phường/Xã";
+            this.WardName.Name = "WardName";
+            this.WardName.Width = 92;
+            // 
             // frmAssetInformation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -400,9 +551,9 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Asset Manager";
             this.Load += new System.EventHandler(this.frmAssetInformation_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAssets)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvAssets)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -448,5 +599,21 @@
         private System.Windows.Forms.Button btnThemBatDongSan;
         private System.Windows.Forms.DateTimePicker dtpDate;
         private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Type;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AssetName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Model;
+        private System.Windows.Forms.DataGridViewTextBoxColumn YearOfManufacture;
+        private System.Windows.Forms.DataGridViewTextBoxColumn YearOfUse;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Number;
+        private System.Windows.Forms.DataGridViewTextBoxColumn UnitPrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Value;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ParcelOfLand;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Map;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Acreage;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SoilType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ValueCTXD;
+        private System.Windows.Forms.DataGridViewTextBoxColumn StreetName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn WardName;
     }
 }
