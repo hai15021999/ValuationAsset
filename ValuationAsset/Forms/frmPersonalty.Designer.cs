@@ -244,6 +244,7 @@
             this.Controls.Add(this.label1);
             this.Name = "frmPersonalty";
             this.Text = "frmPersonalty";
+            this.Load += new System.EventHandler(this.frmPersonalty_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);

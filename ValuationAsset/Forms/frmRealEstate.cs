@@ -14,11 +14,38 @@ namespace ValuationAsset.Forms
         public int? ContractId { get; set; }
         public int? AssetId { get; set; }
 
-
+        DataAccess da = new DataAccess();
         public frmRealEstate()
         {
             InitializeComponent();
-            loadProvinceComboBox();
+        }
+
+        private void frmRealEstate_Load(object sender, EventArgs e)
+        {
+            if (!AssetId.HasValue)
+            {
+                BindDataProvincialList();
+            }
+            else
+            {
+                string queryStr = string.Format("SELECT ParcelOfLand, Map, Acreage, SoilType, StreetId, ValueCTXD, Created, WardId, UnitPrice, Value FROM tbAsset WHERE Type = N'Bất Động Sản' and Id = '{0}'", AssetId);
+                var realEstate = da.execSqlQuery(queryStr).Tables[0];
+                if (realEstate.Rows.Count > 0)
+                {
+                    string locationQuery = string.Format("SELECT ProvinceId, DistrictId FROM tbStreet WHERE ID = {0}", realEstate.Rows[0]["StreetId"].ToString());
+                    var location = da.execSqlQuery(locationQuery).Tables[0];
+                    txtThuaDat.Text = realEstate.Rows[0]["ParcelOfLand"].ToString();
+                    txtToBD.Text = realEstate.Rows[0]["Map"].ToString();
+                    txtDienTich.Text = realEstate.Rows[0]["Acreage"].ToString();
+                    cbTinh_Thanh.SelectedValue = location.Rows[0]["ProvinceId"].ToString();
+                    cbQuan_Huyen.SelectedValue = location.Rows[0]["DistrictId"].ToString();
+                    cbPhuong_Xa.SelectedValue = realEstate.Rows[0]["WardId"].ToString();
+                    cbDuong.SelectedValue = realEstate.Rows[0]["StreetId"].ToString();
+                    txtDonGia.Text = realEstate.Rows[0]["UnitPrice"].ToString();
+                    txtTongGiaCTXD.Text = realEstate.Rows[0]["ValueCTXD"].ToString();
+                    txtTongGiaTri.Text = realEstate.Rows[0]["Value"].ToString();
+                }
+            }
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -34,81 +61,82 @@ namespace ValuationAsset.Forms
             this.Dispose();
         }
 
-        private void loadProvinceComboBox()
-        {
-            cbTinh_Thanh.Items.Clear();
-            cbQuan_Huyen.Items.Clear();
-            cbPhuong_Xa.Items.Clear();
-            cbDuong.Items.Clear();
-
-            DataAccess da = new DataAccess();
-
-            string queryStr = "SELECT ID, Name FROM tbProvince";
-
-            var provinces = da.execSqlQuery(queryStr).Tables[0];
-
-            foreach(DataRow dr in provinces.Rows)
-            {
-                cbTinh_Thanh.Items.Add(dr["Name"].ToString());
-            }
-
-        }
-
         private void cbTinh_Thanh_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string province = cbTinh_Thanh.SelectedItem.ToString();
-            cbQuan_Huyen.Items.Clear();
-
-            string queryStr = string.Format("Select d.Prefix, d.Name from tbDistrict as d, tbProvince as p Where d.ProvinceId = p.ID and p.Name = N'{0}'", province);
-
-            DataAccess da = new DataAccess();
-
-            var districts = da.execSqlQuery(queryStr).Tables[0];
-
-            foreach (DataRow dr in districts.Rows)
+            try
             {
-                cbQuan_Huyen.Items.Add(dr["prefix"].ToString() + " " + dr["Name"].ToString());
+                var value = cbTinh_Thanh.SelectedValue;
+                int provinceId = int.Parse(value.ToString());
+                BindDataDistrictList(provinceId);
             }
-
+            catch { }
         }
 
         private void cbQuan_Huyen_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string province = cbTinh_Thanh.SelectedItem.ToString();
-            string district = cbQuan_Huyen.SelectedItem.ToString();
-            var arr = district.Split(" ");
-
-            string value = "";
-            for (int i = 0; i < arr.Length; i++)
+            try
             {
-                if (i > 0)
-                {
-                    if (i > 1)
-                    {
-                        value += " ";
-                    }
-                    value += arr[i];
-                }
+                int districtId = int.Parse(cbQuan_Huyen.SelectedValue.ToString());
+                BindDataWardList(districtId);
+                BindDataStreetList(districtId);
             }
+            catch { }
+        }
 
-            cbPhuong_Xa.Items.Clear();
+        private void cbPhuong_Xa_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
-            string queryStr = string.Format("Select w.Name, w.Prefix from tbWard as w, tbDistrict as d Where w.DistrictId = d.ID and d.Name = N'{0}'", value);
-            string queryStr2 = string.Format("Select * FROM tbStreet as s, tbWard as w, tbDistrict as d, tbProvince as p " +
-                "Where s.DistrictId = d.ID and s.ProvinceId = p.ID and p.Name = N'{0}' and d.Name = N'{1}'", province, value);
-            DataAccess da = new DataAccess();
+        }
 
-            var wards = da.execSqlQuery(queryStr).Tables[0];
-
-            foreach (DataRow dr in wards.Rows)
+        private void BindDataProvincialList()
+        {
+            string strQuery = "select * from tbProvince";
+            var provinces = da.execSqlQuery(strQuery).Tables[0];
+            if (provinces.Rows.Count > 0)
             {
-                cbPhuong_Xa.Items.Add(dr["prefix"].ToString() + " " + dr["Name"].ToString());
+                cbTinh_Thanh.DataSource = provinces;
+                cbTinh_Thanh.ValueMember = provinces.Columns[0].ToString();
+                cbTinh_Thanh.DisplayMember = provinces.Columns[1].ToString();
+                cbTinh_Thanh.SelectedItem = 0;
             }
+        }
 
-            var street = da.execSqlQuery(queryStr2).Tables[0];
-            foreach (DataRow dr in street.Rows)
+        private void BindDataDistrictList(int provincialId)
+        {
+            string strQuery = string.Format("SELECT * FROM tbDistrict WHERE ProvinceId = {0}", provincialId);
+            var districts = da.execSqlQuery(strQuery).Tables[0];
+            if (districts.Rows.Count > 0)
             {
-                cbDuong.Items.Add(dr["Prefix"].ToString() + " " + dr["Name"].ToString());
+                cbQuan_Huyen.DataSource = districts;
+                cbQuan_Huyen.ValueMember = districts.Columns[0].ToString();
+                cbQuan_Huyen.DisplayMember = districts.Columns[1].ToString();
+                cbQuan_Huyen.SelectedItem = 0;
+            }
+        }
+
+        private void BindDataWardList(int districtId)
+        {
+            string strQuery = string.Format("SELECT * FROM tbWard WHERE DistrictId = {0}", districtId);
+            var wards = da.execSqlQuery(strQuery).Tables[0];
+            if (wards.Rows.Count > 0)
+            {
+                cbPhuong_Xa.DataSource = wards;
+                cbPhuong_Xa.ValueMember = wards.Columns[0].ToString();
+                cbPhuong_Xa.DisplayMember = wards.Columns[1].ToString();
+                cbPhuong_Xa.SelectedItem = 0;
+            }
+        }
+
+        private void BindDataStreetList(int districtId)
+        {
+            string strQuery = string.Format("SELECT * FROM tbStreet WHERE DistrictId = {0}", districtId);
+            var streets = da.execSqlQuery(strQuery).Tables[0];
+            if (streets.Rows.Count > 0)
+            {
+                cbDuong.DataSource = streets;
+                cbDuong.ValueMember = streets.Columns[0].ToString();
+                cbDuong.DisplayMember = streets.Columns[1].ToString();
+                cbDuong.SelectedItem = 0;
             }
         }
     }
