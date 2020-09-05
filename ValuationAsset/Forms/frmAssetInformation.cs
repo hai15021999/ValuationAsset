@@ -75,7 +75,8 @@ namespace ValuationAsset.Forms
                             new SqlParameter() { ParameterName = "@mst", SqlDbType = SqlDbType.VarChar, Value = txtMST_CCCD.Text.Trim() },
                             new SqlParameter() { ParameterName = "@phone", SqlDbType = SqlDbType.VarChar, Value = txtCustomerPhoneNo.Text.Trim() },
                             new SqlParameter() { ParameterName = "@number", SqlDbType = SqlDbType.Int, Value = int.Parse(number) },
-                            new SqlParameter() { ParameterName = "@year", SqlDbType = SqlDbType.Int, Value = DateTime.Now.Year }
+                            new SqlParameter() { ParameterName = "@year", SqlDbType = SqlDbType.Int, Value = DateTime.Now.Year },
+                            new SqlParameter() { ParameterName = "@dateOfProvision", SqlDbType = SqlDbType.DateTime, Value = dtpDateCCTT.Value }
                         };
                         var contractIdStr = da.execSqlReturn("sp_CreateCustomerAndContract", paraCreateCustomerAndContract).Tables[0].Rows[0][0].ToString();
                         ContractId = int.Parse(contractIdStr);
@@ -135,7 +136,8 @@ namespace ValuationAsset.Forms
                             new SqlParameter() { ParameterName = "@mst", SqlDbType = SqlDbType.VarChar, Value = txtMST_CCCD.Text.Trim() },
                             new SqlParameter() { ParameterName = "@phone", SqlDbType = SqlDbType.VarChar, Value = txtCustomerPhoneNo.Text.Trim() },
                             new SqlParameter() { ParameterName = "@number", SqlDbType = SqlDbType.Int, Value = int.Parse(number) },
-                            new SqlParameter() { ParameterName = "@year", SqlDbType = SqlDbType.Int, Value = DateTime.Now.Year }
+                            new SqlParameter() { ParameterName = "@year", SqlDbType = SqlDbType.Int, Value = DateTime.Now.Year },
+                            new SqlParameter() { ParameterName = "@dateOfProvision", SqlDbType = SqlDbType.DateTime, Value = dtpDateCCTT.Value }
                         };
                         var contractIdStr = da.execSqlReturn("sp_CreateCustomerAndContract", paraCreateCustomerAndContract).Tables[0].Rows[0][0].ToString();
                         ContractId = int.Parse(contractIdStr);
@@ -170,9 +172,12 @@ namespace ValuationAsset.Forms
                 {
                     new SqlParameter() { ParameterName = "@contractId", SqlDbType = SqlDbType.Int, Value = ContractId }
                 };
-                var assets = da.execSqlReturn("sp_GetAssetByContract", para).Tables[0];
+                var ret = da.execSqlReturn("sp_GetAssetByContract", para);
+                var assets = ret.Tables[0];
                 dgvAssets.AutoGenerateColumns = false;
                 dgvAssets.DataSource = assets;
+
+                txtAssetTotalPrice.Text = ret.Tables[1].Rows[0][0].ToString();
             }
         }
     }
