@@ -71,14 +71,6 @@ namespace ValuationAsset.Forms
             }
         }
 
-        private void btnEdit_Click(object sender, EventArgs e)
-        {
-            //btnAddUser.Visible = false;
-            //btnEdit.Visible = false;
-            //btnSave.Visible = true;
-            //btnCancel.Visible = true;
-        }
-
         #region Function
 
         private void GetDataCombobox(ComboBox cmb, string strQuery)
@@ -282,14 +274,14 @@ namespace ValuationAsset.Forms
                 if (password.Equals(""))
                 {
                     lbMessage.Visible = true;
-                    lbMessage.Text = "Password must not be empty!";
+                    lbMessage.Text = "Mật khẩu không được trống";
                     lbMessage.ForeColor = Color.Red;
                 }
                 else if (!password.Equals(confirmPassword))
                 {
                     //Show error when input confirm password not similar with password
                     lbMessage.Visible = true;
-                    lbMessage.Text = "Confirm password is incorrect.";
+                    lbMessage.Text = "Mật khẩu xác nhận không đúng";
                     lbMessage.ForeColor = Color.Red;
                 }
                 else
@@ -300,7 +292,7 @@ namespace ValuationAsset.Forms
                         int roleId = int.Parse(cbPermission.SelectedValue.ToString());
                         int active = chkDeactive.Checked ? 1 : 0;
                         AuthSuport.Register(-1, userName, password, roleId, active, 1);
-                        MessageBox.Show("Sign Up success", "Message");
+                        MessageBox.Show("Tạo tài khoản thành công", "Thông báo");
                         BindDataUserList();
                     }
                     else
@@ -330,60 +322,65 @@ namespace ValuationAsset.Forms
         {
             try
             {
-                string idStr = dgvUser.CurrentRow.Cells["ID"].Value.ToString();
-                string userName = dgvUser.CurrentRow.Cells["UserName"].Value.ToString();
-                if(userName.ToLower().Equals("admin"))
+                if (MessageBox.Show("Bạn có chắc muốn thay đổi tài khoản này?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    if(!txtUserName.Text.Trim().ToLower().Equals("admin"))
+                    string idStr = dgvUser.CurrentRow.Cells["ID"].Value.ToString();
+                    string userName = dgvUser.CurrentRow.Cells["UserName"].Value.ToString();
+                    if (userName.ToLower().Equals("admin"))
                     {
-                        lbMessage.Visible = true;
-                        lbMessage.Text = "Tài khoản admin không thể đổi tên tài khoản.";
-                        lbMessage.ForeColor = Color.Red;
-                    }
-                    else
-                    {
-                        int roleId = int.Parse(cbPermission.SelectedValue.ToString());
-                        int active = chkDeactive.Checked ? 1 : 0;
-
-                        if (string.IsNullOrWhiteSpace(idStr) || string.IsNullOrWhiteSpace(txtUserName.Text.Trim())
-                            || string.IsNullOrWhiteSpace(txtPassword.Text.Trim()) || string.IsNullOrWhiteSpace(txtConfirm.Text.Trim()))
+                        if (!txtUserName.Text.Trim().ToLower().Equals("admin"))
                         {
                             lbMessage.Visible = true;
-                            lbMessage.Text = "User Name, Password is not empty.";
-                            lbMessage.ForeColor = Color.Red;
-                        }
-                        else if (!txtPassword.Text.Trim().Equals(txtConfirm.Text.Trim()))
-                        {
-                            //Show error when input confirm password not similar with password
-                            lbMessage.Visible = true;
-                            lbMessage.Text = "Confirm password is incorrect.";
+                            lbMessage.Text = "Tài khoản admin không thể đổi tên tài khoản.";
                             lbMessage.ForeColor = Color.Red;
                         }
                         else
                         {
-                            var checkUser = AuthSuport.CheckUserExisted(txtUserName.Text.Trim());
-                            if (checkUser.Equals("true"))
+                            int roleId = int.Parse(cbPermission.SelectedValue.ToString());
+                            int active = chkDeactive.Checked ? 1 : 0;
+
+                            if (string.IsNullOrWhiteSpace(idStr) || string.IsNullOrWhiteSpace(txtUserName.Text.Trim()))
                             {
-                                int id = !string.IsNullOrWhiteSpace(idStr) ? int.Parse(idStr) : 0;
-                                AuthSuport.Register(id, txtUserName.Text.Trim().ToLower(), txtPassword.Text.Trim(), roleId, active, 0);
-                                MessageBox.Show("Update success", "Message");
-                                BindDataUserList();
+                                lbMessage.Visible = true;
+                                lbMessage.Text = "Tài khoản không tồn tại";
+                                lbMessage.ForeColor = Color.Red;
+                            }
+                            else if ((!string.IsNullOrWhiteSpace(txtPassword.Text.Trim()) || !string.IsNullOrWhiteSpace(txtConfirm.Text.Trim()))
+                                && !txtPassword.Text.Trim().Equals(txtConfirm.Text.Trim()))
+                            {
+
+                            }
+                            else if (!txtPassword.Text.Trim().Equals(txtConfirm.Text.Trim()))
+                            {
+                                //Show error when input confirm password not similar with password
+                                lbMessage.Visible = true;
+                                lbMessage.Text = "Mật khẩu không đúng";
+                                lbMessage.ForeColor = Color.Red;
                             }
                             else
                             {
-                                lbMessage.Visible = true;
-                                lbMessage.Text = checkUser;
-                                lbMessage.ForeColor = Color.Red;
+                                var checkUser = AuthSuport.CheckUserExisted(txtUserName.Text.Trim());
+                                if (checkUser.Equals("true"))
+                                {
+                                    int id = !string.IsNullOrWhiteSpace(idStr) ? int.Parse(idStr) : 0;
+                                    AuthSuport.Register(id, txtUserName.Text.Trim().ToLower(), txtPassword.Text.Trim(), roleId, active, 0);
+                                    MessageBox.Show("Lưu thành công", "Thông báo");
+                                    BindDataUserList();
+                                }
+                                else
+                                {
+                                    lbMessage.Visible = true;
+                                    lbMessage.Text = checkUser;
+                                    lbMessage.ForeColor = Color.Red;
+                                }
                             }
                         }
-                    }    
-                }
+                    }
+                }    
             }
             catch(Exception ex)
             {
-                lbMessage.Visible = true;
-                lbMessage.Text = ex.Message;
-                lbMessage.ForeColor = Color.Red;
+                MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK);
             }
         }
 
@@ -392,7 +389,7 @@ namespace ValuationAsset.Forms
             //Check deleted rows
             if (dgvUser.Columns[e.ColumnIndex].Name == "Delete")
             {
-                if (MessageBox.Show("Are you sure want to delete this record ?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show("Bạn có chắc muốn xóa tài khoản này?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     var idStr = dgvUser.CurrentRow.Cells["ID"].Value.ToString();
                     int id = !string.IsNullOrWhiteSpace(idStr) ? int.Parse(idStr) : 0;

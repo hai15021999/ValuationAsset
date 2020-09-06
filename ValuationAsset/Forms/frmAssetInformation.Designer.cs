@@ -138,6 +138,7 @@
             this.dgvFile.Size = new System.Drawing.Size(521, 150);
             this.dgvFile.TabIndex = 8;
             this.dgvFile.Text = "dataGridView1";
+            this.dgvFile.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFile_CellDoubleClick);
             // 
             // FileId
             // 
