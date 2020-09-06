@@ -106,21 +106,17 @@ namespace ValuationAsset
 
         private void frmPersonalty_Load(object sender, EventArgs e)
         {
-            
-            if (!AssetId.HasValue)
+            initCombobox();
+            if (AssetId.HasValue)
             {
-                initCombobox();
-            }
-            else
-            {
-                string queryStr = string.Format("SELECT Name, Model, YearOfManufacture, YearOfUse,Number,UnitPrice,Value FROM tbAsset WHERE Type = N'Động Sản' and Id = '{0}'", AssetId);
+                string queryStr = string.Format(@"SELECT Name, Model, YearOfManufacture, YearOfUse, Number, UnitPrice, Value FROM tbAsset WHERE Type = N'Động Sản' and Id = '{0}'", AssetId);
                 var personalty = da.execSqlQuery(queryStr).Tables[0];
                 if (personalty.Rows.Count > 0)
                 {
                     txtNameOfAsset.Text = personalty.Rows[0]["Name"].ToString();
                     txtAssetModel.Text = personalty.Rows[0]["Model"].ToString();
-                    txtYearOfManufacture.SelectedItem = personalty.Rows[0]["YearOfManufacture"].ToString();
-                    txtYearOfUsing.SelectedItem = personalty.Rows[0]["YearOfUse"].ToString();
+                    txtYearOfManufacture.Text = personalty.Rows[0]["YearOfManufacture"].ToString();
+                    txtYearOfUsing.Text = personalty.Rows[0]["YearOfUse"].ToString();
                     txtQuantity.Text = personalty.Rows[0]["Number"].ToString();
                     txtUnitPrice.Text = personalty.Rows[0]["UnitPrice"].ToString();
                     txtPrice.Text = personalty.Rows[0]["Value"].ToString();
