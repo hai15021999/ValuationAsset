@@ -21,35 +21,6 @@ namespace ValuationAsset.Forms
             InitializeComponent();
         }
 
-        private void frmRealEstate_Load(object sender, EventArgs e)
-        {
-            if (!AssetId.HasValue)
-            {
-                BindDataProvincialList();
-            }
-            else
-            {
-                string queryStr = string.Format("SELECT ParcelOfLand, Map, Acreage, SoilType, StreetId, ValueCTXD, Created, WardId, UnitPrice, Value FROM tbAsset WHERE Type = N'Bất Động Sản' and Id = '{0}'", AssetId);
-                var realEstate = da.execSqlQuery(queryStr).Tables[0];
-                if (realEstate.Rows.Count > 0)
-                {
-                    string locationQuery = string.Format("SELECT ProvinceId, DistrictId FROM tbStreet WHERE ID = {0}", realEstate.Rows[0]["StreetId"].ToString());
-                    var location = da.execSqlQuery(locationQuery).Tables[0];
-                    txtThuaDat.Text = realEstate.Rows[0]["ParcelOfLand"].ToString();
-                    txtToBD.Text = realEstate.Rows[0]["Map"].ToString();
-                    txtDienTich.Text = realEstate.Rows[0]["Acreage"].ToString();
-                    txtLoaiDat.Text = realEstate.Rows[0]["SoilType"].ToString();
-                    cbTinh_Thanh.SelectedValue = location.Rows[0]["ProvinceId"].ToString();
-                    cbQuan_Huyen.SelectedValue = location.Rows[0]["DistrictId"].ToString();
-                    cbPhuong_Xa.SelectedValue = realEstate.Rows[0]["WardId"].ToString();
-                    cbDuong.SelectedValue = realEstate.Rows[0]["StreetId"].ToString();
-                    txtDonGia.Text = realEstate.Rows[0]["UnitPrice"].ToString();
-                    txtTongGiaCTXD.Text = realEstate.Rows[0]["ValueCTXD"].ToString();
-                    txtTongGiaTri.Text = realEstate.Rows[0]["Value"].ToString();
-                }
-            }
-        }
-
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Dispose();
@@ -80,11 +51,11 @@ namespace ValuationAsset.Forms
                     List<SqlParameter> para = new List<SqlParameter>()
                     {
                         new SqlParameter() { ParameterName = "@contractId", SqlDbType = SqlDbType.Int, Value = ContractId },
-                        new SqlParameter() { ParameterName = "@type", SqlDbType = SqlDbType.VarChar, Value = "Bất Động Sản" },
-                        new SqlParameter() { ParameterName = "@parcelOfLand", SqlDbType = SqlDbType.VarChar, Value = ParcelOfLand },
-                        new SqlParameter() { ParameterName = "@map", SqlDbType = SqlDbType.VarChar, Value = Map },
+                        new SqlParameter() { ParameterName = "@type", SqlDbType = SqlDbType.NVarChar, Value = "Bất Động Sản" },
+                        new SqlParameter() { ParameterName = "@parcelOfLand", SqlDbType = SqlDbType.NVarChar, Value = ParcelOfLand },
+                        new SqlParameter() { ParameterName = "@map", SqlDbType = SqlDbType.NVarChar, Value = Map },
                         new SqlParameter() { ParameterName = "@acreage", SqlDbType = SqlDbType.Float, Value = Acreage },
-                        new SqlParameter() { ParameterName = "@soilType", SqlDbType = SqlDbType.VarChar, Value = SoilType },
+                        new SqlParameter() { ParameterName = "@soilType", SqlDbType = SqlDbType.NVarChar, Value = SoilType },
                         new SqlParameter() { ParameterName = "@streetId", SqlDbType = SqlDbType.Int, Value = StreetId },
                         new SqlParameter() { ParameterName = "@valueCTXD", SqlDbType = SqlDbType.Float, Value = ValueCTXD },
                         new SqlParameter() { ParameterName = "@wardId", SqlDbType = SqlDbType.Int, Value = WardId },
@@ -216,6 +187,35 @@ namespace ValuationAsset.Forms
         {
             if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar) && (e.KeyChar.CompareTo('.') != 0))
                 e.Handled = true;
+        }
+
+        private void frmRealEstate_Load(object sender, EventArgs e)
+        {
+            if (!AssetId.HasValue)
+            {
+                BindDataProvincialList();
+            }
+            else
+            {
+                string queryStr = string.Format("SELECT ParcelOfLand, Map, Acreage, SoilType, StreetId, ValueCTXD, Created, WardId, UnitPrice, Value FROM tbAsset WHERE Type = N'Bất Động Sản' and Id = '{0}'", AssetId);
+                var realEstate = da.execSqlQuery(queryStr).Tables[0];
+                if (realEstate.Rows.Count > 0)
+                {
+                    string locationQuery = string.Format("SELECT ProvinceId, DistrictId FROM tbStreet WHERE ID = {0}", realEstate.Rows[0]["StreetId"].ToString());
+                    var location = da.execSqlQuery(locationQuery).Tables[0];
+                    txtThuaDat.Text = realEstate.Rows[0]["ParcelOfLand"].ToString();
+                    txtToBD.Text = realEstate.Rows[0]["Map"].ToString();
+                    txtDienTich.Text = realEstate.Rows[0]["Acreage"].ToString();
+                    txtLoaiDat.Text = realEstate.Rows[0]["SoilType"].ToString();
+                    cbTinh_Thanh.SelectedValue = location.Rows[0]["ProvinceId"].ToString();
+                    cbQuan_Huyen.SelectedValue = location.Rows[0]["DistrictId"].ToString();
+                    cbPhuong_Xa.SelectedValue = realEstate.Rows[0]["WardId"].ToString();
+                    cbDuong.SelectedValue = realEstate.Rows[0]["StreetId"].ToString();
+                    txtDonGia.Text = realEstate.Rows[0]["UnitPrice"].ToString();
+                    txtTongGiaCTXD.Text = realEstate.Rows[0]["ValueCTXD"].ToString();
+                    txtTongGiaTri.Text = realEstate.Rows[0]["Value"].ToString();
+                }
+            }
         }
     }
 }

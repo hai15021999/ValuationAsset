@@ -67,8 +67,8 @@ namespace ValuationAsset
                     List<SqlParameter> para = new List<SqlParameter>()
                     {
                         new SqlParameter() { ParameterName = "@contractId", SqlDbType = SqlDbType.Int, Value = ContractId },
-                        new SqlParameter() { ParameterName = "@type", SqlDbType = SqlDbType.VarChar, Value = "Động Sản" },
-                        new SqlParameter() { ParameterName = "@name", SqlDbType = SqlDbType.VarChar, Value = name },
+                        new SqlParameter() { ParameterName = "@type", SqlDbType = SqlDbType.NVarChar, Value = "Động Sản" },
+                        new SqlParameter() { ParameterName = "@name", SqlDbType = SqlDbType.NVarChar, Value = name },
                         new SqlParameter() { ParameterName = "@model", SqlDbType = SqlDbType.VarChar, Value = model },
                         new SqlParameter() { ParameterName = "@yearOfManufacture", SqlDbType = SqlDbType.VarChar, Value = yearOfManufacture },
                         new SqlParameter() { ParameterName = "@yearOfUse", SqlDbType = SqlDbType.VarChar, Value = yearOfUsing },

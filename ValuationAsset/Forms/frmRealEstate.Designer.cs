@@ -346,7 +346,7 @@
             this.cbDuong.Location = new System.Drawing.Point(252, 299);
             this.cbDuong.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbDuong.Name = "cbDuong";
-            this.cbDuong.Size = new System.Drawing.Size(425, 23);
+            this.cbDuong.Size = new System.Drawing.Size(425, 27);
             this.cbDuong.TabIndex = 2;
             // 
             // cbPhuong_Xa
@@ -356,7 +356,7 @@
             this.cbPhuong_Xa.Location = new System.Drawing.Point(252, 259);
             this.cbPhuong_Xa.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbPhuong_Xa.Name = "cbPhuong_Xa";
-            this.cbPhuong_Xa.Size = new System.Drawing.Size(425, 23);
+            this.cbPhuong_Xa.Size = new System.Drawing.Size(425, 27);
             this.cbPhuong_Xa.TabIndex = 2;
             // 
             // cbQuan_Huyen
@@ -366,7 +366,7 @@
             this.cbQuan_Huyen.Location = new System.Drawing.Point(252, 221);
             this.cbQuan_Huyen.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbQuan_Huyen.Name = "cbQuan_Huyen";
-            this.cbQuan_Huyen.Size = new System.Drawing.Size(425, 23);
+            this.cbQuan_Huyen.Size = new System.Drawing.Size(425, 27);
             this.cbQuan_Huyen.TabIndex = 2;
             this.cbQuan_Huyen.SelectedIndexChanged += new System.EventHandler(this.cbQuan_Huyen_SelectedIndexChanged);
             // 
@@ -377,7 +377,7 @@
             this.cbTinh_Thanh.Location = new System.Drawing.Point(252, 183);
             this.cbTinh_Thanh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbTinh_Thanh.Name = "cbTinh_Thanh";
-            this.cbTinh_Thanh.Size = new System.Drawing.Size(425, 23);
+            this.cbTinh_Thanh.Size = new System.Drawing.Size(425, 27);
             this.cbTinh_Thanh.TabIndex = 2;
             this.cbTinh_Thanh.SelectedIndexChanged += new System.EventHandler(this.cbTinh_Thanh_SelectedIndexChanged);
             // 
@@ -386,7 +386,7 @@
             this.txtLoaiDat.Location = new System.Drawing.Point(252, 144);
             this.txtLoaiDat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtLoaiDat.Name = "txtLoaiDat";
-            this.txtLoaiDat.Size = new System.Drawing.Size(425, 23);
+            this.txtLoaiDat.Size = new System.Drawing.Size(425, 26);
             this.txtLoaiDat.TabIndex = 1;
             // 
             // txtTongGiaTri
@@ -394,7 +394,7 @@
             this.txtTongGiaTri.Location = new System.Drawing.Point(252, 410);
             this.txtTongGiaTri.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtTongGiaTri.Name = "txtTongGiaTri";
-            this.txtTongGiaTri.Size = new System.Drawing.Size(425, 23);
+            this.txtTongGiaTri.Size = new System.Drawing.Size(425, 26);
             this.txtTongGiaTri.TabIndex = 1;
             this.txtTongGiaTri.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTongGiaTri_KeyPress);
             // 
@@ -403,7 +403,7 @@
             this.txtDienTich.Location = new System.Drawing.Point(252, 105);
             this.txtDienTich.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtDienTich.Name = "txtDienTich";
-            this.txtDienTich.Size = new System.Drawing.Size(425, 23);
+            this.txtDienTich.Size = new System.Drawing.Size(425, 26);
             this.txtDienTich.TabIndex = 1;
             this.txtDienTich.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDienTich_KeyPress);
             // 
@@ -412,7 +412,7 @@
             this.txtTongGiaCTXD.Location = new System.Drawing.Point(252, 375);
             this.txtTongGiaCTXD.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtTongGiaCTXD.Name = "txtTongGiaCTXD";
-            this.txtTongGiaCTXD.Size = new System.Drawing.Size(425, 23);
+            this.txtTongGiaCTXD.Size = new System.Drawing.Size(425, 26);
             this.txtTongGiaCTXD.TabIndex = 1;
             this.txtTongGiaCTXD.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTongGiaCTXD_KeyPress);
             // 
@@ -421,7 +421,7 @@
             this.txtToBD.Location = new System.Drawing.Point(252, 70);
             this.txtToBD.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtToBD.Name = "txtToBD";
-            this.txtToBD.Size = new System.Drawing.Size(425, 23);
+            this.txtToBD.Size = new System.Drawing.Size(425, 26);
             this.txtToBD.TabIndex = 1;
             // 
             // txtDonGia
@@ -429,7 +429,7 @@
             this.txtDonGia.Location = new System.Drawing.Point(252, 338);
             this.txtDonGia.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtDonGia.Name = "txtDonGia";
-            this.txtDonGia.Size = new System.Drawing.Size(425, 23);
+            this.txtDonGia.Size = new System.Drawing.Size(425, 26);
             this.txtDonGia.TabIndex = 1;
             this.txtDonGia.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDonGia_KeyPress);
             // 
@@ -438,7 +438,7 @@
             this.txtThuaDat.Location = new System.Drawing.Point(252, 34);
             this.txtThuaDat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtThuaDat.Name = "txtThuaDat";
-            this.txtThuaDat.Size = new System.Drawing.Size(425, 23);
+            this.txtThuaDat.Size = new System.Drawing.Size(425, 26);
             this.txtThuaDat.TabIndex = 1;
             // 
             // label20
@@ -562,6 +562,7 @@
             this.Name = "frmRealEstate";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Asset Manager";
+            this.Load += new System.EventHandler(this.frmRealEstate_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);

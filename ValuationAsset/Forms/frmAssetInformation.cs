@@ -84,8 +84,8 @@ namespace ValuationAsset.Forms
             {
                 new SqlParameter() { ParameterName = "@requestDate", SqlDbType = SqlDbType.DateTime, Value = dtpDate.Value },
                 new SqlParameter() { ParameterName = "@contractValue", SqlDbType = SqlDbType.Float, Value = double.Parse(txtGiaTri_CCTT_HD.Text.Trim()) },
-                new SqlParameter() { ParameterName = "@customerName", SqlDbType = SqlDbType.VarChar, Value = txtCustomerName.Text.Trim() },
-                new SqlParameter() { ParameterName = "@address", SqlDbType = SqlDbType.VarChar, Value = txtCustomerAddress.Text.Trim() },
+                new SqlParameter() { ParameterName = "@customerName", SqlDbType = SqlDbType.NVarChar, Value = txtCustomerName.Text.Trim() },
+                new SqlParameter() { ParameterName = "@address", SqlDbType = SqlDbType.NVarChar, Value = txtCustomerAddress.Text.Trim() },
                 new SqlParameter() { ParameterName = "@mst", SqlDbType = SqlDbType.VarChar, Value = txtMST_CCCD.Text.Trim() },
                 new SqlParameter() { ParameterName = "@phone", SqlDbType = SqlDbType.VarChar, Value = txtCustomerPhoneNo.Text.Trim() },
                 new SqlParameter() { ParameterName = "@number", SqlDbType = SqlDbType.Int, Value = int.Parse(number) },
