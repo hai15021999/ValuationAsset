@@ -326,53 +326,43 @@ namespace ValuationAsset.Forms
                 {
                     string idStr = dgvUser.CurrentRow.Cells["ID"].Value.ToString();
                     string userName = dgvUser.CurrentRow.Cells["UserName"].Value.ToString();
-                    if (userName.ToLower().Equals("admin"))
+
+                    if (userName.ToLower().Equals("admin") && !txtUserName.Text.Trim().ToLower().Equals("admin"))
                     {
-                        if (!txtUserName.Text.Trim().ToLower().Equals("admin"))
+                        MessageBox.Show("Tài khoản admin không thể đổi tên tài khoản", "Thông báo");
+                    }
+                    else
+                    {
+                        int roleId = int.Parse(cbPermission.SelectedValue.ToString());
+                        int active = chkDeactive.Checked ? 1 : 0;
+
+                        if (string.IsNullOrWhiteSpace(idStr) || string.IsNullOrWhiteSpace(txtUserName.Text.Trim()))
                         {
-                            lbMessage.Visible = true;
-                            lbMessage.Text = "Tài khoản admin không thể đổi tên tài khoản.";
-                            lbMessage.ForeColor = Color.Red;
+                            MessageBox.Show("Tài khoản không tồn tại", "Thông báo");
+                        }
+                        else if ((!string.IsNullOrWhiteSpace(txtPassword.Text.Trim()) || !string.IsNullOrWhiteSpace(txtConfirm.Text.Trim()))
+                            && !txtPassword.Text.Trim().Equals(txtConfirm.Text.Trim()))
+                        {
+                            MessageBox.Show("Xác nhận mật khẩu không đúng", "Thông báo");
+                        }
+                        else if (!txtPassword.Text.Trim().Equals(txtConfirm.Text.Trim()))
+                        {
+                            //Show error when input confirm password not similar with password
+                            MessageBox.Show("Mật khẩu không đúng", "Thông báo");
                         }
                         else
                         {
-                            int roleId = int.Parse(cbPermission.SelectedValue.ToString());
-                            int active = chkDeactive.Checked ? 1 : 0;
-
-                            if (string.IsNullOrWhiteSpace(idStr) || string.IsNullOrWhiteSpace(txtUserName.Text.Trim()))
+                            var checkUser = AuthSuport.CheckUserExisted(txtUserName.Text.Trim());
+                            if (checkUser.Equals("true"))
                             {
-                                lbMessage.Visible = true;
-                                lbMessage.Text = "Tài khoản không tồn tại";
-                                lbMessage.ForeColor = Color.Red;
-                            }
-                            else if ((!string.IsNullOrWhiteSpace(txtPassword.Text.Trim()) || !string.IsNullOrWhiteSpace(txtConfirm.Text.Trim()))
-                                && !txtPassword.Text.Trim().Equals(txtConfirm.Text.Trim()))
-                            {
-
-                            }
-                            else if (!txtPassword.Text.Trim().Equals(txtConfirm.Text.Trim()))
-                            {
-                                //Show error when input confirm password not similar with password
-                                lbMessage.Visible = true;
-                                lbMessage.Text = "Mật khẩu không đúng";
-                                lbMessage.ForeColor = Color.Red;
+                                int id = !string.IsNullOrWhiteSpace(idStr) ? int.Parse(idStr) : 0;
+                                AuthSuport.Register(id, txtUserName.Text.Trim().ToLower(), txtPassword.Text.Trim(), roleId, active, 0);
+                                MessageBox.Show("Lưu thành công", "Thông báo");
+                                BindDataUserList();
                             }
                             else
                             {
-                                var checkUser = AuthSuport.CheckUserExisted(txtUserName.Text.Trim());
-                                if (checkUser.Equals("true"))
-                                {
-                                    int id = !string.IsNullOrWhiteSpace(idStr) ? int.Parse(idStr) : 0;
-                                    AuthSuport.Register(id, txtUserName.Text.Trim().ToLower(), txtPassword.Text.Trim(), roleId, active, 0);
-                                    MessageBox.Show("Lưu thành công", "Thông báo");
-                                    BindDataUserList();
-                                }
-                                else
-                                {
-                                    lbMessage.Visible = true;
-                                    lbMessage.Text = checkUser;
-                                    lbMessage.ForeColor = Color.Red;
-                                }
+                                MessageBox.Show(checkUser, "Thông báo");
                             }
                         }
                     }
