@@ -38,7 +38,7 @@ namespace ValuationAsset.Forms
                 //int ProvinceId = int.Parse(cbTinh_Thanh.SelectedValue.ToString());
                 //int DistrictId = int.Parse(cbQuan_Huyen.SelectedValue.ToString());
                 int WardId = int.Parse(cbPhuong_Xa.SelectedValue.ToString());
-                int StreetId = int.Parse(cbQuan_Huyen.SelectedValue.ToString());
+                int StreetId = int.Parse(cbDuong.SelectedValue.ToString());
                 float UnitPrice = float.Parse(txtDonGia.Text.Trim());
                 float ValueCTXD = float.Parse(txtTongGiaCTXD.Text.Trim());
                 float Value = float.Parse(txtTongGiaTri.Text.Trim());
@@ -197,6 +197,7 @@ namespace ValuationAsset.Forms
             }
             else
             {
+                BindDataProvincialList();
                 string queryStr = string.Format("SELECT ParcelOfLand, Map, Acreage, SoilType, StreetId, ValueCTXD, Created, WardId, UnitPrice, Value FROM tbAsset WHERE Type = N'Bất Động Sản' and Id = '{0}'", AssetId);
                 var realEstate = da.execSqlQuery(queryStr).Tables[0];
                 if (realEstate.Rows.Count > 0)
