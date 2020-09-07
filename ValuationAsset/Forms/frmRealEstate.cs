@@ -62,8 +62,15 @@ namespace ValuationAsset.Forms
                         new SqlParameter() { ParameterName = "@unitPrice", SqlDbType = SqlDbType.Float, Value = UnitPrice },
                         new SqlParameter() { ParameterName = "@value", SqlDbType = SqlDbType.Float, Value = Value }
                     };
-                    da.execSqlReturn("sp_CreateAsset", para);
 
+                    if (AssetId == null)
+                    {
+                        da.execSqlReturn("sp_CreateAsset", para);
+                    } else
+                    {
+                        para.Add(new SqlParameter() { ParameterName = "@assetId", SqlDbType = SqlDbType.Int, Value = AssetId });
+                        da.execSqlReturn("sp_UpdateAsset", para);
+                    }
                     this.DialogResult = DialogResult.OK;
                     this.Dispose();
                 }

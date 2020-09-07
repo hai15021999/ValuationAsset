@@ -79,9 +79,14 @@ namespace ValuationAsset
 
                     //string queryStr = string.Format("Insert into tbAsset(Type, Name, Model, YearOfManufacture, YearOfUse, Number, UnitPrice, Value) " +
                     //    "values(N'{0}', N'{1}', N'{2}', '{3}', '{4}', '{5}', '{6}', '{7}')", "Động Sản", name, model, yearOfManufacture, yearOfUsing, quantity, unitPrice, value);
-
-                    da.execSqlReturn("sp_CreateAsset", para);
-
+                    if (AssetId == null)
+                    {
+                        da.execSqlReturn("sp_CreateAsset", para);
+                    } else
+                    {
+                        para.Add(new SqlParameter() { ParameterName = "@assetId", SqlDbType = SqlDbType.Int, Value = AssetId });
+                        da.execSqlReturn("sp_UpdateAsset", para);
+                    }
                     this.DialogResult = DialogResult.OK;
                     this.Dispose();
                     //MessageBox.Show("Lưu hoàn tất.");
