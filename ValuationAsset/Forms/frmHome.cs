@@ -33,7 +33,7 @@ namespace ValuationAsset.Forms
             //btnEdit.Enabled = false;
             //txtPassword.Enabled = false;
             //txtConfirm.Enabled = false;
-            tabControl1.SelectedTab = tabPage1;
+            
         }
 
         private void frmHome_FormClosed(object sender, FormClosedEventArgs e)
@@ -43,7 +43,19 @@ namespace ValuationAsset.Forms
 
         private void frmHome_Load(object sender, EventArgs e)
         {
-            //var test = AuthSession.Get(AuthSession.key_UserName);
+            var roleName = AuthSession.Get(AuthSession.key_Role);
+            if (roleName.Equals("Quản lý hồ sơ"))
+            {
+                tabControl1.SelectedTab = tabPage3;
+                tabControl1.TabPages.Remove(tabPage1);
+                tabControl1.TabPages.Remove(tabPage2);
+            }
+            else if (roleName.Equals("Quản lý tài khoản, địa điểm"))
+            {
+                tabControl1.SelectedTab = tabPage1;
+                tabControl1.TabPages.Remove(tabPage3);
+            }
+            else tabControl1.SelectedTab = tabPage1;
 
             string strQuery = "select ID, Role from tbRole where isnull(Deactive, 0) != 1";
             GetDataCombobox(cbPermission, strQuery);
@@ -61,14 +73,7 @@ namespace ValuationAsset.Forms
         {
             frmAssetInformation addAsset = new frmAssetInformation();
             DialogResult dr = addAsset.ShowDialog();
-            if (dr == DialogResult.Cancel)
-            {
-                addAsset.Close();
-            }
-            else if (dr == DialogResult.OK)
-            {
-                MessageBox.Show("test");
-            }
+            BindDataContractList(1, "", "");
         }
 
         #region Function
@@ -352,18 +357,10 @@ namespace ValuationAsset.Forms
                         }
                         else
                         {
-                            var checkUser = AuthSuport.CheckUserExisted(txtUserName.Text.Trim());
-                            if (checkUser.Equals("true"))
-                            {
-                                int id = !string.IsNullOrWhiteSpace(idStr) ? int.Parse(idStr) : 0;
-                                AuthSuport.Register(id, txtUserName.Text.Trim().ToLower(), txtPassword.Text.Trim(), roleId, active, 0);
-                                MessageBox.Show("Lưu thành công", "Thông báo");
-                                BindDataUserList();
-                            }
-                            else
-                            {
-                                MessageBox.Show(checkUser, "Thông báo");
-                            }
+                            int id = !string.IsNullOrWhiteSpace(idStr) ? int.Parse(idStr) : 0;
+                            AuthSuport.Register(id, txtUserName.Text.Trim().ToLower(), txtPassword.Text.Trim(), roleId, active, 0);
+                            MessageBox.Show("Lưu thành công", "Thông báo");
+                            BindDataUserList();
                         }
                     }
                 }    
@@ -492,6 +489,7 @@ namespace ValuationAsset.Forms
             addAsset.ContractId = int.Parse(dgvContracts.CurrentRow.Cells["ContractId"].Value.ToString());
             addAsset.contractNumberFull = dgvContracts.CurrentRow.Cells["NumberFull"].Value.ToString();
             DialogResult dr = addAsset.ShowDialog();
+            BindDataContractList(1, "", "");
         }
     }
 

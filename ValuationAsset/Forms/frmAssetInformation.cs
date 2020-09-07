@@ -70,18 +70,24 @@ namespace ValuationAsset.Forms
                 return false;
             }
 
-            List<SqlParameter> paraGetNumber = new List<SqlParameter>()
-            {
-                new SqlParameter() { ParameterName = "@year", SqlDbType = SqlDbType.Int, Value = DateTime.Now.Year },
-                new SqlParameter() { ParameterName = "@type", SqlDbType = SqlDbType.VarChar, Value = "Contract" }
-            };
-            var number = da.execSqlReturn("sp_GetNumber", paraGetNumber).Tables[0].Rows[0][0].ToString();
+            string number = "0";
 
-            var numberSetting = GetNumberSetting();
-            labTemplateNumber.Text = numberSetting.Replace("[Number]/[Year]", number + "/" + DateTime.Now.Year + "/");
+            if(!ContractId.HasValue)
+            {
+                List<SqlParameter> paraGetNumber = new List<SqlParameter>()
+                {
+                    new SqlParameter() { ParameterName = "@year", SqlDbType = SqlDbType.Int, Value = DateTime.Now.Year },
+                    new SqlParameter() { ParameterName = "@type", SqlDbType = SqlDbType.VarChar, Value = "Contract" }
+                };
+                number = da.execSqlReturn("sp_GetNumber", paraGetNumber).Tables[0].Rows[0][0].ToString();
+
+                var numberSetting = GetNumberSetting();
+                labTemplateNumber.Text = numberSetting.Replace("[Number]/[Year]", number + "/" + DateTime.Now.Year + "/");
+            }
 
             List<SqlParameter> paraCreateCustomerAndContract = new List<SqlParameter>()
             {
+                new SqlParameter() { ParameterName = "@contractId", SqlDbType = SqlDbType.Int, Value = (ContractId.HasValue ? ContractId.Value : 0) },
                 new SqlParameter() { ParameterName = "@requestDate", SqlDbType = SqlDbType.DateTime, Value = dtpDate.Value },
                 new SqlParameter() { ParameterName = "@contractValue", SqlDbType = SqlDbType.Float, Value = double.Parse(txtGiaTri_CCTT_HD.Text.Trim()) },
                 new SqlParameter() { ParameterName = "@customerName", SqlDbType = SqlDbType.NVarChar, Value = txtCustomerName.Text.Trim() },
@@ -108,7 +114,7 @@ namespace ValuationAsset.Forms
 
                 if (ContractId.HasValue)
                 {
-                    isCreate = true;
+                    isCreate = CreateContract();
                 }
                 else
                 {
@@ -144,7 +150,7 @@ namespace ValuationAsset.Forms
 
                 if (ContractId.HasValue)
                 {
-                    isCreate = true;
+                    isCreate = CreateContract();
                 }
                 else
                 {
@@ -329,6 +335,18 @@ namespace ValuationAsset.Forms
 
                     System.Diagnostics.Process.Start("explorer.exe", string.Format("/select,\"{0}\"", path));
                 }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK);
+            }
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                CreateContract();
             }
             catch(Exception ex)
             {

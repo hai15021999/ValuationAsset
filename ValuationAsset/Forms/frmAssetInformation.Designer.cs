@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnUpdate = new System.Windows.Forms.Button();
             this.dgvFile = new System.Windows.Forms.DataGridView();
             this.FileId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FileName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -85,6 +86,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnUpdate);
             this.panel1.Controls.Add(this.dgvFile);
             this.panel1.Controls.Add(this.dtpDateCCTT);
             this.panel1.Controls.Add(this.label14);
@@ -117,8 +119,18 @@
             this.panel1.Location = new System.Drawing.Point(12, 2);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1148, 730);
+            this.panel1.Size = new System.Drawing.Size(1148, 771);
             this.panel1.TabIndex = 0;
+            // 
+            // btnUpdate
+            // 
+            this.btnUpdate.Location = new System.Drawing.Point(829, 319);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(128, 30);
+            this.btnUpdate.TabIndex = 10;
+            this.btnUpdate.Text = "Lưu";
+            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // dgvFile
             // 
@@ -130,7 +142,7 @@
             this.dgvFile.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.FileId,
             this.FileName});
-            this.dgvFile.Location = new System.Drawing.Point(193, 554);
+            this.dgvFile.Location = new System.Drawing.Point(169, 606);
             this.dgvFile.MultiSelect = false;
             this.dgvFile.Name = "dgvFile";
             this.dgvFile.ReadOnly = true;
@@ -190,7 +202,7 @@
             // btnAttachFile
             // 
             this.btnAttachFile.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnAttachFile.Location = new System.Drawing.Point(63, 554);
+            this.btnAttachFile.Location = new System.Drawing.Point(39, 606);
             this.btnAttachFile.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAttachFile.Name = "btnAttachFile";
             this.btnAttachFile.Size = new System.Drawing.Size(112, 30);
@@ -203,7 +215,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label13.Location = new System.Drawing.Point(1077, 601);
+            this.label13.Location = new System.Drawing.Point(1053, 653);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(43, 19);
             this.label13.TabIndex = 0;
@@ -212,7 +224,7 @@
             // btnThemBatDongSan
             // 
             this.btnThemBatDongSan.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnThemBatDongSan.Location = new System.Drawing.Point(386, 322);
+            this.btnThemBatDongSan.Location = new System.Drawing.Point(386, 375);
             this.btnThemBatDongSan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnThemBatDongSan.Name = "btnThemBatDongSan";
             this.btnThemBatDongSan.Size = new System.Drawing.Size(130, 30);
@@ -224,7 +236,7 @@
             // btnThemDongSan
             // 
             this.btnThemDongSan.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnThemDongSan.Location = new System.Drawing.Point(223, 322);
+            this.btnThemDongSan.Location = new System.Drawing.Point(213, 375);
             this.btnThemDongSan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnThemDongSan.Name = "btnThemDongSan";
             this.btnThemDongSan.Size = new System.Drawing.Size(130, 30);
@@ -237,7 +249,7 @@
             // 
             this.txtAssetTotalPrice.Enabled = false;
             this.txtAssetTotalPrice.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtAssetTotalPrice.Location = new System.Drawing.Point(853, 598);
+            this.txtAssetTotalPrice.Location = new System.Drawing.Point(829, 650);
             this.txtAssetTotalPrice.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtAssetTotalPrice.Name = "txtAssetTotalPrice";
             this.txtAssetTotalPrice.Size = new System.Drawing.Size(218, 26);
@@ -267,7 +279,7 @@
             this.ValueCTXD,
             this.StreetName,
             this.WardName});
-            this.dgvAssets.Location = new System.Drawing.Point(47, 356);
+            this.dgvAssets.Location = new System.Drawing.Point(47, 412);
             this.dgvAssets.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvAssets.MultiSelect = false;
             this.dgvAssets.Name = "dgvAssets";
@@ -420,7 +432,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label9.Location = new System.Drawing.Point(47, 335);
+            this.label9.Location = new System.Drawing.Point(47, 381);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(128, 19);
             this.label9.TabIndex = 0;
@@ -430,7 +442,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label12.Location = new System.Drawing.Point(725, 601);
+            this.label12.Location = new System.Drawing.Point(701, 653);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(122, 19);
             this.label12.TabIndex = 0;
@@ -460,7 +472,7 @@
             // 
             this.txtNumber.Enabled = false;
             this.txtNumber.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtNumber.Location = new System.Drawing.Point(853, 553);
+            this.txtNumber.Location = new System.Drawing.Point(829, 605);
             this.txtNumber.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtNumber.Name = "txtNumber";
             this.txtNumber.Size = new System.Drawing.Size(45, 26);
@@ -480,7 +492,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label11.Location = new System.Drawing.Point(771, 556);
+            this.label11.Location = new System.Drawing.Point(747, 608);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(67, 19);
             this.label11.TabIndex = 0;
@@ -673,5 +685,6 @@
         private System.Windows.Forms.DataGridView dgvFile;
         private System.Windows.Forms.DataGridViewTextBoxColumn FileId;
         private System.Windows.Forms.DataGridViewTextBoxColumn FileName;
+        private System.Windows.Forms.Button btnUpdate;
     }
 }

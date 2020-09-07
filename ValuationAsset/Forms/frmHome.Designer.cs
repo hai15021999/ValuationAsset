@@ -52,7 +52,7 @@
             this.Role = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RoleId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.btnNewStreet = new System.Windows.Forms.Button();
             this.dgvStreet = new System.Windows.Forms.DataGridView();
@@ -85,7 +85,7 @@
             this.btnUpdateProvincial = new System.Windows.Forms.Button();
             this.txtProvincial = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
             this.panel1 = new System.Windows.Forms.Panel();
             this.cbSearchValue = new System.Windows.Forms.ComboBox();
             this.pnlPager = new System.Windows.Forms.Panel();
@@ -118,7 +118,7 @@
             this.tabPage1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUser)).BeginInit();
-            this.tabPage3.SuspendLayout();
+            this.tabPage2.SuspendLayout();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStreet)).BeginInit();
             this.groupBox3.SuspendLayout();
@@ -127,7 +127,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvDistrict)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProvincial)).BeginInit();
-            this.tabPage2.SuspendLayout();
+            this.tabPage3.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvContracts)).BeginInit();
             this.SuspendLayout();
@@ -135,8 +135,8 @@
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tabControl1.Location = new System.Drawing.Point(-2, 1);
             this.tabControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -408,18 +408,18 @@
             this.Delete.UseColumnTextForButtonValue = true;
             this.Delete.Width = 41;
             // 
-            // tabPage3
+            // tabPage2
             // 
-            this.tabPage3.Controls.Add(this.groupBox4);
-            this.tabPage3.Controls.Add(this.groupBox3);
-            this.tabPage3.Controls.Add(this.groupBox2);
-            this.tabPage3.Controls.Add(this.groupBox1);
-            this.tabPage3.Location = new System.Drawing.Point(4, 28);
-            this.tabPage3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(1294, 484);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Quản lý địa điểm";
+            this.tabPage2.Controls.Add(this.groupBox4);
+            this.tabPage2.Controls.Add(this.groupBox3);
+            this.tabPage2.Controls.Add(this.groupBox2);
+            this.tabPage2.Controls.Add(this.groupBox1);
+            this.tabPage2.Location = new System.Drawing.Point(4, 28);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Size = new System.Drawing.Size(1294, 484);
+            this.tabPage2.TabIndex = 2;
+            this.tabPage2.Text = "Quản lý địa điểm";
             // 
             // groupBox4
             // 
@@ -759,17 +759,17 @@
             this.label15.TabIndex = 0;
             this.label15.Text = "Tên:";
             // 
-            // tabPage2
+            // tabPage3
             // 
-            this.tabPage2.Controls.Add(this.panel1);
-            this.tabPage2.Location = new System.Drawing.Point(4, 28);
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage2.Size = new System.Drawing.Size(1294, 484);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Hồ sơ";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.tabPage3.Controls.Add(this.panel1);
+            this.tabPage3.Location = new System.Drawing.Point(4, 28);
+            this.tabPage3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabPage3.Size = new System.Drawing.Size(1294, 484);
+            this.tabPage3.TabIndex = 1;
+            this.tabPage3.Text = "Hồ sơ";
+            this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // panel1
             // 
@@ -870,6 +870,7 @@
             this.ContractId.DataPropertyName = "ContractId";
             this.ContractId.HeaderText = "Mã hợp đồng";
             this.ContractId.Name = "ContractId";
+            this.ContractId.ReadOnly = true;
             this.ContractId.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.ContractId.Visible = false;
             // 
@@ -878,6 +879,7 @@
             this.CustomerId.DataPropertyName = "CustomerId";
             this.CustomerId.HeaderText = "Mã khách hàng";
             this.CustomerId.Name = "CustomerId";
+            this.CustomerId.ReadOnly = true;
             this.CustomerId.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.CustomerId.Visible = false;
             // 
@@ -886,6 +888,7 @@
             this.CustomerName.DataPropertyName = "CustomerName";
             this.CustomerName.HeaderText = "Tên khách hàng";
             this.CustomerName.Name = "CustomerName";
+            this.CustomerName.ReadOnly = true;
             this.CustomerName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
             // NumberFull
@@ -893,6 +896,7 @@
             this.NumberFull.DataPropertyName = "NumberFull";
             this.NumberFull.HeaderText = "Số hợp đồng";
             this.NumberFull.Name = "NumberFull";
+            this.NumberFull.ReadOnly = true;
             this.NumberFull.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
             // ContractValue
@@ -900,6 +904,7 @@
             this.ContractValue.DataPropertyName = "ContractValue";
             this.ContractValue.HeaderText = "Giá trị hợp đồng";
             this.ContractValue.Name = "ContractValue";
+            this.ContractValue.ReadOnly = true;
             this.ContractValue.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
             // label12
@@ -1060,7 +1065,7 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUser)).EndInit();
-            this.tabPage3.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStreet)).EndInit();
@@ -1073,7 +1078,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProvincial)).EndInit();
-            this.tabPage2.ResumeLayout(false);
+            this.tabPage3.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvContracts)).EndInit();
@@ -1085,7 +1090,7 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.DataGridView dgvUser;
-        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
@@ -1106,7 +1111,7 @@
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label11;
