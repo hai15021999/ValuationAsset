@@ -29,7 +29,7 @@ namespace ValuationAsset.Forms
             if(string.IsNullOrWhiteSpace(contractNumberFull))
             {
                 var numberSetting = GetNumberSetting();
-                labTemplateNumber.Text = numberSetting.Replace("[Number]/[Year]", ".../" + DateTime.Now.Year + "/");
+                labTemplateNumber.Text = numberSetting.Replace("[Number]/[Year]", ".../" + DateTime.Now.Year);
             }
             else
             {

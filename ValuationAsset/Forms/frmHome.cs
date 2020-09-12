@@ -112,8 +112,11 @@ namespace ValuationAsset.Forms
             dgvContracts.AutoGenerateColumns = false;
             dgvContracts.DataSource = ret.Tables[0];
 
-            int recordCount = Convert.ToInt32(ret.Tables[1].Rows[0][0].ToString());
-            this.PopulatePager(recordCount, pageIndex);
+            if(ret.Tables[1].Rows.Count > 0)
+            {
+                int recordCount = Convert.ToInt32(ret.Tables[1].Rows[0][0].ToString());
+                this.PopulatePager(recordCount, pageIndex);
+            }
         }
 
         private void PopulatePager(int recordCount, int currentPage)
@@ -382,6 +385,9 @@ namespace ValuationAsset.Forms
                     int id = !string.IsNullOrWhiteSpace(idStr) ? int.Parse(idStr) : 0;
 
                     string strQuery = string.Format("delete from tbUser where ID = {0}", id);
+                    da.execSqlQuery(strQuery);
+
+                    strQuery = string.Format("DELETE FROM dbo.tbUserRole WHERE UserId = {0}", id);
                     da.execSqlQuery(strQuery);
 
                     BindDataUserList();
