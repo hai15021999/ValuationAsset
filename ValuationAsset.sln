@@ -7,6 +7,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ValuationAsset", "Valuation
 EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup1", "ValuationAsset\Setup\Setup1\Setup1.vdproj", "{1B71952D-3BDF-4A84-A4B2-EA832679D8C0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AMS", "AMS\AMS.csproj", "{53D0EEFB-7A0D-4890-B6B1-87E3FFB0FCB7}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "SetupAMS", "SetupAMS\SetupAMS.vdproj", "{2D94DDA4-B9DD-47E3-9601-355E650B18DB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,6 +23,12 @@ Global
 		{03082979-E4FA-4240-9AB5-C390F7E3F9B6}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1B71952D-3BDF-4A84-A4B2-EA832679D8C0}.Debug|Any CPU.ActiveCfg = Debug
 		{1B71952D-3BDF-4A84-A4B2-EA832679D8C0}.Release|Any CPU.ActiveCfg = Release
+		{53D0EEFB-7A0D-4890-B6B1-87E3FFB0FCB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53D0EEFB-7A0D-4890-B6B1-87E3FFB0FCB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53D0EEFB-7A0D-4890-B6B1-87E3FFB0FCB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53D0EEFB-7A0D-4890-B6B1-87E3FFB0FCB7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D94DDA4-B9DD-47E3-9601-355E650B18DB}.Debug|Any CPU.ActiveCfg = Debug
+		{2D94DDA4-B9DD-47E3-9601-355E650B18DB}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
