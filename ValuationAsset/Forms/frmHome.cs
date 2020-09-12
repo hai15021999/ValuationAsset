@@ -491,6 +491,11 @@ namespace ValuationAsset.Forms
             DialogResult dr = addAsset.ShowDialog();
             BindDataContractList(1, "", "");
         }
+
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 
     public class Page

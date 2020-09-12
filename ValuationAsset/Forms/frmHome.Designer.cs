@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmHome));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -144,6 +145,7 @@
             this.tabControl1.SelectedIndex = 2;
             this.tabControl1.Size = new System.Drawing.Size(1302, 516);
             this.tabControl1.TabIndex = 2;
+            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
             // tabPage1
             // 
@@ -206,11 +208,14 @@
             // 
             this.btnNewUser.AutoSize = true;
             this.btnNewUser.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnNewUser.Image = ((System.Drawing.Image)(resources.GetObject("btnNewUser.Image")));
+            this.btnNewUser.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnNewUser.Location = new System.Drawing.Point(167, 356);
             this.btnNewUser.Name = "btnNewUser";
-            this.btnNewUser.Size = new System.Drawing.Size(119, 29);
+            this.btnNewUser.Size = new System.Drawing.Size(119, 30);
             this.btnNewUser.TabIndex = 7;
             this.btnNewUser.Text = "Tạo mới";
+            this.btnNewUser.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnNewUser.UseVisualStyleBackColor = true;
             this.btnNewUser.Click += new System.EventHandler(this.btnNewUser_Click);
             // 
@@ -218,11 +223,14 @@
             // 
             this.btnUpdateUser.AutoSize = true;
             this.btnUpdateUser.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnUpdateUser.Image = ((System.Drawing.Image)(resources.GetObject("btnUpdateUser.Image")));
+            this.btnUpdateUser.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnUpdateUser.Location = new System.Drawing.Point(338, 356);
             this.btnUpdateUser.Name = "btnUpdateUser";
             this.btnUpdateUser.Size = new System.Drawing.Size(119, 29);
             this.btnUpdateUser.TabIndex = 6;
             this.btnUpdateUser.Text = "Cập nhập";
+            this.btnUpdateUser.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnUpdateUser.UseVisualStyleBackColor = true;
             this.btnUpdateUser.Click += new System.EventHandler(this.btnUpdateUser_Click);
             // 
@@ -443,6 +451,7 @@
             this.btnNewStreet.TabIndex = 4;
             this.btnNewStreet.Text = "Tạo mới";
             this.btnNewStreet.UseVisualStyleBackColor = true;
+            this.btnNewStreet.Visible = false;
             this.btnNewStreet.Click += new System.EventHandler(this.btnNewStreet_Click);
             // 
             // dgvStreet
@@ -481,11 +490,14 @@
             // 
             // btnUpdateStreet
             // 
+            this.btnUpdateStreet.Image = ((System.Drawing.Image)(resources.GetObject("btnUpdateStreet.Image")));
+            this.btnUpdateStreet.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnUpdateStreet.Location = new System.Drawing.Point(192, 79);
             this.btnUpdateStreet.Name = "btnUpdateStreet";
             this.btnUpdateStreet.Size = new System.Drawing.Size(96, 29);
             this.btnUpdateStreet.TabIndex = 2;
             this.btnUpdateStreet.Text = "Cập nhật";
+            this.btnUpdateStreet.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnUpdateStreet.UseVisualStyleBackColor = true;
             this.btnUpdateStreet.Click += new System.EventHandler(this.btnUpdateStreet_Click);
             // 
@@ -527,6 +539,7 @@
             this.btnNewWard.TabIndex = 4;
             this.btnNewWard.Text = "Tạo mới";
             this.btnNewWard.UseVisualStyleBackColor = true;
+            this.btnNewWard.Visible = false;
             this.btnNewWard.Click += new System.EventHandler(this.btnNewWard_Click);
             // 
             // dgvWard
@@ -565,11 +578,14 @@
             // 
             // btnUpdateWard
             // 
+            this.btnUpdateWard.Image = ((System.Drawing.Image)(resources.GetObject("btnUpdateWard.Image")));
+            this.btnUpdateWard.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnUpdateWard.Location = new System.Drawing.Point(184, 79);
             this.btnUpdateWard.Name = "btnUpdateWard";
             this.btnUpdateWard.Size = new System.Drawing.Size(96, 29);
             this.btnUpdateWard.TabIndex = 2;
             this.btnUpdateWard.Text = "Cập nhật";
+            this.btnUpdateWard.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnUpdateWard.UseVisualStyleBackColor = true;
             this.btnUpdateWard.Click += new System.EventHandler(this.btnUpdateWard_Click);
             // 
@@ -611,6 +627,7 @@
             this.btnNewDistrict.TabIndex = 4;
             this.btnNewDistrict.Text = "Tạo mới";
             this.btnNewDistrict.UseVisualStyleBackColor = true;
+            this.btnNewDistrict.Visible = false;
             this.btnNewDistrict.Click += new System.EventHandler(this.btnNewDistrict_Click);
             // 
             // dgvDistrict
@@ -649,11 +666,14 @@
             // 
             // btnUpdateDistrict
             // 
+            this.btnUpdateDistrict.Image = ((System.Drawing.Image)(resources.GetObject("btnUpdateDistrict.Image")));
+            this.btnUpdateDistrict.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnUpdateDistrict.Location = new System.Drawing.Point(176, 79);
             this.btnUpdateDistrict.Name = "btnUpdateDistrict";
             this.btnUpdateDistrict.Size = new System.Drawing.Size(96, 29);
             this.btnUpdateDistrict.TabIndex = 2;
             this.btnUpdateDistrict.Text = "Cập nhật";
+            this.btnUpdateDistrict.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnUpdateDistrict.UseVisualStyleBackColor = true;
             this.btnUpdateDistrict.Click += new System.EventHandler(this.btnUpdateDistrict_Click);
             // 
@@ -695,6 +715,7 @@
             this.btnNewProvincial.TabIndex = 4;
             this.btnNewProvincial.Text = "Tạo mới";
             this.btnNewProvincial.UseVisualStyleBackColor = true;
+            this.btnNewProvincial.Visible = false;
             this.btnNewProvincial.Click += new System.EventHandler(this.btnNewProvincial_Click);
             // 
             // dgvProvincial
@@ -735,11 +756,14 @@
             // 
             // btnUpdateProvincial
             // 
+            this.btnUpdateProvincial.Image = ((System.Drawing.Image)(resources.GetObject("btnUpdateProvincial.Image")));
+            this.btnUpdateProvincial.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnUpdateProvincial.Location = new System.Drawing.Point(176, 79);
             this.btnUpdateProvincial.Name = "btnUpdateProvincial";
             this.btnUpdateProvincial.Size = new System.Drawing.Size(96, 29);
             this.btnUpdateProvincial.TabIndex = 2;
             this.btnUpdateProvincial.Text = "Cập nhật";
+            this.btnUpdateProvincial.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnUpdateProvincial.UseVisualStyleBackColor = true;
             this.btnUpdateProvincial.Click += new System.EventHandler(this.btnUpdateProvincial_Click);
             // 
@@ -811,12 +835,15 @@
             // btnAdd
             // 
             this.btnAdd.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnAdd.Image")));
+            this.btnAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAdd.Location = new System.Drawing.Point(858, 20);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(177, 39);
             this.btnAdd.TabIndex = 8;
             this.btnAdd.Text = "Thêm hồ sơ";
+            this.btnAdd.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
@@ -831,12 +858,15 @@
             // btnSearch
             // 
             this.btnSearch.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnSearch.Image = ((System.Drawing.Image)(resources.GetObject("btnSearch.Image")));
+            this.btnSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSearch.Location = new System.Drawing.Point(613, 20);
             this.btnSearch.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(154, 39);
             this.btnSearch.TabIndex = 6;
             this.btnSearch.Text = "Tìm hồ sơ";
+            this.btnSearch.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
