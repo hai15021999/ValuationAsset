@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAssetInformation));
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.dgvFile = new System.Windows.Forms.DataGridView();
@@ -124,7 +123,6 @@
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Image = ((System.Drawing.Image)(resources.GetObject("btnUpdate.Image")));
             this.btnUpdate.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnUpdate.Location = new System.Drawing.Point(947, 425);
             this.btnUpdate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -208,7 +206,6 @@
             // btnAttachFile
             // 
             this.btnAttachFile.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnAttachFile.Image = ((System.Drawing.Image)(resources.GetObject("btnAttachFile.Image")));
             this.btnAttachFile.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAttachFile.Location = new System.Drawing.Point(35, 808);
             this.btnAttachFile.Name = "btnAttachFile";
@@ -232,7 +229,6 @@
             // btnThemBatDongSan
             // 
             this.btnThemBatDongSan.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnThemBatDongSan.Image = ((System.Drawing.Image)(resources.GetObject("btnThemBatDongSan.Image")));
             this.btnThemBatDongSan.Location = new System.Drawing.Point(441, 500);
             this.btnThemBatDongSan.Name = "btnThemBatDongSan";
             this.btnThemBatDongSan.Size = new System.Drawing.Size(200, 40);
@@ -245,7 +241,6 @@
             // btnThemDongSan
             // 
             this.btnThemDongSan.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnThemDongSan.Image = ((System.Drawing.Image)(resources.GetObject("btnThemDongSan.Image")));
             this.btnThemDongSan.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnThemDongSan.Location = new System.Drawing.Point(243, 500);
             this.btnThemDongSan.Name = "btnThemDongSan";
